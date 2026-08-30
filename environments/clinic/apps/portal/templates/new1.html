@@ -1,0 +1,19 @@
+{% extends "base.html" %}{% block body %}
+<div class="steps"><span class="step on">1. Patient details</span><span class="step">2. Clinic and time</span><span class="step">3. Review and submit</span></div>
+<div class="card" style="max-width:560px;margin:0 auto">
+<h2>Patient details</h2>
+<p class="hint">Who the appointment is for.</p>
+<form method="post">
+<label>Appointment number <span class="req">*</span></label>
+<input name="apt" value="{{ wiz.get('apt','') }}" required>
+<div class="hint">Use the next unused number in the APT- series.</div>
+<label>Patient full name <span class="req">*</span></label>
+<input name="patient" value="{{ wiz.get('patient','') }}" required>
+<div class="hint">Enter it exactly as it appears in the
+  <a href="/patients" target="_blank">Patient registry</a>. This form is not
+  linked to the registry - what you type here is what is stored.</div>
+<label>Contact email <span class="req">*</span></label>
+<input name="email" type="email" value="{{ wiz.get('email','') }}" required>
+<p style="margin-top:16px"><button class="btn">Continue</button></p>
+</form></div>
+{% endblock %}

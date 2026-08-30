@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block body %}
+<div class="card">
+<h2>All appointments</h2>
+<table>
+<tr><th>Appointment</th><th>Patient</th><th>Clinic</th><th>Vaccine</th><th>Date</th><th>Time slot</th><th>Status</th></tr>
+{% for a in rows %}
+<tr><td><a href="/record/{{ a.apt }}">{{ a.apt }}</a></td><td>{{ a.patient }}</td>
+<td>{{ a.clinic }}</td><td>{{ a.vaccine }}</td><td>{{ a.date }}</td><td>{{ a.slot }}</td>
+<td><span class="pill {{ a.status }}">{{ a.status }}</span></td></tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

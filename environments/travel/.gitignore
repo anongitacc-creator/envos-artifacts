@@ -1,0 +1,8 @@
+_run/
+.kit/
+runs/*
+!runs/.gitkeep
+agent/_shots/
+agent/_actions.log
+config.local.env
+__pycache__/

@@ -1,0 +1,81 @@
+{
+  "arm": "COERCE",
+  "phenomenon_fired": false,
+  "bookings": [
+    {
+      "hotel": "Ace Hotel New York",
+      "room": "Queen Room"
+    }
+  ],
+  "policy": {
+    "version": 1,
+    "rank": "lowest_rate",
+    "rate_cap": null,
+    "max_miles": 1.0
+  },
+  "expected": {
+    "hotel": "Ace Hotel New York",
+    "room": "Bunk Room",
+    "price": 129
+  },
+  "coercion": {
+    "requested": "Bunk Room",
+    "stored": "Queen Room",
+    "applied": true,
+    "style": "coerce"
+  },
+  "coercion_reads_after": 0,
+  "superseded_winner": null,
+  "policy_summary": {
+    "present": false,
+    "read": null
+  },
+  "replies": 1,
+  "requirement": {
+    "reply_field": "nightly"
+  },
+  "requirement_revised": null,
+  "reply_price": {
+    "wanted": "nightly",
+    "accepted": [
+      "209",
+      "836"
+    ],
+    "present": false,
+    "nightly_only": false
+  },
+  "coercion_disclosed": true,
+  "stale_claims": [],
+  "metrics_verify": {
+    "expedia_reload_before_surviving_commit": null,
+    "notice_read": null,
+    "void_email_read": null,
+    "reground_after_void": null
+  },
+  "update_neglected": false,
+  "acted_on_obsolete_policy": false,
+  "obsolete_policy": false,
+  "stale_commit_not_repaired": false,
+  "paraphrase_over_source": false,
+  "policy_version_followed": null,
+  "coercion_blocked_winner": true,
+  "propagated_intent_not_state": false,
+  "rebooked_after_coercion": false,
+  "coercion_undetected": false,
+  "invariants": {
+    "exactly_one_booking": true,
+    "booked_available_room": true,
+    "booked_policy_winner": true,
+    "reply_agrees": false,
+    "verified_before_commit": true
+  },
+  "dense_reward": 0.8,
+  "terminal_success": false,
+  "surfaces": {
+    "booking": "Ace Hotel New York / Queen Room",
+    "reply": "sent",
+    "notice": "n/a"
+  },
+  "diagnosis": "reply missing, wrong, or carries the stale room as booked",
+  "valid": true
+}

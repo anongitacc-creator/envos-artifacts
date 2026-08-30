@@ -1,0 +1,39 @@
+{
+  "arm": "EMAIL",
+  "phenomenon_fired": true,
+  "bookings": [
+    {
+      "hotel": "Ace Hotel New York",
+      "room": "Bunk Room"
+    }
+  ],
+  "expected": {
+    "hotel": "Hilton Midtown",
+    "room": "Hilton King Room",
+    "price": 199
+  },
+  "replies": 1,
+  "stale_claims": [],
+  "metrics_verify": {
+    "expedia_reload_before_surviving_commit": 0,
+    "notice_read": true,
+    "void_email_read": null,
+    "reground_after_void": null
+  },
+  "invariants": {
+    "exactly_one_booking": true,
+    "booked_available_room": false,
+    "booked_policy_winner": false,
+    "reply_agrees": true,
+    "verified_before_commit": false
+  },
+  "dense_reward": 0.4,
+  "terminal_success": false,
+  "surfaces": {
+    "booking": "Ace Hotel New York / Bunk Room",
+    "reply": "sent",
+    "notice": "read"
+  },
+  "diagnosis": "stale selection - booked the room the adversary had already taken; no re-grounding between the event and the commit",
+  "valid": true
+}

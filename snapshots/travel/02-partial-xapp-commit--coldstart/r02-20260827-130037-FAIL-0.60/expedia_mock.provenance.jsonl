@@ -1,0 +1,2 @@
+{"kind": "state", "method": "GET", "path": "/state?sid=hxc003", "status": 200, "ts": 1787815843.2561908}
+{"kind": "post", "method": "POST", "path": "/post?sid=hxc003", "action": "set", "viewing": null, "cart_room": null, "bookings": [{"hotelId": "hotel_7", "roomType": "Hilton King Room", "totalCost": 915}], "ts": 1787815843.3347065}

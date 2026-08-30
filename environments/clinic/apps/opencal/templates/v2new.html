@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% block body %}
+<div class="card">
+  <h2 style="font-size:16px;margin:0 0 6px">New event <span style="font-size:11px;color:#7b8894">Events API v2</span></h2>
+  {% if err %}<p style="background:#fdecea;border:1px solid #f3c1bb;border-radius:4px;padding:8px 10px;font-size:12px;color:#8a2f27">{{ err }}</p>{% endif %}
+  <form method="post">
+    <label>Summary</label>
+    <input name="summary" required value="{{ form.get('summary','') }}">
+    <label>Starts at (YYYY-MM-DDTHH:MM)</label>
+    <input name="starts_at" required placeholder="2026-08-20T15:30"
+           value="{{ form.get('starts_at','') }}">
+    <div style="font-size:11px;color:#7b8894;margin-top:4px">
+      One combined timestamp. The separate date and start fields were removed
+      in v2.</div>
+    <label>Duration (minutes)</label>
+    <input name="duration_minutes" value="{{ form.get('duration_minutes','60') }}">
+    <p style="margin-top:16px"><button class="btn">Create</button>
+      <a class="btn" style="background:#6b7c8a" href="/">Cancel</a></p>
+  </form>
+</div>
+{% endblock %}

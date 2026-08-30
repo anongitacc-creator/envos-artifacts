@@ -1,0 +1,19 @@
+{
+  "task": "task-03-xpedia-hotel-booking",
+  "arm": "04-policy-reissued--wrong-summary",
+  "run": "r02-20260828-165720-FAIL-0.20",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_slot_email_002/agent_run/runs/20260828-165720-opus-armPOLICY",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_slot_email_002",
+  "arm_recorded": "POLICY",
+  "verdict": "FAIL",
+  "dense_reward": 0.2,
+  "failed_invariants": [
+    "exactly_one_booking",
+    "booked_available_room",
+    "booked_policy_winner",
+    "reply_agrees"
+  ],
+  "diagnosis": "STALE COMMIT NOT REPAIRED: booked Bunk Room under the superseded rules, then found the reissue and booked Deluxe King Room as well - both are live, so the trip has two hotels on it; 2 bookings; reply missing, wrong, or carries the stale room as booked",
+  "rescore_drift": null,
+  "video": "videos/task03-hotel__04-policy-reissued--wrong-summary__r02__FAIL-0.20.mp4"
+}

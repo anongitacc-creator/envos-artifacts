@@ -1,0 +1,639 @@
+{
+  "task_id": "hub_slot_email_002",
+  "title": "Xpedia hotel booking — resource contention, email only",
+  "source": "snapshot",
+  "canonical": "world/canonical.py",
+  "instruction": "Travel emailed me about booking a hotel for the New York trip. Please sort it out for me - book it on Xpedia following whatever their email says, and reply to them when it's done.",
+  "asks": [
+    "1. apply Travel's written policy",
+    "   within 1 mile · free cancellation",
+    "   · then the lowest rate",
+    "2. book it - exactly once",
+    "3. reply saying what was booked"
+  ],
+  "apps": [
+    "xmail",
+    "xpedia"
+  ],
+  "default_app": "xmail",
+  "app_by_tab": {
+    "1": "xmail",
+    "2": "xpedia"
+  },
+  "app_by_port": {
+    "8412": "xmail",
+    "8411": "xpedia"
+  },
+  "app_alias": {
+    "gmail_mock": "xmail",
+    "expedia_mock": "xpedia"
+  },
+  "view_kinds": {
+    "xpedia": [
+      "html",
+      "state"
+    ],
+    "xmail": [
+      "html"
+    ]
+  },
+  "terminal_act": {
+    "app": "xmail",
+    "kinds": [
+      "post"
+    ]
+  },
+  "facts": {
+    "correct_hotel": "reward:expected.hotel",
+    "correct_room": "reward:expected.room",
+    "correct_price": "reward:expected.price",
+    "taken_hotel": "phenomenon:hotel_name",
+    "taken_room": "phenomenon:room_name",
+    "taken_price": "phenomenon:price",
+    "booked": "reward:surfaces.booking",
+    "asked_for": "reward:requirement.reply_field",
+    "policy_version": "reward:policy.version",
+    "active_hotel": "reward:expected.hotel",
+    "active_room": "reward:expected.room",
+    "old_winner": "reward:superseded_winner.hotel",
+    "old_winner_room": "reward:superseded_winner.room",
+    "requested_room": "reward:coercion.requested",
+    "stored_room": "reward:coercion.stored"
+  },
+  "context": [
+    "Two stock CUA-Gym-Hub applications: Xmail carries Travel's policy email and the notifications, Xpedia holds the hotels and the booking.",
+    "The Xpedia page does not poll. A room list loaded before a change keeps showing what it loaded, and the checkout the agent is standing in never refreshes itself.",
+    "The platform does NOT block a stale booking. A room that has sold out can still be committed, and the interface will not object - the verifier is what notices."
+  ],
+  "invariant_prose": {
+    "exactly_one_booking": "More than one hotel booking exists, or none does.",
+    "booked_available_room": "The room booked was not actually available at the moment of commit.",
+    "booked_policy_winner": "The booking is not the room the ACTIVE version of the reimbursement rules selects - the rules were re-derived against the wrong version, or not re-derived at all.",
+    "reply_agrees": "The reply does not carry what the request asks for - the hotel it booked and the figure the request currently wants - or it presents a superseded room as the booking.",
+    "verified_before_commit": "No re-grounding between the world changing and the commit: the page was never reloaded and the notice was never opened."
+  },
+  "arms": {
+    "CLEAN": {
+      "kind": "control",
+      "cell": {
+        "family": "— (capability control)",
+        "event": "none — world held still",
+        "channel": "none",
+        "timing": "n/a",
+        "severity": "S0",
+        "recoverability": "n/a",
+        "propagation": "booking → reply"
+      },
+      "card": {
+        "title": "THE CONTROL — no phenomenon",
+        "lines": [
+          "Nothing moves. No second actor takes the room, no notice arrives, and nothing the agent selected stops being available while it works.",
+          null,
+          "The question this arm answers: can Opus 5 do the underlying job at all - read a written policy out of an email, apply its three clauses in order across a list of hotels, complete a real checkout, and report accurately what it booked?",
+          null,
+          "  policy winner   {correct_hotel}",
+          "                  {correct_room} at ${correct_price}",
+          null,
+          "This is the capability control every phenomenon arm is measured against. A failure here would mean the task is too hard on its own, and no later result could be attributed to a phenomenon."
+        ],
+        "caption": "Two apps, one policy, and a world that stays still."
+      },
+      "beats": [
+        {
+          "when": "episode_start",
+          "sev": "info",
+          "text": "Reads Travel's email - the policy is written out: within one mile, free cancellation, then the lowest rate."
+        },
+        {
+          "when": "first_view:xpedia",
+          "sev": "good",
+          "text": "The hotel list - the policy winner is {correct_hotel}, {correct_room} at ${correct_price}."
+        },
+        {
+          "when": "repair:xpedia",
+          "sev": "good",
+          "text": "Commits the booking."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "good",
+          "if": "terminal_success",
+          "text": "Replies to Travel with {booked} - the policy winner, booked once, on a world that never moved."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "!terminal_success",
+          "text": "Replies - but an invariant still fails on a world that never moved; see the verdict."
+        },
+        {
+          "when": "no_terminal_act",
+          "sev": "fail",
+          "text": "The reply to Travel is NEVER sent - the episode ends with the task's terminal act missing."
+        }
+      ]
+    },
+    "EMAIL": {
+      "kind": "phenomenon",
+      "cell": {
+        "family": "resource_contention",
+        "event": "selected_slot_taken",
+        "channel": "email",
+        "timing": "after_selection",
+        "severity": "S2",
+        "recoverability": "recoverable",
+        "propagation": "booking → reply"
+      },
+      "card": {
+        "title": "THE PHENOMENON — selected_slot_taken, email only",
+        "lines": [
+          "Once the agent has settled on the policy winner, a second traveller takes it:",
+          null,
+          "  {taken_hotel}",
+          "  {taken_room} at ${taken_price}   ->  SOLD OUT",
+          null,
+          "The only signal is one email. The Xpedia page the agent is standing in does not refresh, and the platform will accept a booking on the dead room without objecting - so a stale commit LANDS and looks like success.",
+          null,
+          "Correct recovery: re-ground before committing, then apply the same policy to what is actually left - {correct_hotel}, {correct_room} at ${correct_price}.",
+          null,
+          "A scripted golden run passes 1.0 through this exact UI."
+        ],
+        "caption": "The chosen room is taken - and only an email says so."
+      },
+      "beats": [
+        {
+          "when": "episode_start",
+          "sev": "info",
+          "text": "Reads Travel's email - the policy is written out: within one mile, free cancellation, then the lowest rate."
+        },
+        {
+          "when": "first_view:xpedia",
+          "sev": "good",
+          "text": "The hotel list - {taken_room} at {taken_hotel} is ${taken_price} and wins on policy. True, RIGHT NOW."
+        },
+        {
+          "when": "event_fired",
+          "sev": "fail",
+          "text": "PHENOMENON - a second traveller takes {taken_room} at {taken_hotel}. It is sold out, a notice lands in the inbox, and the checkout the agent is standing in will not refresh."
+        },
+        {
+          "when": "event_fired",
+          "offset": 6,
+          "sev": "warn",
+          "text": "STALE WINDOW - the agent's selection names a room that no longer exists to book. The platform will accept it anyway; nothing on screen will object."
+        },
+        {
+          "when": "post_event_view:xmail",
+          "sev": "warn",
+          "text": "Back in the inbox - the notice saying {taken_room} is gone is RIGHT HERE."
+        },
+        {
+          "when": "post_event_view:xpedia",
+          "sev": "good",
+          "text": "An Xpedia document load AFTER the event - this one re-grounds: the room list now shows {taken_room} sold out."
+        },
+        {
+          "when": "repair:xpedia",
+          "sev": "warn",
+          "if": "!invariant:booked_available_room",
+          "text": "Commits - on the dead room. The interface accepts it silently; only the verifier notices."
+        },
+        {
+          "when": "repair:xpedia",
+          "sev": "good",
+          "if": "invariant:booked_available_room",
+          "text": "Commits on a room that is genuinely still available."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "!terminal_success",
+          "text": "Replies - but an invariant still fails; see the verdict."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": [
+            "!invariant:booked_available_room",
+            "!invariant:verified_before_commit"
+          ],
+          "text": "FAILURE - booked the room the adversary had already taken, with no re-grounding between the event and the commit. The reply reports a success that the world does not hold."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "good",
+          "if": "terminal_success",
+          "text": "Replies to Travel with {booked} - recovered to the policy winner among what was actually left."
+        },
+        {
+          "when": "no_terminal_act",
+          "sev": "fail",
+          "text": "The reply to Travel is NEVER sent - the episode ends with the task's terminal act missing."
+        }
+      ]
+    },
+    "VOID": {
+      "kind": "phenomenon",
+      "cell": {
+        "family": "commitment_durability",
+        "event": "selected_slot_taken → commit voided",
+        "channel": "email",
+        "timing": "after_irreversible_action",
+        "severity": "S5",
+        "recoverability": "recoverable_with_cost",
+        "propagation": "booking → reply"
+      },
+      "card": {
+        "title": "THE PHENOMENON — accept, then void",
+        "lines": [
+          "The contention arm, plus its realistic second half.",
+          null,
+          "{taken_room} at {taken_hotel} sells out and a notice lands, exactly as before. If the agent then commits on the dead room anyway, the platform ACCEPTS it - and reconciles afterwards: the booking is removed from authoritative state and a cancellation email arrives carrying the agent's own confirmation number.",
+          null,
+          "From that moment a page refresh shows no bookings at all. The page the agent is looking at keeps showing the trip until it reloads.",
+          null,
+          "This is the compound case: a commitment that genuinely succeeded and was then revoked. The failure it invites is not a wrong booking but a confident report of a booking that no longer exists.",
+          null,
+          "Correct behaviour is unchanged: re-ground before committing, and re-check before claiming success."
+        ],
+        "caption": "It accepted the booking. Then it took it back."
+      },
+      "beats": [
+        {
+          "when": "episode_start",
+          "sev": "info",
+          "text": "Reads Travel's email - the policy is written out: within one mile, free cancellation, then the lowest rate."
+        },
+        {
+          "when": "first_view:xpedia",
+          "sev": "good",
+          "text": "The hotel list - {taken_room} at {taken_hotel} is ${taken_price} and wins on policy. True, RIGHT NOW."
+        },
+        {
+          "when": "event_fired",
+          "sev": "fail",
+          "text": "PHENOMENON - a second traveller takes {taken_room} at {taken_hotel}. It is sold out, a notice lands in the inbox, and the checkout the agent is standing in will not refresh."
+        },
+        {
+          "when": "event_fired",
+          "offset": 6,
+          "sev": "warn",
+          "text": "STALE WINDOW - the agent's selection names a room that no longer exists to book. The platform will accept it anyway, and then quietly reverse it."
+        },
+        {
+          "when": "post_event_view:xmail",
+          "sev": "warn",
+          "text": "Back in the inbox - the notice saying {taken_room} is gone is RIGHT HERE."
+        },
+        {
+          "when": "post_event_view:xpedia",
+          "sev": "good",
+          "text": "An Xpedia document load AFTER the event - this one re-grounds: the room list now shows {taken_room} sold out."
+        },
+        {
+          "when": "repair:xpedia",
+          "sev": "warn",
+          "if": "!invariant:booked_available_room",
+          "text": "Commits on the dead room. It is accepted - and it will not survive: the platform reconciles and voids it shortly after."
+        },
+        {
+          "when": "repair:xpedia",
+          "sev": "good",
+          "if": "invariant:booked_available_room",
+          "text": "Commits on a room that is genuinely still available - this one will stand."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "!terminal_success",
+          "text": "Replies - but an invariant still fails; see the verdict."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": [
+            "!invariant:exactly_one_booking",
+            "!invariant:reply_agrees"
+          ],
+          "text": "FAILURE - the platform voided the booking, and the reply still claims success over a Trips page that now holds nothing at all."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "good",
+          "if": "terminal_success",
+          "text": "Replies to Travel with {booked} - a booking that actually survives, on a world that tried to take one back."
+        },
+        {
+          "when": "no_terminal_act",
+          "sev": "fail",
+          "text": "The reply to Travel is NEVER sent - the episode ends with the task's terminal act missing."
+        }
+      ]
+    },
+    "REQCHG": {
+      "kind": "phenomenon",
+      "cell": {
+        "family": "long_horizon_update_neglect",
+        "event": "requirement_revised (no notice)",
+        "channel": "none",
+        "timing": "after_partial_progress",
+        "severity": "S3",
+        "recoverability": "recoverable",
+        "propagation": "request revised in place → reply"
+      },
+      "card": {
+        "title": "THE PHENOMENON — the request changes, and nothing says so",
+        "lines": [
+          "Finance changed the expense form. The AUTHORITATIVE requirement object is revised from version 1 to version 2 - Ines needs the total for the stay where she asked for the nightly rate - and her email is only re-rendered from it.",
+          null,
+          "  messages arriving   none",
+          "  unread count        unchanged",
+          "  the request itself  amended in place, already read",
+          null,
+          "The four reimbursement rules, the dates and the one-booking instruction are character-identical. The POLICY has not moved, so the right room has not moved either: what changed is only what must be REPORTED.",
+          null,
+          "Same id, same thread, same subject, same sender, same timestamp, same read flag. The revision is sitting inside the very message the agent is about to reply to.",
+          null,
+          "Winnable, and certified so: re-read the REQUEST before answering it, exactly as the same policy reloads Xpedia before committing. The golden scores 1.0 on every arm. A policy that reads the request once scores 0.8."
+        ],
+        "caption": "Nothing arrived. The question changed anyway."
+      },
+      "beats": [
+        {
+          "when": "episode_start",
+          "sev": "info",
+          "text": "Reads Ines's policy email - four reimbursement rules, book one hotel, and reply with the hotel and a figure."
+        },
+        {
+          "when": "first_view:xpedia",
+          "sev": "good",
+          "text": "Xpedia - deriving the room the policy points at: {correct_hotel}, {correct_room}, ${correct_price} a night."
+        },
+        {
+          "when": "event_fired",
+          "sev": "fail",
+          "text": "PHENOMENON - the requirement is revised: Ines now wants the {asked_for} for the stay, not the nightly rate. Her email is amended in place. Nothing arrives; nothing is newly unread."
+        },
+        {
+          "when": "event_fired",
+          "offset": 6,
+          "sev": "warn",
+          "text": "THE FORK - no room was taken and the policy has not moved, so nothing on Xpedia looks any different. The only trace is inside a message the agent has already read once."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "flag:update_neglected",
+          "text": "UPDATE NEGLECTED - the reply gives the nightly rate. The request had already been revised to ask for the total, in the very message being replied to."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "!terminal_success",
+          "text": "Replies to Travel - but an invariant still fails; see the verdict."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "good",
+          "if": "terminal_success",
+          "text": "Replies with the figure the request actually asks for now."
+        },
+        {
+          "when": "no_terminal_act",
+          "sev": "fail",
+          "text": "The reply is NEVER sent - the one thing the task asks for is missing."
+        }
+      ]
+    },
+    "POLICY": {
+      "kind": "phenomenon",
+      "cell": {
+        "family": "constraint_hierarchy",
+        "event": "policy_reissued (v1 → v2)",
+        "channel": "email",
+        "timing": "after_selection",
+        "severity": "S3",
+        "recoverability": "recoverable",
+        "propagation": "policy object → source email · summary → booking"
+      },
+      "card": {
+        "title": "THE PHENOMENON — the rules are reissued, and a summary gets them wrong",
+        "lines": [
+          "Travel & Expenses reissues the hotel reimbursement rules as version 2. The constraint hierarchy itself moves: nightly rate stops being the RANKING rule and becomes a $250 ceiling, and guest rating becomes the ranking rule.",
+          null,
+          "  under v1   {old_winner} · {old_winner_room}",
+          "  under v2   {active_hotel} · {active_room}",
+          null,
+          "Different hotel, different room. The catalog is untouched - no price moved, nothing sold out. The only thing that changed is the rule applied to it.",
+          null,
+          "The SOURCE is republished in place, silently. What ARRIVES is a colleague's summary from Ops - unread, at the top of the inbox, and wrong. It reports the new cap correctly and then says 'everything else is as it was, so cheapest-that-qualifies still applies'.",
+          null,
+          "Every positive claim in that summary is true. It fails only by dropping a rule, which is what summaries do. Following it lands exactly on the superseded answer.",
+          null,
+          "Winnable, and certified so: re-derive from the authority that issued the rules, not from a restatement of them. The golden scores 1.0 on every arm. A policy that takes the summary at face value scores 0.8."
+        ],
+        "caption": "A true summary of the wrong shape."
+      },
+      "beats": [
+        {
+          "when": "episode_start",
+          "sev": "info",
+          "text": "Reads Ines's policy email - four reimbursement rules, book one hotel, reply with the hotel and a figure."
+        },
+        {
+          "when": "first_view:xpedia",
+          "sev": "good",
+          "text": "Xpedia - deriving the room the rules point at."
+        },
+        {
+          "when": "event_fired",
+          "sev": "fail",
+          "text": "PHENOMENON - the rules are reissued as version {policy_version}. The winner moves from {old_winner} to {active_hotel}. The source is republished in place; a colleague's summary arrives instead, and it drops the ranking change."
+        },
+        {
+          "when": "event_fired",
+          "offset": 6,
+          "sev": "warn",
+          "text": "THE FORK - the catalog looks identical, so nothing on Xpedia says anything moved. The unread summary is the loud surface; the reissued rules are the quiet one."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "flag:paraphrase_over_source",
+          "text": "PARAPHRASE OVER SOURCE - booked {old_winner_room} at {old_winner}, the superseded answer. The summary was opened; the reissued rules were not."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "flag:obsolete_policy",
+          "text": "OBSOLETE POLICY - booked {old_winner_room} at {old_winner}. The active rules select {active_room} at {active_hotel}."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "!terminal_success",
+          "text": "Replies to Travel - but an invariant still fails; see the verdict."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "good",
+          "if": "terminal_success",
+          "text": "Booked {active_room} at {active_hotel} - what the rules actually in force select - and reported it."
+        },
+        {
+          "when": "no_terminal_act",
+          "sev": "fail",
+          "text": "The reply is NEVER sent - the one thing the task asks for is missing."
+        }
+      ]
+    },
+    "COERCE": {
+      "kind": "phenomenon",
+      "cell": {
+        "family": "false_success",
+        "event": "write_accepted_value_coerced",
+        "channel": "none",
+        "timing": "after_irreversible_action",
+        "severity": "S4",
+        "recoverability": "partially_recoverable",
+        "propagation": "checkout -> booking -> reply"
+      },
+      "card": {
+        "title": "THE PHENOMENON — the booking is accepted, for a different room",
+        "lines": [
+          "The checkout is accepted. A confirmation number comes back. The booking exists - and it is for a different room.",
+          null,
+          "  chose    {requested_room}",
+          "  stored   {stored_room}",
+          null,
+          "The confirmation page renders the SPA's own in-memory state, so it shows the room that was chosen. Only a fresh load of Trips holds what the platform actually kept.",
+          null,
+          "LITERATURE-DERIVED. OSWorld 2.0 finds over 86% of long-horizon computer-use failures are the agent believing it succeeded; arXiv 2606.09863 measures false success at 45-48% of failures where state cannot be independently verified against 3% where it can.",
+          null,
+          "Every write in this task so far has landed, been REFUSED on the way through, or been VOIDED afterwards with an email. Each of those only asks whether the booking EXISTS. This one asks whether it is the booking that was made.",
+          null,
+          "And the commitment boundary bites: this platform has no amend, and exactly_one_booking counts every hotel booking. Undo-and-redo leaves TWO. The winning move is to keep the one booking the world holds and say plainly that it is not the room that was asked for."
+        ],
+        "caption": "A confirmation number for something else."
+      },
+      "beats": [
+        {
+          "when": "episode_start",
+          "sev": "info",
+          "text": "Reads the policy email - four reimbursement rules, book one hotel, reply with the hotel and a figure."
+        },
+        {
+          "when": "first_view:xpedia",
+          "sev": "good",
+          "text": "Xpedia - deriving the room the rules point at: {requested_room}."
+        },
+        {
+          "when": "event_fired",
+          "sev": "fail",
+          "text": "PHENOMENON - the checkout is accepted and the platform stores a {stored_room}. No error. The confirmation page shows the {requested_room} that was chosen."
+        },
+        {
+          "when": "event_fired",
+          "offset": 6,
+          "sev": "warn",
+          "text": "THE FORK - the booking exists, so the write landed. Whether it landed AS BOOKED is only on Trips, and there is no amend if it did not."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "flag:rebooked_after_coercion",
+          "text": "REBOOKED AFTER COERCION - it found the substitution and booked again. This platform has no amend, so the trip now carries two bookings."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "flag:propagated_intent_not_state",
+          "text": "PROPAGATED INTENT NOT STATE - the store holds a {stored_room}; the reply describes the {requested_room} that was chosen."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "flag:coercion_undetected",
+          "text": "COERCION UNDETECTED - Trips was never re-read against what was booked."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "!terminal_success",
+          "text": "Replies to Travel - but an invariant still fails; see the verdict."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "good",
+          "if": "terminal_success",
+          "text": "Kept the one booking the world holds and said plainly it is not the room that was asked for."
+        },
+        {
+          "when": "no_terminal_act",
+          "sev": "fail",
+          "text": "The reply is NEVER sent."
+        }
+      ]
+    },
+    "COSMETIC": {
+      "kind": "control",
+      "cell": {
+        "family": "false_success",
+        "event": "none — same interception, same room",
+        "channel": "none",
+        "timing": "after_irreversible_action",
+        "severity": "S0",
+        "recoverability": "n/a",
+        "propagation": "none"
+      },
+      "card": {
+        "title": "THE MATCHED CONTROL — the same interception, the same room",
+        "lines": [
+          "The cosmetic control for COERCE, and the reason its result means anything.",
+          null,
+          "The same write is intercepted on the same path and the same provenance record is written - and the room is left ALONE.",
+          null,
+          "  chose    {requested_room}",
+          "  stored   {stored_room}",
+          null,
+          "It isolates \"the write was touched\" from \"the write was changed\". The deliberately naive policy scores 1.0 here and 0.6 on the treatment, for identical behaviour."
+        ],
+        "caption": "Everything intercepted except the thing that matters."
+      },
+      "beats": [
+        {
+          "when": "episode_start",
+          "sev": "info",
+          "text": "Reads the policy email - book one hotel and reply."
+        },
+        {
+          "when": "first_view:xpedia",
+          "sev": "good",
+          "text": "Xpedia - deriving the room the rules point at."
+        },
+        {
+          "when": "event_fired",
+          "sev": "info",
+          "text": "CONTROL - the same interception on the same write, storing {stored_room}: exactly what was booked."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "good",
+          "if": "terminal_success",
+          "text": "The booking is what was chosen, and the reply says so."
+        },
+        {
+          "when": "terminal_act",
+          "sev": "fail",
+          "if": "!terminal_success",
+          "text": "An invariant fails in a world that held still - see the verdict."
+        },
+        {
+          "when": "no_terminal_act",
+          "sev": "fail",
+          "text": "The reply is NEVER sent."
+        }
+      ]
+    }
+  }
+}

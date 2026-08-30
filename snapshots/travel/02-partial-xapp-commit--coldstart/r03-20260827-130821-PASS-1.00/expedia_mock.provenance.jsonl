@@ -1,0 +1,6 @@
+{"kind": "state", "method": "GET", "path": "/state?sid=hxc003", "status": 200, "ts": 1787816306.2232993}
+{"kind": "post", "method": "POST", "path": "/post?sid=hxc003", "action": "set", "viewing": null, "cart_room": null, "bookings": [{"hotelId": "hotel_7", "roomType": "Hilton King Room", "totalCost": 915}], "ts": 1787816306.5643036}
+{"kind": "state", "method": "GET", "path": "/state?sid=hxc003", "status": 200, "ts": 1787816462.500147}
+{"kind": "post", "method": "POST", "path": "/post?sid=hxc003", "action": "set", "viewing": null, "cart_room": null, "bookings": [{"hotelId": "hotel_7", "roomType": "Hilton King Room", "totalCost": 716}], "ts": 1787816462.5261304}
+{"kind": "state", "method": "GET", "path": "/state?sid=hxc003", "status": 200, "ts": 1787816475.9851577}
+{"kind": "post", "method": "POST", "path": "/post?sid=hxc003", "action": "set", "viewing": null, "cart_room": null, "bookings": [{"hotelId": "hotel_7", "roomType": "Hilton King Room", "totalCost": 716}], "ts": 1787816476.0191712}

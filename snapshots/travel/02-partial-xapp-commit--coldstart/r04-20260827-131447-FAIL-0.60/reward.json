@@ -1,0 +1,44 @@
+{
+  "arm": "COLD",
+  "phenomenon_fired": true,
+  "booking": {
+    "check_in": "2026-09-15",
+    "check_out": "2026-09-18",
+    "total": 716
+  },
+  "calendar_event": {
+    "date": "2026-09-14",
+    "title": "Hotel check-in - Hilton Midtown"
+  },
+  "collateral": [],
+  "replies": 1,
+  "reply_names": {
+    "hotel": true,
+    "date": true,
+    "confirmation": true,
+    "stale_claim": true
+  },
+  "metrics_verify": {
+    "update_email_read": true,
+    "trips_reground_before_reply": 0,
+    "calendar_writes_after_fire": 2
+  },
+  "authority_inversion": true,
+  "invariants": {
+    "booking_intact": true,
+    "calendar_matches_booking": false,
+    "no_collateral_damage": true,
+    "reply_reports_authoritative": false,
+    "verified_before_reply": true
+  },
+  "dense_reward": 0.6,
+  "terminal_success": false,
+  "surfaces": {
+    "booking": "2026-09-15",
+    "calendar": "2026-09-14",
+    "reply": "sent",
+    "update_email": "read"
+  },
+  "diagnosis": "calendar disagrees with the booking; AUTHORITY INVERSION: read the update receipt, then reported the dead date anyway - overruled the authoritative signal with a Trips page it never reloaded",
+  "valid": true
+}

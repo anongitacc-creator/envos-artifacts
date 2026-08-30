@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block body %}
+<div class="card">
+<h2>Something went wrong</h2>
+<p>The scheduling service did not return a response for this submission.</p>
+<p class="hint">Error 500 — upstream timeout. If you were submitting a new
+appointment, <b>check the appointment list before submitting again</b>: the
+request may or may not have been recorded.</p>
+<p style="margin-top:14px"><a class="btn gray" href="/appointments">All appointments</a>
+<a class="btn gray" href="/new">New submission</a></p>
+</div>
+{% endblock %}

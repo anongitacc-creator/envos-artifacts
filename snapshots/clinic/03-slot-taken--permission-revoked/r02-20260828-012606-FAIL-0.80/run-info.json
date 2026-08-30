@@ -1,0 +1,16 @@
+{
+  "task": "task-01-northgate-clinic",
+  "arm": "03-slot-taken--permission-revoked",
+  "run": "r02-20260828-012606-FAIL-0.80",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/runs/20260828-012606-opus-armDYNAMIC_ACL",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001",
+  "arm_recorded": "DYNAMIC_ACL",
+  "verdict": "FAIL",
+  "dense_reward": 0.8,
+  "failed_invariants": [
+    "booked_nearest_available"
+  ],
+  "diagnosis": "booked 15:30, nearest available was 15:00",
+  "rescore_drift": null,
+  "video": "videos/task01-clinic__03-slot-taken--permission-revoked__r02__FAIL-0.80.mp4"
+}

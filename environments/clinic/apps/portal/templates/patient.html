@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <h2>{{ p.canonical_name }} <span class="pill {{ 'confirmed' if p.status == 'active'
+      else ('requested' if p.status == 'merged' else 'cancelled') }}">{{ p.status }}</span></h2>
+  {% if p.merged_into %}
+  <p style="background:#fdf1d8;border:1px solid #e6d3a3;border-radius:4px;padding:10px 12px">
+    This record was merged into
+    <a href="/patients/{{ p.merged_into }}"><b>{{ p.merged_into }}</b></a>
+    and is no longer the canonical record for this patient.
+    The canonical record is <b>{{ surviving.canonical_name }}</b>
+    ({{ surviving.email }}).
+  </p>
+  {% endif %}
+  <table class="kv">
+    <tr><th>Patient ID</th><td>{{ p.person_id }}</td></tr>
+    <tr><th>Canonical name</th><td>{{ p.canonical_name }}</td></tr>
+    <tr><th>Email</th><td>{{ p.email }}</td></tr>
+    <tr><th>Also known as</th><td>{{ p.aliases | join(', ') if p.aliases else '—' }}</td></tr>
+    <tr><th>Registered</th><td>{{ p.registered }}</td></tr>
+    <tr><th>Record version</th><td>{{ p.version }}</td></tr>
+    <tr><th>Resolves to</th><td>{{ surviving.person_id }} — {{ surviving.canonical_name }}</td></tr>
+    <tr><th>Notes</th><td>{{ p.note or '—' }}</td></tr>
+  </table>
+</div>
+<div class="card">
+  <h2>Appointments on this patient</h2>
+  {% if appts %}
+  <table>
+    <tr><th>APT</th><th>Name on record</th><th>Clinic</th><th>Vaccine</th>
+        <th>Date</th><th>Slot</th><th>Status</th></tr>
+    {% for a in appts %}
+    <tr><td><a href="/record/{{ a.apt }}">{{ a.apt }}</a></td>
+        <td>{{ a.patient }}</td><td>{{ a.clinic }}</td><td>{{ a.vaccine }}</td>
+        <td>{{ a.date }}</td><td>{{ a.slot }}</td>
+        <td><span class="pill {{ a.status }}">{{ a.status }}</span></td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<p class="hint">None.</p>{% endif %}
+</div>
+{% endblock %}

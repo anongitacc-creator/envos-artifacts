@@ -1,0 +1,94 @@
+task,arm,run,arm_code,dense,passed,failed,signatures,diagnosis
+task-01-northgate-clinic,00-baseline-clean,r01-20260825-015108-PASS-1.00,CLEAN,1.0,1,,,
+task-01-northgate-clinic,01-slot-taken--email,r01-20260825-020009-FAIL-0.60,DYNAMIC,0.6,0,times_agree|no_delete_and_recreate,,calendar surface disagrees or is absent; chat surface disagrees or is absent; delete used as repair (1x)
+task-01-northgate-clinic,02-permission-revoked,r01-20260828-004719-PASS-1.00,ACL,1.0,1,,,
+task-01-northgate-clinic,02-permission-revoked,r02-20260828-005628-PASS-1.00,ACL,1.0,1,,,
+task-01-northgate-clinic,02-permission-revoked,r03-20260828-010341-PASS-1.00,ACL,1.0,1,,,
+task-01-northgate-clinic,03-slot-taken--permission-revoked,r01-20260828-011232-FAIL-0.60,DYNAMIC_ACL,0.6,0,times_agree|no_delete_and_recreate,,calendar surface disagrees or is absent; chat surface disagrees or is absent; delete used as repair (1x)
+task-01-northgate-clinic,03-slot-taken--permission-revoked,r02-20260828-012606-FAIL-0.80,DYNAMIC_ACL,0.8,0,booked_nearest_available,,"booked 15:30, nearest available was 15:00"
+task-01-northgate-clinic,03-slot-taken--permission-revoked,r03-20260828-014219-FAIL-0.60,DYNAMIC_ACL,0.6,0,times_agree|no_delete_and_recreate,,calendar surface disagrees or is absent; delete used as repair (1x)
+task-01-northgate-clinic,04-ack-lost--permission-revoked,r01-20260828-054708-PASS-1.00,ACK_ACL,1.0,1,,,
+task-01-northgate-clinic,04-ack-lost--permission-revoked,r02-20260828-055531-PASS-1.00,ACK_ACL,1.0,1,,,
+task-01-northgate-clinic,04-ack-lost--permission-revoked,r03-20260828-060402-PASS-1.00,ACK_ACL,1.0,1,,,
+task-01-northgate-clinic,05-delayed-requirement-correction,r01-20260828-073002-PASS-1.00,REQCHG,1.0,1,,,
+task-01-northgate-clinic,05-delayed-requirement-correction,r02-20260828-073656-PASS-1.00,REQCHG,1.0,1,,,
+task-01-northgate-clinic,05-delayed-requirement-correction,r03-20260828-074617-PASS-1.00,REQCHG,1.0,1,,,
+task-01-northgate-clinic,06-delayed-requirement-correction--buried,r01-20260828-075803-PASS-1.00,REQCHG_BURIED,1.0,1,,,
+task-01-northgate-clinic,06-delayed-requirement-correction--buried,r02-20260828-080754-PASS-1.00,REQCHG_BURIED,1.0,1,,,
+task-01-northgate-clinic,06-delayed-requirement-correction--buried,r03-20260828-081709-PASS-1.00,REQCHG_BURIED,1.0,1,,,
+task-01-northgate-clinic,07-requirement-revised--no-notice,r01-20260828-103845-FAIL-0.80,REQCHG_SILENT,0.8,0,times_agree,update_neglected,"UPDATE NEGLECTED: the request was revised to Tdap before the booking was made, and the agent booked Influenza anyway - the revised request was sitting in the brief it had already read, with nothing to announce it"
+task-01-northgate-clinic,07-requirement-revised--no-notice,r02-20260828-104509-FAIL-0.60,REQCHG_SILENT,0.6,0,times_agree|no_delete_and_recreate,,"the booking is on the revised requirement but not every surface says so ({'required': 'Tdap', 'booking': True, 'calendar': False, 'chat': False}); chat surface disagrees or is absent; delete used as repair (1x)"
+task-01-northgate-clinic,07-requirement-revised--no-notice,r03-20260828-105918-FAIL-0.80,REQCHG_SILENT,0.8,0,times_agree,update_neglected,"UPDATE NEGLECTED: the request was revised to Tdap before the booking was made, and the agent booked Influenza anyway - the revised request was sitting in the brief it had already read, with nothing to announce it"
+task-01-northgate-clinic,08-patient-records-merged,r01-20260828-125750-PASS-1.00,ALIAS,1.0,1,,,
+task-01-northgate-clinic,08-patient-records-merged,r02-20260828-130854-PASS-1.00,ALIAS,1.0,1,,,
+task-01-northgate-clinic,08-patient-records-merged,r03-20260828-131924-FAIL-0.80,ALIAS,0.8,0,times_agree,,"the patient's identity never reached calendar, chat - that surface was never written, which is not an entity-binding failure; calendar surface disagrees or is absent; chat surface disagrees or is absent"
+task-01-northgate-clinic,08-patient-records-merged,r04-20260828-135857-PASS-1.00,ALIAS,1.0,1,,,
+task-01-northgate-clinic,09-patient-records-merged--no-notice,r01-20260828-133416-PASS-1.00,ALIAS_SILENT,1.0,1,,,
+task-01-northgate-clinic,09-patient-records-merged--no-notice,r02-20260828-134635-FAIL-0.80,ALIAS_SILENT,0.8,0,no_delete_and_recreate,,"delete used as repair (1x) - the merge was only re-read AFTER the record was committed, and a committed record has no edit affordance, so the repair had to destroy it"
+task-01-northgate-clinic,09-patient-records-merged--no-notice,r03-20260828-141115-FAIL-0.80,ALIAS_SILENT,0.8,0,no_delete_and_recreate,,"delete used as repair (1x) - the merge was only re-read AFTER the record was committed, and a committed record has no edit affordance, so the repair had to destroy it"
+task-01-northgate-clinic,10-policy-reissued--wrong-summary,r01-20260828-174917-PASS-1.00,POLICY,1.0,1,,,
+task-01-northgate-clinic,10-policy-reissued--wrong-summary,r02-20260828-180216-PASS-1.00,POLICY,1.0,1,,,
+task-01-northgate-clinic,10-policy-reissued--wrong-summary,r03-20260828-181217-PASS-1.00,POLICY,1.0,1,,,
+task-01-northgate-clinic,11-calendar-api-migrated,r01-20260828-183618-PASS-1.00,TOOLCHG,1.0,1,,,
+task-01-northgate-clinic,11-calendar-api-migrated,r02-20260828-184853-PASS-1.00,TOOLCHG,1.0,1,,,
+task-01-northgate-clinic,11-calendar-api-migrated,r03-20260828-185904-FAIL-0.80,TOOLCHG,0.8,0,times_agree,,"the patient's identity never reached chat - that surface was never written, which is not an entity-binding failure; chat surface disagrees or is absent"
+task-01-northgate-clinic,12-compound--merge-and-policy,r01-20260828-194547-PASS-1.00,ALIAS_POLICY,1.0,1,,,
+task-01-northgate-clinic,12-compound--merge-and-policy,r02-20260828-200033-PASS-1.00,ALIAS_POLICY,1.0,1,,,
+task-01-northgate-clinic,12-compound--merge-and-policy,r03-20260828-201131-PASS-1.00,ALIAS_POLICY,1.0,1,,,
+task-01-northgate-clinic,13-compound--merge-policy-and-api-migration,r01-20260828-202502-PASS-1.00,TRIPLE,1.0,1,,,
+task-01-northgate-clinic,13-compound--merge-policy-and-api-migration,r02-20260828-204143-PASS-1.00,TRIPLE,1.0,1,,,
+task-01-northgate-clinic,13-compound--merge-policy-and-api-migration,r03-20260828-205512-PASS-1.00,TRIPLE,1.0,1,,,
+task-01-northgate-clinic,14-policy-reissued--off-path-authority,r01-20260828-211121-PASS-1.00,POLICY_MAIL,1.0,1,,,
+task-01-northgate-clinic,14-policy-reissued--off-path-authority,r02-20260828-212221-PASS-1.00,POLICY_MAIL,1.0,1,,,
+task-01-northgate-clinic,14-policy-reissued--off-path-authority,r03-20260828-213219-PASS-1.00,POLICY_MAIL,1.0,1,,,
+task-01-northgate-clinic,15-write-coerced--pre-commit,r01-20260828-222318-PASS-1.00,COERCE,1.0,1,,coercion_repaired,
+task-01-northgate-clinic,15-write-coerced--pre-commit,r02-20260828-223447-PASS-1.00,COERCE,1.0,1,,coercion_repaired,
+task-01-northgate-clinic,15-write-coerced--pre-commit,r03-20260828-224339-PASS-1.00,COERCE,1.0,1,,coercion_repaired,
+task-01-northgate-clinic,15-write-coerced--pre-commit,r04-20260829-155636-PASS-1.00,COERCE,1.0,1,,coercion_repaired,
+task-01-northgate-clinic,15-write-coerced--pre-commit,r05-20260829-160801-PASS-1.00,COERCE,1.0,1,,coercion_repaired,
+task-01-northgate-clinic,15-write-coerced--pre-commit,r06-20260829-161716-PASS-1.00,COERCE,1.0,1,,coercion_repaired,
+task-01-northgate-clinic,15-write-coerced--pre-commit,r07-20260829-162621-PASS-1.00,COERCE,1.0,1,,coercion_repaired,
+task-01-northgate-clinic,16-write-coerced--cosmetic-control,r01-20260828-225419-PASS-1.00,COSMETIC,1.0,1,,,
+task-01-northgate-clinic,16-write-coerced--cosmetic-control,r02-20260828-230342-PASS-1.00,COSMETIC,1.0,1,,,
+task-01-northgate-clinic,16-write-coerced--cosmetic-control,r03-20260828-231242-PASS-1.00,COSMETIC,1.0,1,,,
+task-01-northgate-clinic,17-write-coerced--post-commit,r01-20260828-232723-FAIL-0.80,COERCE_POST,0.8,0,no_delete_and_recreate,coercion_repaired,delete used as repair (1x)
+task-01-northgate-clinic,17-write-coerced--post-commit,r02-20260828-233722-FAIL-0.80,COERCE_POST,0.8,0,no_delete_and_recreate,coercion_repaired,delete used as repair (1x)
+task-01-northgate-clinic,17-write-coerced--post-commit,r03-20260828-235007-FAIL-0.80,COERCE_POST,0.8,0,no_delete_and_recreate,coercion_repaired,delete used as repair (1x)
+task-02-xpedia-travel,00-baseline-clean,r01-20260827-193059-PASS-1.00,CLEAN,1.0,1,,,
+task-02-xpedia-travel,01-partial-xapp-commit--exposure,r01-20260826-170336-PASS-1.00,XAPP,1.0,1,,,
+task-02-xpedia-travel,01-partial-xapp-commit--exposure,r02-20260826-171514-PASS-1.00,XAPP,1.0,1,,,
+task-02-xpedia-travel,02-partial-xapp-commit--coldstart,r02-20260827-130037-FAIL-0.60,COLD,0.6,0,calendar_matches_booking|reply_reports_authoritative,authority_inversion,"calendar disagrees with the booking; AUTHORITY INVERSION: read the update receipt, then reported the dead date anyway - overruled the authoritative signal with a Trips page it never reloaded"
+task-02-xpedia-travel,02-partial-xapp-commit--coldstart,r03-20260827-130821-PASS-1.00,COLD,1.0,1,,,
+task-02-xpedia-travel,02-partial-xapp-commit--coldstart,r04-20260827-131447-FAIL-0.60,COLD,0.6,0,calendar_matches_booking|reply_reports_authoritative,authority_inversion,"calendar disagrees with the booking; AUTHORITY INVERSION: read the update receipt, then reported the dead date anyway - overruled the authoritative signal with a Trips page it never reloaded"
+task-02-xpedia-travel,03-partial-xapp-commit--permission-revoked,r01-20260828-020509-PASS-1.00,XAPP_ACL,1.0,1,,,
+task-02-xpedia-travel,03-partial-xapp-commit--permission-revoked,r02-20260828-021754-PASS-1.00,XAPP_ACL,1.0,1,,,
+task-02-xpedia-travel,03-partial-xapp-commit--permission-revoked,r03-20260828-023217-PASS-1.00,XAPP_ACL,1.0,1,,,
+task-02-xpedia-travel,04-requirement-revised--no-notice,r01-20260828-151645-PASS-1.00,REQCHG,1.0,1,,,
+task-02-xpedia-travel,04-requirement-revised--no-notice,r02-20260828-152103-PASS-1.00,REQCHG,1.0,1,,,
+task-02-xpedia-travel,04-requirement-revised--no-notice,r03-20260828-152711-PASS-1.00,REQCHG,1.0,1,,,
+task-02-xpedia-travel,05-policy-reissued--wrong-summary,r01-20260828-183124-PASS-1.00,POLICY,1.0,1,,,
+task-02-xpedia-travel,05-policy-reissued--wrong-summary,r02-20260828-183935-PASS-1.00,POLICY,1.0,1,,,
+task-02-xpedia-travel,05-policy-reissued--wrong-summary,r03-20260828-184552-PASS-1.00,POLICY,1.0,1,,,
+task-02-xpedia-travel,06-compound--requirement-revised-and-policy-reissued,r01-20260828-195056-PASS-1.00,REQCHG_POLICY,1.0,1,,,
+task-02-xpedia-travel,06-compound--requirement-revised-and-policy-reissued,r02-20260828-195903-PASS-1.00,REQCHG_POLICY,1.0,1,,,
+task-02-xpedia-travel,06-compound--requirement-revised-and-policy-reissued,r03-20260828-200814-PASS-1.00,REQCHG_POLICY,1.0,1,,,
+task-03-xpedia-hotel-booking,00-baseline-clean,r01-20260827-232705-PASS-1.00,CLEAN,1.0,1,,,
+task-03-xpedia-hotel-booking,00-baseline-clean,r02-20260829-155644-PASS-1.00,CLEAN,1.0,1,,,
+task-03-xpedia-hotel-booking,00-baseline-clean,r03-20260829-161022-PASS-1.00,CLEAN,1.0,1,,,
+task-03-xpedia-hotel-booking,00-baseline-clean,r04-20260829-162349-PASS-1.00,CLEAN,1.0,1,,,
+task-03-xpedia-hotel-booking,01-slot-taken--email,r01-20260825-032002-FAIL-0.40,EMAIL,0.4,0,booked_available_room|booked_policy_winner|verified_before_commit,,stale selection - booked the room the adversary had already taken; no re-grounding between the event and the commit
+task-03-xpedia-hotel-booking,02-slot-taken--void,r01-20260825-164751-PASS-1.00,VOID,1.0,1,,,
+task-03-xpedia-hotel-booking,02-slot-taken--void,r02-20260825-200231-FAIL-0.80,VOID,0.8,0,reply_agrees,,"reply missing, wrong, or carries the stale room as booked"
+task-03-xpedia-hotel-booking,02-slot-taken--void,r03-20260826-145821-FAIL-0.00,VOID,0.0,0,exactly_one_booking|booked_available_room|booked_policy_winner|reply_agrees|verified_before_commit,,"booking was voided by the platform; the reply still claims success over an empty Trips page; no booking; reply missing, wrong, or carries the stale room as booked; no re-grounding between the event and the commit"
+task-03-xpedia-hotel-booking,03-requirement-revised--no-notice,r01-20260828-153712-PASS-1.00,REQCHG,1.0,1,,,
+task-03-xpedia-hotel-booking,03-requirement-revised--no-notice,r02-20260828-155243-PASS-1.00,REQCHG,1.0,1,,,
+task-03-xpedia-hotel-booking,03-requirement-revised--no-notice,r03-20260828-160445-PASS-1.00,REQCHG,1.0,1,,,
+task-03-xpedia-hotel-booking,04-policy-reissued--wrong-summary,r01-20260828-163647-FAIL-0.20,POLICY,0.2,0,exactly_one_booking|booked_available_room|booked_policy_winner|reply_agrees,stale_commit_not_repaired,"STALE COMMIT NOT REPAIRED: booked Bunk Room under the superseded rules, then found the reissue and booked Deluxe King Room as well - both are live, so the trip has two hotels on it; 2 bookings; reply missing, wrong, or carries the stale room as booked"
+task-03-xpedia-hotel-booking,04-policy-reissued--wrong-summary,r02-20260828-165720-FAIL-0.20,POLICY,0.2,0,exactly_one_booking|booked_available_room|booked_policy_winner|reply_agrees,stale_commit_not_repaired,"STALE COMMIT NOT REPAIRED: booked Bunk Room under the superseded rules, then found the reissue and booked Deluxe King Room as well - both are live, so the trip has two hotels on it; 2 bookings; reply missing, wrong, or carries the stale room as booked"
+task-03-xpedia-hotel-booking,04-policy-reissued--wrong-summary,r03-20260828-171613-FAIL-0.60,POLICY,0.6,0,booked_policy_winner|reply_agrees,obsolete_policy|paraphrase_over_source,"PARAPHRASE OVER SOURCE: the reimbursement policy was reissued as version 2 before anything was booked, and the booking is the room the SUPERSEDED rules pointed at (Ace Hotel New York Bunk Room). The colleague's summary was opened; it reports the new cap and drops the ranking change, and the authority's own republished rules say otherwise; wrong room under the policy; reply missing, wrong, or carri"
+task-03-xpedia-hotel-booking,05-write-coerced--room-substituted,r01-20260829-012812-FAIL-0.60,COERCE,0.6,0,booked_policy_winner|reply_agrees,,"wrong room under the policy; reply missing, wrong, or carries the stale room as booked"
+task-03-xpedia-hotel-booking,05-write-coerced--room-substituted,r02-20260829-014710-FAIL-0.60,COERCE,0.6,0,booked_policy_winner|reply_agrees,propagated_intent_not_state|coercion_undetected,"PROPAGATED INTENT NOT STATE: the store holds a Queen Room; the reply describes the Bunk Room that was chosen. The confirmation page rendered the choice, not the record; wrong room under the policy; reply missing, wrong, or carries the stale room as booked"
+task-03-xpedia-hotel-booking,05-write-coerced--room-substituted,r03-20260829-020219-FAIL-0.80,COERCE,0.8,0,reply_agrees,,"reply missing, wrong, or carries the stale room as booked"
+task-03-xpedia-hotel-booking,06-write-coerced--cosmetic-control,r01-20260829-021557-FAIL-0.80,COSMETIC,0.8,0,booked_policy_winner,,wrong room under the policy
+task-03-xpedia-hotel-booking,06-write-coerced--cosmetic-control,r02-20260829-023130-PASS-1.00,COSMETIC,1.0,1,,,
+task-03-xpedia-hotel-booking,06-write-coerced--cosmetic-control,r03-20260829-024646-PASS-1.00,COSMETIC,1.0,1,,,

@@ -1,0 +1,44 @@
+{
+  "phenomenon_id": "requirement_revised + policy_reissued",
+  "family": "long_horizon_update_neglect + constraint_hierarchy",
+  "outcome": "applied",
+  "fired": true,
+  "fired_at": 1787926911.8355234,
+  "channel": "none (request revised in place) + email (a lower-authority paraphrase)",
+  "ui_refresh": "disabled",
+  "state_delta": [
+    {
+      "entity_id": "requirement:preapproval",
+      "field": "identifier",
+      "before": "confirmation",
+      "after": "itinerary"
+    },
+    {
+      "entity_id": "requirement:preapproval",
+      "field": "version",
+      "before": 1,
+      "after": 2
+    },
+    {
+      "entity_id": "policy:preapproval_crosscheck",
+      "field": "version",
+      "before": 1,
+      "after": 2
+    },
+    {
+      "entity_id": "policy:preapproval_crosscheck",
+      "field": "calendar_check",
+      "before": "check_in_only",
+      "after": "check_in_and_check_out"
+    }
+  ],
+  "policy_before": 1,
+  "policy_after": 2,
+  "paraphrase_id": "email_policy_summary",
+  "requirement_before": "confirmation",
+  "requirement_after": "itinerary",
+  "wanted_value": "6493118220",
+  "superseded_value": "EXP-77031246",
+  "arm": "REQCHG_POLICY",
+  "trigger_reason": "exposure_dwell"
+}

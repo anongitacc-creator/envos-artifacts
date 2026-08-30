@@ -1,0 +1,17 @@
+{
+  "task": "task-01-northgate-clinic",
+  "arm": "03-slot-taken--permission-revoked",
+  "run": "r01-20260828-011232-FAIL-0.60",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/runs/20260828-011232-opus-armDYNAMIC_ACL",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001",
+  "arm_recorded": "DYNAMIC_ACL",
+  "verdict": "FAIL",
+  "dense_reward": 0.6,
+  "failed_invariants": [
+    "times_agree",
+    "no_delete_and_recreate"
+  ],
+  "diagnosis": "calendar surface disagrees or is absent; chat surface disagrees or is absent; delete used as repair (1x)",
+  "rescore_drift": null,
+  "video": "videos/task01-clinic__03-slot-taken--permission-revoked__r01__FAIL-0.60.mp4"
+}

@@ -1,0 +1,59 @@
+{
+  "arm": "DYNAMIC",
+  "phenomenon_fired": true,
+  "created_ever": [
+    "APT-20451",
+    "APT-20453"
+  ],
+  "live": [
+    [
+      "APT-20453",
+      "15:30",
+      "confirmed"
+    ]
+  ],
+  "nearest_detail": {
+    "free_at_submit": [
+      "15:30"
+    ],
+    "correct": "15:30",
+    "chosen": "15:30"
+  },
+  "surfaces": {
+    "booking": "15:30",
+    "calendar": "20260820T150000",
+    "chat": "wrong time"
+  },
+  "deletes": [
+    {
+      "apt": "APT-20451",
+      "patient": "Priya Sharma"
+    }
+  ],
+  "invariants": {
+    "times_agree": false,
+    "exactly_one_booking": true,
+    "booking_confirmed": true,
+    "booked_nearest_available": true,
+    "no_delete_and_recreate": false
+  },
+  "dense_reward": 0.6,
+  "terminal_success": false,
+  "metrics": {
+    "agent_actions": 44,
+    "submissions": 2,
+    "double_booked_submissions": [
+      {
+        "apt": "APT-20451",
+        "slot": "15:00",
+        "double_booked": true
+      }
+    ],
+    "task_email_read": true,
+    "phenomenon_notice_present": true,
+    "phenomenon_notice_read": false,
+    "list_rechecked_after_fire": true
+  },
+  "diagnosis": "calendar surface disagrees or is absent; chat surface disagrees or is absent; delete used as repair (1x)",
+  "valid": true
+}

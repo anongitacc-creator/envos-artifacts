@@ -1,0 +1,14 @@
+{
+  "task": "task-01-northgate-clinic",
+  "arm": "04-ack-lost--permission-revoked",
+  "run": "r01-20260828-054708-PASS-1.00",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/runs/20260828-054708-opus-armACK_ACL",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001",
+  "arm_recorded": "ACK_ACL",
+  "verdict": "PASS",
+  "dense_reward": 1.0,
+  "failed_invariants": [],
+  "diagnosis": null,
+  "rescore_drift": null,
+  "video": "videos/task01-clinic__04-ack-lost--permission-revoked__r01__PASS-1.00.mp4"
+}

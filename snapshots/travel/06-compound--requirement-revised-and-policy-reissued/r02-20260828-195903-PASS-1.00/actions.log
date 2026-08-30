@@ -1,0 +1,147 @@
+1787927376.502750253 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s1.png
+1787927380.985934549 click 692 340
+1787927383.501251853 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s2.png
+1787927390.631092035 tab 2
+1787927393.459642376 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s3.png
+1787927399.138378726 click 1316 146
+1787927401.885064425 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s4.png
+1787927408.110946155 click 475 491
+1787927410.865643896 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s5.png
+1787927417.908057883 tab 3
+1787927421.249728233 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s6.png
+1787927429.819932898 click 1590 141
+1787927431.523049821 type Hilton
+1787927432.951463739 key Return
+1787927435.585559675 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s7.png
+1787927442.988266004 click 1774 242
+1787927445.890412659 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s8.png
+1787927461.524358202 click 1152 328
+1787927463.174841892 tab 1
+1787927466.146916187 goto 127.0.0.1:8432/?sid=hxc003#/inbox
+1787927471.388649152 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s9.png
+1787927482.525510654 tab 2
+1787927485.358315628 goto 127.0.0.1:8431/trips
+1787927490.512915486 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s10.png
+1787927501.197009837 tab 3
+1787927503.514853543 click 1590 141
+1787927505.175604698 clear
+1787927505.582073492 type Hotel
+1787927507.018198686 key Return
+1787927509.707455508 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s11.png
+1787927517.211116969 clear
+1787927517.536917310 key Return
+1787927519.150095066 click 75 209
+1787927521.922049548 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s12.png
+1787927527.490346973 click 958 377
+1787927529.557962452 type Hotel check-out - Hilton Midtown
+1787927531.111441085 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s13.png
+1787927539.611590913 click 810 423
+1787927541.365476642 type 09/18/2026
+1787927542.876244279 type 11:00AM
+1787927544.463510443 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s14.png
+1787927552.902704341 click 810 423
+1787927554.624662303 type 09182026
+1787927556.123344614 type 1100AM
+1787927557.681840766 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s15.png
+1787927573.252999945 click 810 423
+1787927574.891302824 type 09
+1787927576.329028160 type 18
+1787927577.795756341 type 2026
+1787927579.221179019 key Right
+1787927580.763890041 type 11
+1787927582.213253205 type 00
+1787927583.642422554 type A
+1787927585.206542933 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s16.png
+1787927592.463917761 click 812 459
+1787927594.106398232 type 09
+1787927595.546423276 type 18
+1787927597.011203145 type 2026
+1787927598.438518856 key Right
+1787927599.977947482 type 12
+1787927601.419431501 type 00
+1787927602.857477434 type P
+1787927604.419802393 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s17.png
+1787927611.830691463 click 973 530
+1787927613.577620745 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s18.png
+1787927619.804564435 click 812 586
+1787927621.517838975 click 973 572
+1787927623.331766728 type Hilton Midtown
+1787927624.849238216 click 973 708
+1787927626.782029066 type Booking EXP-77031246
+1787927628.339974656 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s19.png
+1787927633.785404987 click 1125 843
+1787927636.538243710 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s20.png
+1787927644.445393447 click 1590 141
+1787927646.131844276 type Hotel
+1787927647.564520927 key Return
+1787927650.210652802 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s21.png
+1787927657.198755888 tab 1
+1787927659.457747142 key F5
+1787927663.105726832 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s22.png
+1787927671.559705850 click 388 888
+1787927674.641722959 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s23.png
+1787927686.000424509 click 900 921
+1787927691.505919114 type Hi Ines,
+1787927692.583636462 key Return
+1787927693.229376990 key Return
+1787927694.307763561 type Here are the details for the pre-approval:
+1787927695.017795853 key Return
+1787927695.541228166 key Return
+1787927699.555566233 type 1. Hotel: Hilton Midtown - itinerary number 6493118220 (booking reference EXP-77031246)
+1787927705.474631237 key Return
+1787927707.024274608 type 2. Check-in date: 14 September 2026 (check-out 18 September 2026)
+1787927707.579251989 key Return
+1787927708.101400577 key Return
+1787927710.441370358 type My calendar now carries both a hotel check-in entry on 14 September and a hotel check-out entry on 18 September, both matching the booking.
+1787927711.128523276 key Return
+1787927711.652982787 key Return
+1787927712.264987430 type Thanks,
+1787927712.695450152 key Return
+1787927713.282867483 type Priya
+1787927714.903564164 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s24.png
+1787927723.187254021 scroll down 5
+1787927724.747765556 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s25.png
+1787927734.302531245 click 900 960
+1787927735.945057340 key ctrl+Home
+1787927737.590902867 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s26.png
+1787927744.789459671 click 400 1045
+1787927748.680276737 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s27.png
+1787927757.211471638 click 79 433
+1787927759.961581153 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s28.png
+1787927768.525390130 key ctrl+minus
+1787927770.066332398 key ctrl+minus
+1787927771.678505442 click 82 290
+1787927774.418678709 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s29.png
+1787927781.886853243 click 717 501
+1787927784.736208318 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s30.png
+1787927801.134921726 click 1000 900
+1787927802.782469848 key ctrl+minus
+1787927805.418913281 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s31.png
+1787927816.949876937 click 82 290
+1787927819.670882153 click 683 340
+1787927822.422019037 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s32.png
+1787927834.357399140 click 388 888
+1787927837.069603165 click 900 921
+1787927838.789677754 type Hi Ines,
+1787927839.212458405 key Return
+1787927839.735202442 key Return
+1787927840.810843687 type Here are the details for the pre-approval:
+1787927841.236378506 key Return
+1787927841.765356450 key Return
+1787927843.460688880 type 1. Hotel: Hilton Midtown - itinerary number 6493118220 (booking reference EXP-77031246)
+1787927843.883989549 key Return
+1787927845.280575807 type 2. Check-in date: 14 September 2026 (check-out 18 September 2026)
+1787927845.704359887 key Return
+1787927846.226839293 key Return
+1787927849.404703731 type My calendar now carries both a hotel check-in entry on 14 September and a hotel check-out entry on 18 September, both matching the booking, with the booking reference in each entry's description.
+1787927849.832614024 key Return
+1787927850.359666886 key Return
+1787927850.970600293 type Thanks,
+1787927851.393036084 key Return
+1787927851.977825213 type Priya
+1787927853.452553699 key Tab
+1787927855.127435128 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s33.png
+1787927861.753103427 click 399 1020
+1787927865.505549324 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s34.png
+1787927872.100787511 click 79 433
+1787927874.858226358 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/agent/_shots/s35.png

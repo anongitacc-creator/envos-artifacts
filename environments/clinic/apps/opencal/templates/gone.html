@@ -1,0 +1,19 @@
+{% extends "base.html" %}{% block body %}
+<div class="card">
+  <h2 style="font-size:16px;margin:0 0 10px">410 — this endpoint has been retired</h2>
+  <p style="font-size:13px">
+    <b>POST /new</b> (Events API v1) was retired in this morning's migration and
+    no longer creates events. <b>Your event was not created.</b>
+  </p>
+  <p style="font-size:13px">
+    Use <b>Events API v2</b> instead: <a href="/v2/events">/v2/events</a>.
+    It takes a single combined <code>starts_at</code> timestamp
+    (<code>YYYY-MM-DDTHH:MM</code>) in place of the separate date and start
+    fields, and <code>summary</code> in place of <code>title</code>.
+  </p>
+  <p style="margin-top:16px">
+    <a class="btn" href="/v2/events">Go to the new event form</a>
+    <a class="btn" style="background:#6b7c8a" href="/">Back to the calendar</a>
+  </p>
+</div>
+{% endblock %}

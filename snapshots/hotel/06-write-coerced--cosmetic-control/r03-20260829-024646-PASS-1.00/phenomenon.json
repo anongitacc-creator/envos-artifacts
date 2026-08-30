@@ -1,0 +1,16 @@
+{
+  "phenomenon_id": "silent_write_coercion",
+  "family": "false_success",
+  "canonical_semantics": "write_accepted_value_coerced(entity=booking.roomType, requested=Bunk Room, stored=Bunk Room, channel=none, reports=success)",
+  "channel": "none",
+  "timing": "after_irreversible_action",
+  "arm": "COSMETIC",
+  "fired": false,
+  "fired_at": null,
+  "outcome": "armed",
+  "style": "cosmetic",
+  "requested_room": "Bunk Room",
+  "stored_room": "Bunk Room",
+  "requested_price": 129,
+  "stored_price": 129
+}

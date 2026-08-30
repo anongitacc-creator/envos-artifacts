@@ -1,0 +1,24 @@
+{
+  "phenomenon_id": "selected_slot_taken",
+  "family": "resource_contention",
+  "outcome": "applied",
+  "fired": true,
+  "fired_at": 1787737341.0975447,
+  "channel": "email",
+  "ui_refresh": "disabled",
+  "state_delta": [
+    {
+      "entity_id": "room:room_8_1",
+      "before": "1 left",
+      "after": "sold out"
+    }
+  ],
+  "hotel_name": "Ace Hotel New York",
+  "room_name": "Bunk Room",
+  "price": 129,
+  "arm": "VOID",
+  "trigger_reason": "agent_reserved_target_room",
+  "voided": true,
+  "void_at": 1787737541.8119812,
+  "voided_confirmation": "EXP-45423251"
+}

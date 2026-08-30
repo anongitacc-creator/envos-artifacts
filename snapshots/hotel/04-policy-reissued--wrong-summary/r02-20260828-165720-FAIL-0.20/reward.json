@@ -1,0 +1,68 @@
+{
+  "arm": "POLICY",
+  "phenomenon_fired": true,
+  "bookings": [
+    {
+      "hotel": "Ace Hotel New York",
+      "room": "Bunk Room"
+    },
+    {
+      "hotel": "The Manhattan Club",
+      "room": "Deluxe King Room"
+    }
+  ],
+  "policy": {
+    "version": 2,
+    "rank": "highest_rating_under_cap",
+    "rate_cap": 250,
+    "max_miles": 1.0
+  },
+  "expected": {
+    "hotel": "The Manhattan Club",
+    "room": "Deluxe King Room",
+    "price": 249
+  },
+  "superseded_winner": {
+    "hotel": "Ace Hotel New York",
+    "room": "Bunk Room",
+    "price": 129
+  },
+  "policy_summary": {
+    "present": true,
+    "read": true
+  },
+  "replies": 0,
+  "requirement": {
+    "reply_field": "nightly"
+  },
+  "requirement_revised": null,
+  "stale_claims": [],
+  "metrics_verify": {
+    "expedia_reload_before_surviving_commit": null,
+    "notice_read": null,
+    "void_email_read": null,
+    "reground_after_void": null
+  },
+  "update_neglected": false,
+  "acted_on_obsolete_policy": true,
+  "obsolete_policy": false,
+  "stale_commit_not_repaired": true,
+  "paraphrase_over_source": false,
+  "policy_version_followed": null,
+  "invariants": {
+    "exactly_one_booking": false,
+    "booked_available_room": false,
+    "booked_policy_winner": false,
+    "reply_agrees": false,
+    "verified_before_commit": true
+  },
+  "dense_reward": 0.2,
+  "terminal_success": false,
+  "surfaces": {
+    "booking": "2 bookings",
+    "reply": "ABSENT",
+    "notice": "n/a"
+  },
+  "diagnosis": "STALE COMMIT NOT REPAIRED: booked Bunk Room under the superseded rules, then found the reissue and booked Deluxe King Room as well - both are live, so the trip has two hotels on it; 2 bookings; reply missing, wrong, or carries the stale room as booked",
+  "valid": true
+}

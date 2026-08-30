@@ -1,0 +1,17 @@
+{
+  "task": "task-03-xpedia-hotel-booking",
+  "arm": "04-policy-reissued--wrong-summary",
+  "run": "r03-20260828-171613-FAIL-0.60",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_slot_email_002/agent_run/runs/20260828-171613-opus-armPOLICY",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_slot_email_002",
+  "arm_recorded": "POLICY",
+  "verdict": "FAIL",
+  "dense_reward": 0.6,
+  "failed_invariants": [
+    "booked_policy_winner",
+    "reply_agrees"
+  ],
+  "diagnosis": "PARAPHRASE OVER SOURCE: the reimbursement policy was reissued as version 2 before anything was booked, and the booking is the room the SUPERSEDED rules pointed at (Ace Hotel New York Bunk Room). The colleague's summary was opened; it reports the new cap and drops the ranking change, and the authority's own republished rules say otherwise; wrong room under the policy; reply missing, wrong, or carries the stale room as booked",
+  "rescore_drift": null,
+  "video": "videos/task03-hotel__04-policy-reissued--wrong-summary__r03__FAIL-0.60.mp4"
+}

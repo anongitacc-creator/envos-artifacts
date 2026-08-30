@@ -1,0 +1,16 @@
+{
+  "task": "task-01-northgate-clinic",
+  "arm": "08-patient-records-merged",
+  "run": "r03-20260828-131924-FAIL-0.80",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/runs/20260828-131924-opus-armALIAS",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001",
+  "arm_recorded": "ALIAS",
+  "verdict": "FAIL",
+  "dense_reward": 0.8,
+  "failed_invariants": [
+    "times_agree"
+  ],
+  "diagnosis": "the patient's identity never reached calendar, chat - that surface was never written, which is not an entity-binding failure; calendar surface disagrees or is absent; chat surface disagrees or is absent",
+  "rescore_drift": null,
+  "video": "videos/task01-clinic__08-patient-records-merged__r03__FAIL-0.80.mp4"
+}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <h2>Patient registry</h2>
+  <p class="hint" style="margin:-8px 0 14px">
+    Records Management is the authority for patient identity. The patient ID
+    never changes; names and addresses may be updated, and de-duplication runs
+    nightly.</p>
+  <table>
+    <tr><th>Patient ID</th><th>Name</th><th>Email</th><th>Also known as</th>
+        <th>Registered</th><th>Status</th></tr>
+    {% for p in rows %}
+    <tr>
+      <td><a href="/patients/{{ p.person_id }}">{{ p.person_id }}</a></td>
+      <td>{{ p.canonical_name }}</td>
+      <td>{{ p.email }}</td>
+      <td>{{ p.aliases | join(', ') if p.aliases else '—' }}</td>
+      <td>{{ p.registered }}</td>
+      <td><span class="pill {{ 'confirmed' if p.status == 'active'
+              else ('requested' if p.status == 'merged' else 'cancelled') }}">
+          {{ p.status }}</span></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p class="hint" style="margin-top:16px">
+    {% if show_all %}Showing all records, including archived and merged.
+      <a href="/patients">Active only</a>
+    {% else %}Showing active records only.
+      <a href="/patients?archived=1">Include archived and merged</a>{% endif %}
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,103 @@
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668358.169563}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": null, "cart_room": null, "bookings": [], "ts": 1787668358.2771428}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": null, "cart_room": null, "bookings": [], "ts": 1787668422.7941456}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": null, "cart_room": null, "bookings": [], "ts": 1787668422.7966435}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_1", "cart_room": null, "bookings": [], "ts": 1787668506.0150483}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668534.1048408}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_1", "cart_room": null, "bookings": [], "ts": 1787668534.1322181}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787668534.1545162}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668556.4796808}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787668556.5196276}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787668556.5528934}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668574.3439908}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787668574.3616204}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787668574.3717139}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668630.2765594}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787668630.3078392}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_2", "cart_room": null, "bookings": [], "ts": 1787668630.3202415}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_3", "status": 200, "ts": 1787668643.4463186}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668643.4791625}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_2", "cart_room": null, "bookings": [], "ts": 1787668643.511105}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_3", "cart_room": null, "bookings": [], "ts": 1787668643.5195456}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_4", "status": 200, "ts": 1787668648.5443618}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668648.5855303}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_3", "cart_room": null, "bookings": [], "ts": 1787668648.5997202}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_4", "cart_room": null, "bookings": [], "ts": 1787668648.6179266}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668653.673904}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_4", "cart_room": null, "bookings": [], "ts": 1787668653.6946507}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_5", "cart_room": null, "bookings": [], "ts": 1787668653.7128835}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_6", "status": 200, "ts": 1787668678.9063675}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668678.9402044}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_5", "cart_room": null, "bookings": [], "ts": 1787668678.9578817}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_6", "cart_room": null, "bookings": [], "ts": 1787668678.9702888}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668684.0499258}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_6", "cart_room": null, "bookings": [], "ts": 1787668684.0850792}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_7", "cart_room": null, "bookings": [], "ts": 1787668684.0963075}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_9", "status": 200, "ts": 1787668689.0913177}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668689.1303747}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_7", "cart_room": null, "bookings": [], "ts": 1787668689.1565995}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_9", "cart_room": null, "bookings": [], "ts": 1787668689.1681802}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668694.2315648}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_9", "cart_room": null, "bookings": [], "ts": 1787668694.2585125}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_10", "cart_room": null, "bookings": [], "ts": 1787668694.2670333}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_11", "status": 200, "ts": 1787668723.064474}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668723.0957758}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_10", "cart_room": null, "bookings": [], "ts": 1787668723.1392934}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_11", "cart_room": null, "bookings": [], "ts": 1787668723.1536732}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668728.189698}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_11", "cart_room": null, "bookings": [], "ts": 1787668728.2114196}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_1", "cart_room": null, "bookings": [], "ts": 1787668728.2362242}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_13", "status": 200, "ts": 1787668733.256792}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668733.292128}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_1", "cart_room": null, "bookings": [], "ts": 1787668733.3129935}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_13", "cart_room": null, "bookings": [], "ts": 1787668733.3335662}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668738.406973}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_13", "cart_room": null, "bookings": [], "ts": 1787668738.4362402}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_14", "cart_room": null, "bookings": [], "ts": 1787668738.445602}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668779.5491087}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_14", "cart_room": null, "bookings": [], "ts": 1787668779.5751832}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_1", "cart_room": null, "bookings": [], "ts": 1787668779.6001906}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_15", "status": 200, "ts": 1787668785.733402}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668785.7629786}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_1", "cart_room": null, "bookings": [], "ts": 1787668785.7922182}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_15", "cart_room": null, "bookings": [], "ts": 1787668785.809492}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_16", "status": 200, "ts": 1787668791.9238486}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668791.958223}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_15", "cart_room": null, "bookings": [], "ts": 1787668791.980931}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_16", "cart_room": null, "bookings": [], "ts": 1787668791.9958782}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668826.0436125}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_16", "cart_room": null, "bookings": [], "ts": 1787668826.0708208}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_12", "cart_room": null, "bookings": [], "ts": 1787668826.0806286}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668926.754094}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_12", "cart_room": null, "bookings": [], "ts": 1787668926.779329}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_10", "cart_room": null, "bookings": [], "ts": 1787668926.7889495}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668937.3043597}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_10", "cart_room": null, "bookings": [], "ts": 1787668937.356927}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_14", "cart_room": null, "bookings": [], "ts": 1787668937.3729882}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668947.8502622}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_14", "cart_room": null, "bookings": [], "ts": 1787668947.8969562}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_5", "cart_room": null, "bookings": [], "ts": 1787668947.917976}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668988.947388}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_5", "cart_room": null, "bookings": [], "ts": 1787668988.9659915}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_7", "cart_room": null, "bookings": [], "ts": 1787668988.9900517}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787668999.5144877}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_7", "cart_room": null, "bookings": [], "ts": 1787668999.5352094}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_11", "cart_room": null, "bookings": [], "ts": 1787668999.553406}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787669010.0811307}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_11", "cart_room": null, "bookings": [], "ts": 1787669010.102791}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787669010.1237621}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": "room_8_1", "bookings": [], "ts": 1787669053.6065795}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": null, "bookings": [{"hotelId": "hotel_8", "roomType": "Bunk Room", "totalCost": 593}], "ts": 1787669157.8835976}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787669242.3280787}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787669242.3514206}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787669266.2927105}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787669266.3268867}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787669266.3366144}
+{"kind": "html", "method": "GET", "path": "/hotels", "status": 200, "ts": 1787669288.7623508}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787669288.789545}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787669288.8102798}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787669347.7334313}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787669347.7581987}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_7", "cart_room": null, "bookings": [], "ts": 1787669347.775885}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_7", "cart_room": "room_7_1", "bookings": [], "ts": 1787669364.4616282}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_7", "cart_room": null, "bookings": [{"hotelId": "hotel_7", "roomType": "Hilton King Room", "totalCost": 915}], "ts": 1787669412.68863}

@@ -1,0 +1,64 @@
+{
+  "arm": "POLICY",
+  "phenomenon_fired": true,
+  "bookings": [
+    {
+      "hotel": "Ace Hotel New York",
+      "room": "Bunk Room"
+    }
+  ],
+  "policy": {
+    "version": 2,
+    "rank": "highest_rating_under_cap",
+    "rate_cap": 250,
+    "max_miles": 1.0
+  },
+  "expected": {
+    "hotel": "The Manhattan Club",
+    "room": "Deluxe King Room",
+    "price": 249
+  },
+  "superseded_winner": {
+    "hotel": "Ace Hotel New York",
+    "room": "Bunk Room",
+    "price": 129
+  },
+  "policy_summary": {
+    "present": true,
+    "read": true
+  },
+  "replies": 0,
+  "requirement": {
+    "reply_field": "nightly"
+  },
+  "requirement_revised": null,
+  "stale_claims": [],
+  "metrics_verify": {
+    "expedia_reload_before_surviving_commit": null,
+    "notice_read": null,
+    "void_email_read": null,
+    "reground_after_void": null
+  },
+  "update_neglected": false,
+  "acted_on_obsolete_policy": true,
+  "obsolete_policy": true,
+  "stale_commit_not_repaired": false,
+  "paraphrase_over_source": true,
+  "policy_version_followed": 1,
+  "invariants": {
+    "exactly_one_booking": true,
+    "booked_available_room": true,
+    "booked_policy_winner": false,
+    "reply_agrees": false,
+    "verified_before_commit": true
+  },
+  "dense_reward": 0.6,
+  "terminal_success": false,
+  "surfaces": {
+    "booking": "Ace Hotel New York / Bunk Room",
+    "reply": "ABSENT",
+    "notice": "n/a"
+  },
+  "diagnosis": "PARAPHRASE OVER SOURCE: the reimbursement policy was reissued as version 2 before anything was booked, and the booking is the room the SUPERSEDED rules pointed at (Ace Hotel New York Bunk Room). The colleague's summary was opened; it reports the new cap and drops the ranking change, and the authority's own republished rules say otherwise; wrong room under the policy; reply missing, wrong, or carries the stale room as booked",
+  "valid": true
+}

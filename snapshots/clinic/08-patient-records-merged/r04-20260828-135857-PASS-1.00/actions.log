@@ -1,0 +1,119 @@
+1787905762.362677330 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s1.png
+1787905767.594179875 click 897 249
+1787905770.371551991 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s2.png
+1787905783.990322826 click 90 394
+1787905786.763917218 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s3.png
+1787905794.945904939 tab 4
+1787905798.289824937 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s4.png
+1787905806.528483933 tab 2
+1787905809.883082560 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s5.png
+1787905819.651832985 click 305 175
+1787905822.397909180 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s6.png
+1787905832.503428597 click 727 652
+1787905835.305237476 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s7.png
+1787905847.008201941 click 546 536
+1787905849.770342949 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s8.png
+1787905859.469114513 goto http://127.0.0.1:8080/patients/p_1842
+1787905864.614729533 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s9.png
+1787905875.502135978 click 192 175
+1787905878.244427822 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s10.png
+1787905889.763212061 click 959 393
+1787905890.502417075 type APT-20451
+1787905891.014148921 click 959 482
+1787905891.799079615 type Priya Sharma
+1787905892.312231853 click 959 588
+1787905893.249356697 type priya.sharma@example.com
+1787905894.799234369 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s11.png
+1787905904.415137174 click 959 482
+1787905906.070709555 clear
+1787905907.547420389 type Priya Sharma
+1787905909.061298372 click 959 588
+1787905911.019268800 type priya.sharma@example.com
+1787905912.578083809 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s12.png
+1787905922.401570246 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s13.png
+1787905931.500007336 click 959 482
+1787905934.862763465 key ctrl+a
+1787905938.286133946 type Priya Sharma
+1787905941.600329093 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s14.png
+1787905955.674664516 click 864 530
+1787905959.391832194 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s15.png
+1787905967.110691874 click 959 588
+1787905970.848163511 type priya.sharma@example.com
+1787905973.983396639 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s16.png
+1787905981.373108662 click 750 637
+1787905985.109035482 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s17.png
+1787905994.416223109 tab 1
+1787905999.285495959 goto http://127.0.0.1:8025/
+1787906004.438839598 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s18.png
+1787906013.412643451 click 867 194
+1787906016.186065532 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s19.png
+1787906026.950393910 tab 3
+1787906035.414199114 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s20.png
+1787906048.098580961 tab 1
+1787906053.835510669 goto http://127.0.0.1:8080/patients?archived=1
+1787906059.005858081 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s21.png
+1787906077.162328688 goto http://127.0.0.1:8080/patients/p_1842
+1787906082.343523209 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s22.png
+1787906099.131149886 tab 2
+1787906101.478091358 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s23.png
+1787906110.941577365 click 831 784
+1787906113.696934665 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s24.png
+1787906122.708187888 click 959 482
+1787906126.315548906 key ctrl+a
+1787906129.854092280 type Priya Sharma-Iyer
+1787906133.795438185 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s25.png
+1787906142.454480223 click 880 530
+1787906146.062865768 click 750 637
+1787906150.024724116 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s26.png
+1787906159.788582172 tab 1
+1787906163.046292660 goto http://127.0.0.1:8080/appointments
+1787906168.323243240 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s27.png
+1787906178.819618947 tab 2
+1787906181.134562505 click 959 394
+1787906182.900621184 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s28.png
+1787906194.508591636 click 766 450
+1787906196.223583601 click 959 466
+1787906197.967640340 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s29.png
+1787906207.987949462 click 748 521
+1787906209.745975507 click 850 537
+1787906211.493368869 type 08/20/2026
+1787906213.072355804 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s30.png
+1787906223.033532934 click 959 608
+1787906224.783832846 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s31.png
+1787906241.404338829 click 738 783
+1787906243.152444084 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s32.png
+1787906255.131714606 click 750 784
+1787906257.877532902 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s33.png
+1787906267.081709411 click 744 687
+1787906269.863297128 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s34.png
+1787906279.079676059 click 555 639
+1787906281.833742949 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s35.png
+1787906294.066556285 tab 3
+1787906296.386228999 click 197 135
+1787906299.121978609 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s36.png
+1787906308.717461660 click 959 274
+1787906313.697089018 type Priya Sharma-Iyer — Influenza Vaccination (APT-20451, Northgate Main)
+1787906317.414991793 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s37.png
+1787906327.215714624 click 850 343
+1787906328.966453465 type 08/20/2026
+1787906332.628780840 click 959 411
+1787906336.472374458 type 15:00
+1787906339.916970513 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s38.png
+1787906348.715556840 click 858 458
+1787906350.463373955 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s39.png
+1787906363.115683743 click 763 528
+1787906365.866456297 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s40.png
+1787906378.476507901 tab 1
+1787906381.432612410 goto http://127.0.0.1:8025/
+1787906386.581157011 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s41.png
+1787906396.920857667 tab 4
+1787906399.751976831 goto http://127.0.0.1:8087/
+1787906404.912517221 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s42.png
+1787906414.017393338 click 1000 1027
+1787906419.622354142 type Priya Sharma-Iyer's influenza vaccination is booked for 15:00 on 2026-08-20 at Northgate Main.
+1787906423.106633973 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s43.png
+1787906431.751154135 click 1860 1027
+1787906434.496990499 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s44.png
+1787906445.043277232 tab 2
+1787906448.138464005 goto http://127.0.0.1:8080/appointments
+1787906453.287391916 shot ${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/_shots/s45.png

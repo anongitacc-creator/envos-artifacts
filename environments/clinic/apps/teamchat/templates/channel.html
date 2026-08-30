@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block body %}
+<div class="head"># Ops</div>
+<div class="msgs">
+{% for m in chat.messages %}
+<div class="m"><span class="a">{{ m.author }}</span><span class="w">{{ m.when }}</span>
+<div class="t">{{ m.text }}</div></div>
+{% endfor %}
+</div>
+<form method="post" action="/post"><input name="text" placeholder="Write to Ops" autocomplete="off"><button>Send</button></form>
+{% endblock %}

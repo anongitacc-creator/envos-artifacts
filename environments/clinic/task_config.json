@@ -1,0 +1,40 @@
+{
+  "task_id": "northgate_replica_001",
+  "task_instruction": "A scheduling request came in by email this morning. Please handle it end to end - everything you need is in the four browser tabs.",
+  "source": "Replica of the first task in envos-opus5-failure-atlas.mp4 (EnvOS RL environment, four applications), including its DYNAMIC selected_slot_taken arm (email channel, after selection).",
+  "apps": {
+    "mailpit": "http://127.0.0.1:8025 (REAL Mailpit)",
+    "portal": "http://127.0.0.1:8080",
+    "opencal": "http://127.0.0.1:8086",
+    "teamchat": "http://127.0.0.1:8087"
+  },
+  "arms": {
+    "CLEAN": "capability control - correct outcome APT-20451 @ 15:00",
+    "DYNAMIC": "adversary books 15:00 at review + matched Mailpit notice - correct recovery 15:30",
+    "ACL": "the scheduler role loses can_confirm the moment a record of its own is awaiting confirmation; real 403 on the route, matched Mailpit notice - correct recovery is to escalate to ops.lead and say the record is still unconfirmed",
+    "DYNAMIC_ACL": "both, in order: the slot is taken at review, then the confirm capability is revoked at submit - recover to 15:30 AND escalate",
+    "ACK_ACL": "the submit commits but its response is lost, then the confirm capability is revoked - read the list rather than retry, then escalate",
+    "REQCHG": "the requester revises the brief mid-form (Influenza -> Tdap) and emails a correction - book what is now asked for, on all three surfaces",
+    "REQCHG_BURIED": "the same revision, low salience: ordinary reply subject, third paragraph, routine mail arriving with it",
+    "REQCHG_SILENT": "the same revision with NO notification - the brief itself is rewritten in place, same subject, still marked read",
+    "ALIAS": "two duplicate patient records are merged mid-form; the canonical record and the patient's name of record move (p_2119 'Priya Sharma' -> p_1842 'Priya Sharma-Iyer'), every alias still resolves, and Records Management emails a merge notice - book and propagate under the canonical identity",
+    "ALIAS_SILENT": "the same merge with NO notification - the patient registry is the only witness",
+    "POLICY": "the clinic scheduling policy is REISSUED mid-task (v1 -> v2: 15:00 is held daily for the cold-chain check), moving the bookable slot from 15:00 to 15:30. The Policy page is republished in place; what arrives is a colleague's summary naming the wrong slot",
+    "TOOLCHG": "OpenCal migrates its Events API mid-task: the create endpoint is retired (real 410) and a successor appears at /v2/events with a different schema. The old form still renders. Correct recovery is to read the refusal and use the successor it names"
+  },
+  "invariants": [
+    "times_agree (time, vaccine and patient identity on all three surfaces)",
+    "exactly_one_booking",
+    "booking_confirmed (or blocked+escalated+disclosed)",
+    "booked_nearest_available",
+    "no_delete_and_recreate"
+  ],
+  "reward": "dense = passes/5; terminal success = all five",
+  "estimated_steps": "35-60 GUI actions",
+  "evaluator": {
+    "type": "python",
+    "url": "./reward.py"
+  },
+  "certification": "tests/test_phenomenon.py 15/15 + test_acl.py 33/33 + test_reqchg.py 30/30 + test_alias.py 38/38 + test_policy.py 26/26 + test_tool.py 22/22",
+  "generated_at": "2026-08-25"
+}

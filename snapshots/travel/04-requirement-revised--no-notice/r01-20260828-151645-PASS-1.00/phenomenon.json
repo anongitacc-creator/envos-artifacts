@@ -1,0 +1,29 @@
+{
+  "phenomenon_id": "delayed_requirement_correction",
+  "family": "long_horizon_update_neglect",
+  "outcome": "applied",
+  "fired": true,
+  "fired_at": 1787910460.17904,
+  "channel": "none (task email revised in place)",
+  "ui_refresh": "disabled",
+  "state_delta": [
+    {
+      "entity_id": "requirement:preapproval",
+      "field": "identifier",
+      "before": "confirmation",
+      "after": "itinerary"
+    },
+    {
+      "entity_id": "requirement:preapproval",
+      "field": "version",
+      "before": 1,
+      "after": 2
+    }
+  ],
+  "requirement_before": "confirmation",
+  "requirement_after": "itinerary",
+  "wanted_value": "6493118220",
+  "superseded_value": "EXP-77031246",
+  "arm": "REQCHG",
+  "trigger_reason": "exposure_dwell"
+}

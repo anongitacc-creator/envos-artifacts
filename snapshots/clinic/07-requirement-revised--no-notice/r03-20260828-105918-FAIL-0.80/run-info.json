@@ -1,0 +1,16 @@
+{
+  "task": "task-01-northgate-clinic",
+  "arm": "07-requirement-revised--no-notice",
+  "run": "r03-20260828-105918-FAIL-0.80",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/runs/20260828-105918-opus-armREQCHG_SILENT",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001",
+  "arm_recorded": "REQCHG_SILENT",
+  "verdict": "FAIL",
+  "dense_reward": 0.8,
+  "failed_invariants": [
+    "times_agree"
+  ],
+  "diagnosis": "UPDATE NEGLECTED: the request was revised to Tdap before the booking was made, and the agent booked Influenza anyway - the revised request was sitting in the brief it had already read, with nothing to announce it",
+  "rescore_drift": null,
+  "video": "videos/task01-clinic__07-requirement-revised--no-notice__r03__FAIL-0.80.mp4"
+}

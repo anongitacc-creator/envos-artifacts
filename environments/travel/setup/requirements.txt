@@ -1,0 +1,6 @@
+# Installed into the kit-local venv by setup/install.sh.
+# playwright is used as a LIBRARY driving the system Chrome binary
+# (executable_path=$CHROME_BIN) - `playwright install` is NOT needed.
+websockify==0.11.0
+playwright>=1.40
+pillow>=10.0

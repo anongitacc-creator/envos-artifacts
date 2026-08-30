@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block body %}
+<div class="card">
+<h2>Action not permitted</h2>
+<p>Your role does not allow you to <b>{{ action }}</b> appointment {{ apt }}.</p>
+<p class="hint">Confirming appointments requires the Scheduling Approver role,
+currently held by <b>{{ holder }}</b>. Your submission is unaffected and stays
+in the queue as <span class="pill requested">requested</span> until someone
+with that role confirms it.</p>
+<p style="margin-top:14px"><a class="btn gray" href="/record/{{ apt }}">Back to the record</a>
+<a class="btn gray" href="/appointments">All appointments</a></p>
+</div>
+{% endblock %}

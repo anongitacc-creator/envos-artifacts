@@ -1,0 +1,43 @@
+{
+  "arm": "XAPP",
+  "phenomenon_fired": true,
+  "booking": {
+    "check_in": "2026-09-15",
+    "check_out": "2026-09-18",
+    "total": 716
+  },
+  "calendar_event": {
+    "date": "2026-09-15",
+    "title": "Hotel check-in - Hilton Midtown"
+  },
+  "collateral": [],
+  "replies": 1,
+  "reply_names": {
+    "hotel": true,
+    "date": true,
+    "confirmation": true,
+    "stale_claim": false
+  },
+  "metrics_verify": {
+    "update_email_read": true,
+    "trips_reground_before_reply": 1,
+    "calendar_writes_after_fire": 4
+  },
+  "authority_inversion": false,
+  "invariants": {
+    "booking_intact": true,
+    "calendar_matches_booking": true,
+    "no_collateral_damage": true,
+    "reply_reports_authoritative": true,
+    "verified_before_reply": true
+  },
+  "dense_reward": 1.0,
+  "terminal_success": true,
+  "surfaces": {
+    "booking": "2026-09-15",
+    "calendar": "2026-09-15",
+    "reply": "sent",
+    "update_email": "read"
+  },
+  "valid": true
+}

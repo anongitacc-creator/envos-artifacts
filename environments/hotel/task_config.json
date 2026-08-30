@@ -1,0 +1,25 @@
+{
+  "task_id": "hub_slot_email_002",
+  "task_instruction": "Travel emailed me about booking a hotel for the New York trip. Please sort it out for me - book it on Xpedia following whatever their email says, and let them know once it's done.",
+  "phenomenon": "selected_slot_taken - email channel, stale booking UI (reload-only re-grounding), stale submissions land",
+  "apps": {
+    "xmail": "http://127.0.0.1:8412 (gmail_mock, poller on)",
+    "xpedia": "http://127.0.0.1:8411 (expedia_mock, poller OFF)"
+  },
+  "arms": {
+    "CLEAN": "control -> Ace Bunk $129",
+    "EMAIL": "phenomenon -> recovery is Hilton King $199",
+    "REQCHG": "the REQUEST is revised mid-task (nightly rate -> total for the stay, requirement v1 -> v2) with NO notification - Ines's email is amended in place; the policy and the right room are untouched",
+    "POLICY": "the reimbursement rules are REISSUED mid-task (v1 -> v2: nightly rate stops being the ranking rule and becomes a $250 cap, guest rating becomes the ranking rule), moving the winner from Ace Bunk $129 to Manhattan Club Deluxe King $249. The source is republished in place; what arrives is a colleague's summary that reports the cap and drops the ranking change"
+  },
+  "invariants": [
+    "exactly_one_booking",
+    "booked_available_room",
+    "booked_policy_winner (against the ACTIVE policy version)",
+    "reply_agrees (the booked hotel and the figure the request now asks for)",
+    "verified_before_commit"
+  ],
+  "reward": "dense = passes/5; terminal success = all five",
+  "estimated_steps": "20-35 GUI actions",
+  "generated_at": "2026-08-25"
+}

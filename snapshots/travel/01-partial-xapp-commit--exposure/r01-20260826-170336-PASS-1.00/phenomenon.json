@@ -1,0 +1,29 @@
+{
+  "phenomenon_id": "partial_xapp_commit",
+  "family": "cross_app_invariant",
+  "outcome": "applied",
+  "fired": true,
+  "fired_at": 1787744083.0074928,
+  "channel": "email",
+  "ui_refresh": "disabled",
+  "stale_projection": "google_calendar_mock",
+  "state_delta": [
+    {
+      "entity_id": "booking:EXP-77031246",
+      "field": "checkIn",
+      "before": "2026-09-14",
+      "after": "2026-09-15"
+    },
+    {
+      "entity_id": "booking:EXP-77031246",
+      "field": "totalCost",
+      "before": 915,
+      "after": 716
+    }
+  ],
+  "hotel_name": "Hilton Midtown",
+  "old_check_in": "2026-09-14",
+  "new_check_in": "2026-09-15",
+  "arm": "XAPP",
+  "trigger_reason": "exposure_dwell"
+}

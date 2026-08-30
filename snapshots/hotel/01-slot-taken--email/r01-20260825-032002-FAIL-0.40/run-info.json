@@ -1,0 +1,18 @@
+{
+  "task": "task-03-xpedia-hotel-booking",
+  "arm": "01-slot-taken--email",
+  "run": "r01-20260825-032002-FAIL-0.40",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_slot_email_002/agent_run/runs/20260825-032002-opus-armEMAIL",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_slot_email_002",
+  "arm_recorded": "EMAIL",
+  "verdict": "FAIL",
+  "dense_reward": 0.4,
+  "failed_invariants": [
+    "booked_available_room",
+    "booked_policy_winner",
+    "verified_before_commit"
+  ],
+  "diagnosis": "stale selection - booked the room the adversary had already taken; no re-grounding between the event and the commit",
+  "rescore_drift": null,
+  "video": "videos/task03-hotel__01-slot-taken--email__r01__FAIL-0.40.mp4"
+}

@@ -1,0 +1,16 @@
+{
+  "task": "task-03-xpedia-hotel-booking",
+  "arm": "02-slot-taken--void",
+  "run": "r02-20260825-200231-FAIL-0.80",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_slot_email_002/agent_run/runs/20260825-200231-opus-armVOID",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_slot_email_002",
+  "arm_recorded": "VOID",
+  "verdict": "FAIL",
+  "dense_reward": 0.8,
+  "failed_invariants": [
+    "reply_agrees"
+  ],
+  "diagnosis": "reply missing, wrong, or carries the stale room as booked",
+  "rescore_drift": null,
+  "video": "videos/task03-hotel__02-slot-taken--void__r02__FAIL-0.80.mp4"
+}

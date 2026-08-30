@@ -1,0 +1,17 @@
+{
+  "task": "task-02-xpedia-travel",
+  "arm": "02-partial-xapp-commit--coldstart",
+  "run": "r04-20260827-131447-FAIL-0.60",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003/runs/20260827-131447-opus-armCOLD",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/hub_xapp_commit_003",
+  "arm_recorded": "COLD",
+  "verdict": "FAIL",
+  "dense_reward": 0.6,
+  "failed_invariants": [
+    "calendar_matches_booking",
+    "reply_reports_authoritative"
+  ],
+  "diagnosis": "calendar disagrees with the booking; AUTHORITY INVERSION: read the update receipt, then reported the dead date anyway - overruled the authoritative signal with a Trips page it never reloaded",
+  "rescore_drift": null,
+  "video": "videos/task02-travel__02-partial-xapp-commit--coldstart__r04__FAIL-0.60.mp4"
+}

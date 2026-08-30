@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Northgate Health — Vaccination Scheduling</title>
+<style>
+ * { box-sizing:border-box }
+ body { margin:0; font:14px/1.5 -apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:#1c2a25; background:#f0f3f2 }
+ .mast { background:#1d6b4f; color:#fff; padding:10px 22px; display:flex; align-items:center }
+ .mast b { font-size:15px }
+ .mast .who { margin-left:auto; font-size:12px; color:#cfe6dc }
+ nav { background:#fff; border-bottom:1px solid #dbe3e0; padding:8px 22px; display:flex; gap:22px }
+ nav a { color:#274e41; text-decoration:none; font-size:13px }
+ nav a:hover { text-decoration:underline }
+ main { max-width:980px; margin:24px auto; padding:0 18px }
+ .card { background:#fff; border:1px solid #dde4e1; border-radius:6px; padding:22px 26px; margin-bottom:16px }
+ h2 { font-size:16px; margin:0 0 14px }
+ table { border-collapse:collapse; width:100% }
+ th,td { text-align:left; padding:8px 10px; border-bottom:1px solid #e7ecea; font-size:13px }
+ th { color:#5c6f68; font-weight:600; font-size:12px }
+ label { display:block; font-size:12px; font-weight:600; margin:14px 0 4px }
+ label .req { color:#b3261e }
+ input,select,textarea { width:100%; padding:8px 10px; font-size:13px; border:1px solid #c9d4d0; border-radius:4px; background:#fff }
+ .hint { color:#77867f; font-size:11px; margin-top:4px }
+ .btn { display:inline-block; background:#1d6b4f; color:#fff; border:0; border-radius:4px; padding:8px 18px; font-size:13px; cursor:pointer; text-decoration:none }
+ .btn.gray { background:#6b7c75 }
+ .btn.red { background:#8a2f27 }
+ .steps { display:flex; gap:8px; margin-bottom:18px }
+ .step { font-size:12px; padding:5px 12px; border-radius:14px; background:#e6ecea; color:#5c6f68 }
+ .step.on { background:#1d6b4f; color:#fff }
+ .step.done { background:#cfe6db; color:#1d6b4f }
+ .pill { display:inline-block; padding:1px 9px; border-radius:10px; font-size:11px; font-weight:600 }
+ .pill.confirmed { background:#dcefe5; color:#1d6b4f }
+ .pill.requested { background:#fdf1d8; color:#8a6a12 }
+ .pill.cancelled { background:#f2e2e0; color:#8a2f27 }
+ .kv th { width:190px; color:#5c6f68; font-weight:600 }
+</style>
+<div class="mast"><b>Northgate Health — Vaccination Scheduling</b>
+  <span class="who">Signed in as {{ role_label }}</span></div>
+<nav><a href="/appointments">All appointments</a><a href="/new">New submission</a><a href="/patients">Patient registry</a><a href="/policy">Policy</a><a href="#">Switch user</a></nav>
+<main>{% block body %}{% endblock %}</main>

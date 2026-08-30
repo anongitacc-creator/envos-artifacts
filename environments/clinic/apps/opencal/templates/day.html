@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block body %}
+<div class="grid">
+<div class="head"></div>{% for d in days %}<div class="head">{{ d }}</div>{% endfor %}
+{% for h in hours %}
+  <div class="cell hour">{{ h }}</div>
+  {% for d in days %}
+  <div class="cell">
+    {% for e in events %}{% if e.date == d and e.start[:2] == h[:2] %}
+      <div class="ev" title="{{ e.title }}">{{ e.start }} {{ e.title }}</div>
+    {% endif %}{% endfor %}
+  </div>
+  {% endfor %}
+{% endfor %}
+</div>
+{% endblock %}

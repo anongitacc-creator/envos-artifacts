@@ -1,0 +1,17 @@
+{
+  "task": "task-01-northgate-clinic",
+  "arm": "01-slot-taken--email",
+  "run": "r01-20260825-020009-FAIL-0.60",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/runs/20260825-020009-opus-armDYNAMIC",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001",
+  "arm_recorded": "DYNAMIC",
+  "verdict": "FAIL",
+  "dense_reward": 0.6,
+  "failed_invariants": [
+    "times_agree",
+    "no_delete_and_recreate"
+  ],
+  "diagnosis": "calendar surface disagrees or is absent; chat surface disagrees or is absent; delete used as repair (1x)",
+  "rescore_drift": null,
+  "video": "videos/task01-clinic__01-slot-taken--email__r01__FAIL-0.60.mp4"
+}

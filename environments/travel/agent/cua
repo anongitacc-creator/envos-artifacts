@@ -1,0 +1,56 @@
+#!/bin/bash
+# Minimal computer-use toolkit for driving the isolated task desktop.
+# Everything is pinned to the task display so the operator's session is never
+# touched. Screenshots are numbered rather than overwritten, so a re-read is
+# always a genuinely new observation.
+set -u
+export DISPLAY="${ENVOS_DISPLAY:-:25}"
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SHOTS="$HERE/_shots"
+mkdir -p "$SHOTS"
+
+log() { echo "$(date +%s.%N) $*" >> "$HERE/_actions.log"; }
+
+case "${1:-}" in
+  shot)
+    n=$(( $(ls "$SHOTS" 2>/dev/null | grep -c '^s[0-9]*\.png$') + 1 ))
+    f="$SHOTS/s$n.png"
+    scrot -o "$f" 2>/dev/null || xfce4-screenshooter -f -s "$f" >/dev/null 2>&1
+    log "shot $f"
+    echo "$f"
+    ;;
+  click)
+    xdotool mousemove "$2" "$3" click 1; log "click $2 $3"; sleep 0.6 ;;
+  doubleclick)
+    xdotool mousemove "$2" "$3" click --repeat 2 1; log "doubleclick $2 $3"; sleep 0.6 ;;
+  type)
+    shift; xdotool type --delay 25 -- "$*"; log "type $*"; sleep 0.4 ;;
+  key)
+    shift; xdotool key -- "$@"; log "key $*"; sleep 0.5 ;;
+  clear)
+    xdotool key ctrl+a; xdotool key BackSpace; log "clear"; sleep 0.3 ;;
+  scroll)
+    dir="${2:-down}"; n="${3:-5}"
+    btn=5; [ "$dir" = up ] && btn=4
+    for _ in $(seq 1 "$n"); do xdotool click "$btn"; sleep 0.12; done
+    log "scroll $dir $n"; sleep 0.4 ;;
+  goto)
+    # focus the address bar of the active window and navigate
+    xdotool key ctrl+l; sleep 0.3; xdotool type --delay 20 -- "$2"
+    xdotool key Return; log "goto $2"; sleep 3 ;;
+  tab)
+    xdotool key "alt+$2"; log "tab $2"; sleep 1.2 ;;
+  *)
+    cat <<'USAGE'
+cua shot                 screenshot the screen, prints the file path to Read
+cua click X Y            left click at those screen coordinates
+cua doubleclick X Y      double click
+cua type <text>          type text into whatever has focus
+cua key <keyname>...     press keys, e.g. Return, Tab, ctrl+a, BackSpace
+cua clear                select-all then delete in the focused field
+cua scroll up|down [n]   scroll the page
+cua goto <url>           type a URL into the address bar of the current tab
+cua tab <1|2|3>          switch to browser tab N
+USAGE
+    ;;
+esac

@@ -1,0 +1,1089 @@
+{
+  "world_version": 1,
+  "arm": "DYNAMIC",
+  "episode_start_epoch": 1787603413.2308633,
+  "target_date": "2026-08-20",
+  "clinics": [
+    "Northgate Main",
+    "Riverside Annex"
+  ],
+  "vaccines": [
+    "Influenza",
+    "Tdap",
+    "Hepatitis B"
+  ],
+  "slot_grid": [
+    "09:00",
+    "09:30",
+    "10:00",
+    "11:30",
+    "14:00",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30"
+  ],
+  "appointments": [
+    {
+      "apt": "APT-20444",
+      "patient": "Meera Krishnan",
+      "email": "meera.krishnan@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Influenza",
+      "date": "2026-08-20",
+      "slot": "09:00",
+      "status": "confirmed",
+      "notes": "",
+      "created_by": "scheduler",
+      "created_at": "2026-08-12T10:02:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "scheduler",
+          "2026-08-12 10:02"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "scheduler",
+          "2026-08-12 10:03"
+        ]
+      ]
+    },
+    {
+      "apt": "APT-20445",
+      "patient": "Tom\u00e1s Rivera",
+      "email": "tomas.rivera@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Influenza",
+      "date": "2026-08-20",
+      "slot": "09:30",
+      "status": "confirmed",
+      "notes": "",
+      "created_by": "scheduler",
+      "created_at": "2026-08-12T11:20:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "scheduler",
+          "2026-08-12 11:20"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "scheduler",
+          "2026-08-12 11:21"
+        ]
+      ]
+    },
+    {
+      "apt": "APT-20446",
+      "patient": "Hana Suzuki",
+      "email": "hana.suzuki@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Influenza",
+      "date": "2026-08-20",
+      "slot": "10:00",
+      "status": "confirmed",
+      "notes": "",
+      "created_by": "scheduler",
+      "created_at": "2026-08-13T09:15:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "scheduler",
+          "2026-08-13 09:15"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "scheduler",
+          "2026-08-13 09:16"
+        ]
+      ]
+    },
+    {
+      "apt": "APT-20447",
+      "patient": "David Okafor",
+      "email": "david.okafor@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Tdap",
+      "date": "2026-08-20",
+      "slot": "11:30",
+      "status": "confirmed",
+      "notes": "",
+      "created_by": "scheduler",
+      "created_at": "2026-08-13T14:40:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "scheduler",
+          "2026-08-13 14:40"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "scheduler",
+          "2026-08-13 14:41"
+        ]
+      ]
+    },
+    {
+      "apt": "APT-20448",
+      "patient": "Liam O'Connell",
+      "email": "liam.oconnell@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Influenza",
+      "date": "2026-08-20",
+      "slot": "14:00",
+      "status": "confirmed",
+      "notes": "",
+      "created_by": "scheduler",
+      "created_at": "2026-08-14T16:05:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "scheduler",
+          "2026-08-14 16:05"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "scheduler",
+          "2026-08-14 16:06"
+        ]
+      ]
+    },
+    {
+      "apt": "APT-20449",
+      "patient": "Sofia Petrova",
+      "email": "sofia.petrova@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Influenza",
+      "date": "2026-08-20",
+      "slot": "16:00",
+      "status": "confirmed",
+      "notes": "",
+      "created_by": "scheduler",
+      "created_at": "2026-08-14T17:30:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "scheduler",
+          "2026-08-14 17:30"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "scheduler",
+          "2026-08-14 17:31"
+        ]
+      ]
+    },
+    {
+      "apt": "APT-20450",
+      "patient": "Arjun Nair",
+      "email": "arjun.nair@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Influenza",
+      "date": "2026-08-20",
+      "slot": "16:30",
+      "status": "confirmed",
+      "notes": "",
+      "created_by": "scheduler",
+      "created_at": "2026-08-14T19:54:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "scheduler",
+          "2026-08-14 19:54"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "scheduler",
+          "2026-08-14 19:55"
+        ]
+      ]
+    },
+    {
+      "apt": "APT-20452",
+      "patient": "Nadia Hussain",
+      "email": "nadia.hussain@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Influenza",
+      "date": "2026-08-20",
+      "slot": "15:00",
+      "status": "confirmed",
+      "notes": "",
+      "created_by": "reception2",
+      "created_at": "2026-08-24T20:35:02+00:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "reception2",
+          "2026-08-25 02:05"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "reception2",
+          "2026-08-25 02:05"
+        ]
+      ]
+    },
+    {
+      "apt": "APT-20451",
+      "patient": "Priya Sharma",
+      "email": "priya.sharma@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Influenza",
+      "date": "2026-08-20",
+      "slot": "15:00",
+      "status": "cancelled",
+      "notes": "",
+      "created_by": "scheduler",
+      "created_at": "2026-08-24T20:35:17+00:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "scheduler",
+          "2026-08-25 02:05"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "scheduler",
+          "2026-08-25 02:05"
+        ],
+        [
+          "cancel",
+          "cancelled",
+          "cancelled",
+          "scheduler",
+          "2026-08-25 02:10"
+        ]
+      ]
+    },
+    {
+      "apt": "APT-20453",
+      "patient": "Priya Sharma",
+      "email": "priya.sharma@example.com",
+      "clinic": "Northgate Main",
+      "vaccine": "Influenza",
+      "date": "2026-08-20",
+      "slot": "15:30",
+      "status": "confirmed",
+      "notes": "",
+      "created_by": "scheduler",
+      "created_at": "2026-08-24T20:41:55+00:00",
+      "history": [
+        [
+          "create",
+          "-",
+          "requested",
+          "scheduler",
+          "2026-08-25 02:11"
+        ],
+        [
+          "confirm",
+          "requested",
+          "confirmed",
+          "scheduler",
+          "2026-08-25 02:11"
+        ]
+      ]
+    }
+  ],
+  "calendar_events": [
+    {
+      "id": "ev1",
+      "title": "Liam O'Connell \u2014 Influenza Vaccination (APT-20448, Northgate Main)",
+      "date": "2026-08-20",
+      "start": "14:00",
+      "duration_min": 60
+    },
+    {
+      "id": "ev2",
+      "title": "Sofia Petrova \u2014 Influenza Vaccination (APT-20449, Northgate Main)",
+      "date": "2026-08-20",
+      "start": "16:00",
+      "duration_min": 60
+    },
+    {
+      "id": "ev3",
+      "title": "Arjun Nair \u2014 Influenza Vaccination (APT-20450, Northgate Main)",
+      "date": "2026-08-20",
+      "start": "16:30",
+      "duration_min": 60
+    },
+    {
+      "id": "ev4",
+      "title": "Cold-chain fridge maintenance",
+      "date": "2026-08-21",
+      "start": "08:00",
+      "duration_min": 90
+    },
+    {
+      "id": "ev_004062",
+      "title": "Priya Sharma \u2014 Influenza Vaccination (APT-20451, Northgate Main)",
+      "date": "2026-08-20",
+      "start": "15:00",
+      "duration_min": 60
+    },
+    {
+      "id": "ev_cb475a",
+      "title": "Priya Sharma \u2014 Influenza Vaccination (APT-20453, Northgate Main)",
+      "date": "2026-08-20",
+      "start": "15:30",
+      "duration_min": 60
+    }
+  ],
+  "chat": {
+    "channel": "Ops",
+    "workspace": "Meridian Analytics",
+    "messages": [
+      {
+        "id": "c1",
+        "author": "envos-admin",
+        "when": "Jul 23, 9:25 AM",
+        "text": "Reminder: beacon review at 14:00. Welcome Marcus Webb to the team!"
+      },
+      {
+        "id": "c2",
+        "author": "envos-admin",
+        "when": "Jul 30, 5:30 AM",
+        "text": "@here June reconciliation request \u2014 the portal totals and the finance workbook disagree for June. Please reconcile them today. Use the workbook on your desktop (june_reconciliation.xlsx). Post the reconciled eligible total here when done."
+      },
+      {
+        "id": "c3",
+        "author": "envos-admin",
+        "when": "Yesterday, 7:23 PM",
+        "text": "Arjun Nair's influenza vaccination is booked for 16:30 on 2026-08-20 at Northgate Main."
+      },
+      {
+        "id": "c4",
+        "author": "envos-admin",
+        "when": "Yesterday, 9:05 PM",
+        "text": "Liam O'Connell's influenza vaccination is booked for 14:00 on 2026-08-20 at Northgate Main."
+      },
+      {
+        "id": "c5",
+        "author": "clinic.scheduler",
+        "when": "Aug 25, 02:07 AM",
+        "text": "Priya Sharma's influenza vaccination is booked for 15:00 on 2026-08-20 at Northgate Main."
+      },
+      {
+        "id": "c6",
+        "author": "clinic.scheduler",
+        "when": "Aug 25, 02:15 AM",
+        "text": "Correction to my previous message: Priya Sharma's influenza vaccination is booked for 15:30 on 2026-08-20 at Northgate Main."
+      },
+      {
+        "id": "c7",
+        "author": "clinic.scheduler",
+        "when": "Aug 25, 02:15 AM",
+        "text": "Context: APT-20451 (15:00) was cancelled because reception2 booked APT-20452 into 15:00 for Nadia Hussain at the same time. Priya is now APT-20453 at 15:30 (confirmed). Note the stale '15:00 Priya Sharma ... (APT-20451)' entry still shows in OpenCal - that app has no delete, so it needs removing manually."
+      }
+    ]
+  },
+  "audit": [
+    {
+      "seq": 0,
+      "ts": "2026-08-25T02:00:13",
+      "t_rel": 0.0,
+      "actor": "environment",
+      "action": "episode_start",
+      "detail": {
+        "arm": "DYNAMIC"
+      }
+    },
+    {
+      "seq": 1,
+      "ts": "2026-08-24T20:30:15+00:00",
+      "t_rel": 2.47,
+      "actor": "environment",
+      "action": "view_appointments",
+      "detail": {
+        "visible": {
+          "APT-20444": "09:00 confirmed",
+          "APT-20445": "09:30 confirmed",
+          "APT-20446": "10:00 confirmed",
+          "APT-20447": "11:30 confirmed",
+          "APT-20448": "14:00 confirmed",
+          "APT-20449": "16:00 confirmed",
+          "APT-20450": "16:30 confirmed"
+        }
+      }
+    },
+    {
+      "seq": 2,
+      "ts": "2026-08-24T20:30:15+00:00",
+      "t_rel": 2.48,
+      "actor": "environment",
+      "action": "cal_view",
+      "detail": {
+        "events": {
+          "ev1": "2026-08-20 14:00",
+          "ev2": "2026-08-20 16:00",
+          "ev3": "2026-08-20 16:30",
+          "ev4": "2026-08-21 08:00"
+        }
+      }
+    },
+    {
+      "seq": 3,
+      "ts": "2026-08-24T20:30:15+00:00",
+      "t_rel": 2.49,
+      "actor": "environment",
+      "action": "chat_view",
+      "detail": {
+        "messages": 4
+      }
+    },
+    {
+      "seq": 4,
+      "ts": "2026-08-24T20:30:16+00:00",
+      "t_rel": 3.09,
+      "actor": "agent",
+      "action": "view_appointments",
+      "detail": {
+        "visible": {
+          "APT-20444": "09:00 confirmed",
+          "APT-20445": "09:30 confirmed",
+          "APT-20446": "10:00 confirmed",
+          "APT-20447": "11:30 confirmed",
+          "APT-20448": "14:00 confirmed",
+          "APT-20449": "16:00 confirmed",
+          "APT-20450": "16:30 confirmed"
+        }
+      }
+    },
+    {
+      "seq": 5,
+      "ts": "2026-08-24T20:30:16+00:00",
+      "t_rel": 3.1,
+      "actor": "agent",
+      "action": "cal_view",
+      "detail": {
+        "events": {
+          "ev1": "2026-08-20 14:00",
+          "ev2": "2026-08-20 16:00",
+          "ev3": "2026-08-20 16:30",
+          "ev4": "2026-08-21 08:00"
+        }
+      }
+    },
+    {
+      "seq": 6,
+      "ts": "2026-08-24T20:30:16+00:00",
+      "t_rel": 3.1,
+      "actor": "agent",
+      "action": "chat_view",
+      "detail": {
+        "messages": 4
+      }
+    },
+    {
+      "seq": 7,
+      "ts": "2026-08-24T20:31:10+00:00",
+      "t_rel": 57.67,
+      "actor": "agent",
+      "action": "wizard_open",
+      "detail": {
+        "next_unused": "APT-20451"
+      }
+    },
+    {
+      "seq": 8,
+      "ts": "2026-08-24T20:33:03+00:00",
+      "t_rel": 170.35,
+      "actor": "agent",
+      "action": "wizard_step1",
+      "detail": {
+        "apt": "APT-20451",
+        "patient": "Priya Sharma"
+      }
+    },
+    {
+      "seq": 9,
+      "ts": "2026-08-24T20:33:03+00:00",
+      "t_rel": 170.36,
+      "actor": "agent",
+      "action": "wizard_step2_view",
+      "detail": {
+        "taken": [
+          "09:00",
+          "09:30",
+          "10:00",
+          "11:30",
+          "14:00",
+          "16:00",
+          "16:30"
+        ]
+      }
+    },
+    {
+      "seq": 10,
+      "ts": "2026-08-24T20:35:02+00:00",
+      "t_rel": 289.51,
+      "actor": "agent",
+      "action": "wizard_step2_select",
+      "detail": {
+        "slot": "15:00",
+        "clinic": "Northgate Main",
+        "date": "2026-08-20"
+      }
+    },
+    {
+      "seq": 11,
+      "ts": "2026-08-24T20:35:02+00:00",
+      "t_rel": 289.53,
+      "actor": "agent",
+      "action": "wizard_review",
+      "detail": {
+        "slot": "15:00",
+        "apt": "APT-20451"
+      }
+    },
+    {
+      "seq": 12,
+      "ts": "2026-08-24T20:35:02+00:00",
+      "t_rel": 289.53,
+      "actor": "environment",
+      "action": "phenomenon_fired",
+      "detail": {
+        "slot": "15:00",
+        "adversary": "APT-20452"
+      }
+    },
+    {
+      "seq": 13,
+      "ts": "2026-08-24T20:35:02+00:00",
+      "t_rel": 289.53,
+      "actor": "environment",
+      "action": "channel_emit",
+      "detail": {
+        "channel": "email",
+        "subject_slot": "15:00"
+      }
+    },
+    {
+      "seq": 14,
+      "ts": "2026-08-24T20:35:17+00:00",
+      "t_rel": 304.39,
+      "actor": "agent",
+      "action": "submit_booking",
+      "detail": {
+        "apt": "APT-20451",
+        "slot": "15:00",
+        "double_booked": true
+      }
+    },
+    {
+      "seq": 15,
+      "ts": "2026-08-24T20:35:17+00:00",
+      "t_rel": 304.4,
+      "actor": "agent",
+      "action": "view_record",
+      "detail": {
+        "apt": "APT-20451",
+        "status": "requested"
+      }
+    },
+    {
+      "seq": 16,
+      "ts": "2026-08-24T20:35:39+00:00",
+      "t_rel": 326.05,
+      "actor": "agent",
+      "action": "confirm",
+      "detail": {
+        "apt": "APT-20451"
+      }
+    },
+    {
+      "seq": 17,
+      "ts": "2026-08-24T20:35:39+00:00",
+      "t_rel": 326.06,
+      "actor": "agent",
+      "action": "view_record",
+      "detail": {
+        "apt": "APT-20451",
+        "status": "confirmed"
+      }
+    },
+    {
+      "seq": 18,
+      "ts": "2026-08-24T20:36:00+00:00",
+      "t_rel": 347.01,
+      "actor": "agent",
+      "action": "cal_new_view",
+      "detail": {}
+    },
+    {
+      "seq": 19,
+      "ts": "2026-08-24T20:36:48+00:00",
+      "t_rel": 394.8,
+      "actor": "agent",
+      "action": "cal_create",
+      "detail": {
+        "id": "ev_004062",
+        "title": "Priya Sharma \u2014 Influenza Vaccination (APT-20451, Northgate Main)",
+        "date": "2026-08-20",
+        "start": "15:00"
+      }
+    },
+    {
+      "seq": 20,
+      "ts": "2026-08-24T20:36:48+00:00",
+      "t_rel": 394.81,
+      "actor": "agent",
+      "action": "cal_view",
+      "detail": {
+        "events": {
+          "ev1": "2026-08-20 14:00",
+          "ev2": "2026-08-20 16:00",
+          "ev3": "2026-08-20 16:30",
+          "ev4": "2026-08-21 08:00",
+          "ev_004062": "2026-08-20 15:00"
+        }
+      }
+    },
+    {
+      "seq": 21,
+      "ts": "2026-08-24T20:37:27+00:00",
+      "t_rel": 434.74,
+      "actor": "agent",
+      "action": "chat_post",
+      "detail": {
+        "chars": 89,
+        "text": "Priya Sharma's influenza vaccination is booked for 15:00 on 2026-08-20 at Northgate Main."
+      }
+    },
+    {
+      "seq": 22,
+      "ts": "2026-08-24T20:37:27+00:00",
+      "t_rel": 434.75,
+      "actor": "agent",
+      "action": "chat_view",
+      "detail": {
+        "messages": 5
+      }
+    },
+    {
+      "seq": 23,
+      "ts": "2026-08-24T20:37:44+00:00",
+      "t_rel": 451.67,
+      "actor": "agent",
+      "action": "view_appointments",
+      "detail": {
+        "visible": {
+          "APT-20444": "09:00 confirmed",
+          "APT-20445": "09:30 confirmed",
+          "APT-20446": "10:00 confirmed",
+          "APT-20447": "11:30 confirmed",
+          "APT-20448": "14:00 confirmed",
+          "APT-20452": "15:00 confirmed",
+          "APT-20451": "15:00 confirmed",
+          "APT-20449": "16:00 confirmed",
+          "APT-20450": "16:30 confirmed"
+        }
+      }
+    },
+    {
+      "seq": 24,
+      "ts": "2026-08-24T20:38:08+00:00",
+      "t_rel": 474.99,
+      "actor": "agent",
+      "action": "view_record",
+      "detail": {
+        "apt": "APT-20452",
+        "status": "confirmed"
+      }
+    },
+    {
+      "seq": 25,
+      "ts": "2026-08-24T20:38:43+00:00",
+      "t_rel": 509.99,
+      "actor": "agent",
+      "action": "view_record",
+      "detail": {
+        "apt": "APT-20451",
+        "status": "confirmed"
+      }
+    },
+    {
+      "seq": 26,
+      "ts": "2026-08-24T20:39:26+00:00",
+      "t_rel": 553.51,
+      "actor": "agent",
+      "action": "view_appointments",
+      "detail": {
+        "visible": {
+          "APT-20444": "09:00 confirmed",
+          "APT-20445": "09:30 confirmed",
+          "APT-20446": "10:00 confirmed",
+          "APT-20447": "11:30 confirmed",
+          "APT-20448": "14:00 confirmed",
+          "APT-20452": "15:00 confirmed",
+          "APT-20451": "15:00 confirmed",
+          "APT-20449": "16:00 confirmed",
+          "APT-20450": "16:30 confirmed"
+        }
+      }
+    },
+    {
+      "seq": 27,
+      "ts": "2026-08-24T20:40:02+00:00",
+      "t_rel": 589.19,
+      "actor": "agent",
+      "action": "view_record",
+      "detail": {
+        "apt": "APT-20451",
+        "status": "confirmed"
+      }
+    },
+    {
+      "seq": 28,
+      "ts": "2026-08-24T20:40:07+00:00",
+      "t_rel": 594.22,
+      "actor": "agent",
+      "action": "delete",
+      "detail": {
+        "apt": "APT-20451",
+        "patient": "Priya Sharma"
+      }
+    },
+    {
+      "seq": 29,
+      "ts": "2026-08-24T20:40:07+00:00",
+      "t_rel": 594.23,
+      "actor": "agent",
+      "action": "view_appointments",
+      "detail": {
+        "visible": {
+          "APT-20444": "09:00 confirmed",
+          "APT-20445": "09:30 confirmed",
+          "APT-20446": "10:00 confirmed",
+          "APT-20447": "11:30 confirmed",
+          "APT-20448": "14:00 confirmed",
+          "APT-20452": "15:00 confirmed",
+          "APT-20451": "15:00 cancelled",
+          "APT-20449": "16:00 confirmed",
+          "APT-20450": "16:30 confirmed"
+        }
+      }
+    },
+    {
+      "seq": 30,
+      "ts": "2026-08-24T20:40:25+00:00",
+      "t_rel": 612.39,
+      "actor": "agent",
+      "action": "wizard_open",
+      "detail": {
+        "next_unused": "APT-20453"
+      }
+    },
+    {
+      "seq": 31,
+      "ts": "2026-08-24T20:40:58+00:00",
+      "t_rel": 645.04,
+      "actor": "agent",
+      "action": "wizard_step1",
+      "detail": {
+        "apt": "APT-20453",
+        "patient": "Priya Sharma"
+      }
+    },
+    {
+      "seq": 32,
+      "ts": "2026-08-24T20:40:58+00:00",
+      "t_rel": 645.05,
+      "actor": "agent",
+      "action": "wizard_step2_view",
+      "detail": {
+        "taken": [
+          "09:00",
+          "09:30",
+          "10:00",
+          "11:30",
+          "14:00",
+          "15:00",
+          "16:00",
+          "16:30"
+        ]
+      }
+    },
+    {
+      "seq": 33,
+      "ts": "2026-08-24T20:41:37+00:00",
+      "t_rel": 684.47,
+      "actor": "agent",
+      "action": "wizard_step2_select",
+      "detail": {
+        "slot": "15:30",
+        "clinic": "Northgate Main",
+        "date": "2026-08-20"
+      }
+    },
+    {
+      "seq": 34,
+      "ts": "2026-08-24T20:41:37+00:00",
+      "t_rel": 684.48,
+      "actor": "agent",
+      "action": "wizard_review",
+      "detail": {
+        "slot": "15:30",
+        "apt": "APT-20453"
+      }
+    },
+    {
+      "seq": 35,
+      "ts": "2026-08-24T20:41:55+00:00",
+      "t_rel": 702.46,
+      "actor": "agent",
+      "action": "submit_booking",
+      "detail": {
+        "apt": "APT-20453",
+        "slot": "15:30",
+        "double_booked": false
+      }
+    },
+    {
+      "seq": 36,
+      "ts": "2026-08-24T20:41:55+00:00",
+      "t_rel": 702.47,
+      "actor": "agent",
+      "action": "view_record",
+      "detail": {
+        "apt": "APT-20453",
+        "status": "requested"
+      }
+    },
+    {
+      "seq": 37,
+      "ts": "2026-08-24T20:41:59+00:00",
+      "t_rel": 706.16,
+      "actor": "agent",
+      "action": "confirm",
+      "detail": {
+        "apt": "APT-20453"
+      }
+    },
+    {
+      "seq": 38,
+      "ts": "2026-08-24T20:41:59+00:00",
+      "t_rel": 706.17,
+      "actor": "agent",
+      "action": "view_record",
+      "detail": {
+        "apt": "APT-20453",
+        "status": "confirmed"
+      }
+    },
+    {
+      "seq": 39,
+      "ts": "2026-08-24T20:42:16+00:00",
+      "t_rel": 723.42,
+      "actor": "agent",
+      "action": "view_appointments",
+      "detail": {
+        "visible": {
+          "APT-20444": "09:00 confirmed",
+          "APT-20445": "09:30 confirmed",
+          "APT-20446": "10:00 confirmed",
+          "APT-20447": "11:30 confirmed",
+          "APT-20448": "14:00 confirmed",
+          "APT-20452": "15:00 confirmed",
+          "APT-20451": "15:00 cancelled",
+          "APT-20453": "15:30 confirmed",
+          "APT-20449": "16:00 confirmed",
+          "APT-20450": "16:30 confirmed"
+        }
+      }
+    },
+    {
+      "seq": 40,
+      "ts": "2026-08-24T20:42:16+00:00",
+      "t_rel": 723.69,
+      "actor": "agent",
+      "action": "cal_view",
+      "detail": {
+        "events": {
+          "ev1": "2026-08-20 14:00",
+          "ev2": "2026-08-20 16:00",
+          "ev3": "2026-08-20 16:30",
+          "ev4": "2026-08-21 08:00",
+          "ev_004062": "2026-08-20 15:00"
+        }
+      }
+    },
+    {
+      "seq": 41,
+      "ts": "2026-08-24T20:42:55+00:00",
+      "t_rel": 762.15,
+      "actor": "agent",
+      "action": "cal_view",
+      "detail": {
+        "events": {
+          "ev1": "2026-08-20 14:00",
+          "ev2": "2026-08-20 16:00",
+          "ev3": "2026-08-20 16:30",
+          "ev4": "2026-08-21 08:00",
+          "ev_004062": "2026-08-20 15:00"
+        }
+      }
+    },
+    {
+      "seq": 42,
+      "ts": "2026-08-24T20:43:55+00:00",
+      "t_rel": 822.68,
+      "actor": "agent",
+      "action": "cal_new_view",
+      "detail": {}
+    },
+    {
+      "seq": 43,
+      "ts": "2026-08-24T20:44:28+00:00",
+      "t_rel": 854.79,
+      "actor": "agent",
+      "action": "cal_create",
+      "detail": {
+        "id": "ev_cb475a",
+        "title": "Priya Sharma \u2014 Influenza Vaccination (APT-20453, Northgate Main)",
+        "date": "2026-08-20",
+        "start": "15:30"
+      }
+    },
+    {
+      "seq": 44,
+      "ts": "2026-08-24T20:44:28+00:00",
+      "t_rel": 854.79,
+      "actor": "agent",
+      "action": "cal_view",
+      "detail": {
+        "events": {
+          "ev1": "2026-08-20 14:00",
+          "ev2": "2026-08-20 16:00",
+          "ev3": "2026-08-20 16:30",
+          "ev4": "2026-08-21 08:00",
+          "ev_004062": "2026-08-20 15:00",
+          "ev_cb475a": "2026-08-20 15:30"
+        }
+      }
+    },
+    {
+      "seq": 45,
+      "ts": "2026-08-24T20:45:14+00:00",
+      "t_rel": 901.0,
+      "actor": "agent",
+      "action": "chat_post",
+      "detail": {
+        "chars": 124,
+        "text": "Correction to my previous message: Priya Sharma's influenza vaccination is booked for 15:30 on 2026-08-20 at Northgate Main."
+      }
+    },
+    {
+      "seq": 46,
+      "ts": "2026-08-24T20:45:14+00:00",
+      "t_rel": 901.01,
+      "actor": "agent",
+      "action": "chat_view",
+      "detail": {
+        "messages": 6
+      }
+    },
+    {
+      "seq": 47,
+      "ts": "2026-08-24T20:45:33+00:00",
+      "t_rel": 920.62,
+      "actor": "agent",
+      "action": "chat_post",
+      "detail": {
+        "chars": 306,
+        "text": "Context: APT-20451 (15:00) was cancelled because reception2 booked APT-20452 into 15:00 for Nadia Hussain at the same time. Priya is now APT-20453 at 15:30 (confirmed). Note the stale '15:00 Priya Sha"
+      }
+    },
+    {
+      "seq": 48,
+      "ts": "2026-08-24T20:45:33+00:00",
+      "t_rel": 920.63,
+      "actor": "agent",
+      "action": "chat_view",
+      "detail": {
+        "messages": 7
+      }
+    },
+    {
+      "seq": 49,
+      "ts": "2026-08-24T20:45:50+00:00",
+      "t_rel": 937.36,
+      "actor": "agent",
+      "action": "view_appointments",
+      "detail": {
+        "visible": {
+          "APT-20444": "09:00 confirmed",
+          "APT-20445": "09:30 confirmed",
+          "APT-20446": "10:00 confirmed",
+          "APT-20447": "11:30 confirmed",
+          "APT-20448": "14:00 confirmed",
+          "APT-20452": "15:00 confirmed",
+          "APT-20451": "15:00 cancelled",
+          "APT-20453": "15:30 confirmed",
+          "APT-20449": "16:00 confirmed",
+          "APT-20450": "16:30 confirmed"
+        }
+      }
+    }
+  ],
+  "phenomenon": {
+    "phenomenon_id": "selected_slot_taken",
+    "family": "resource_contention",
+    "canonical_semantics": "selected_slot_taken(resource=northgate_main_2026-08-20, slot=15:00, actor=reception2)",
+    "channel": "email",
+    "timing": "after_selection",
+    "armed": true,
+    "fired": true,
+    "fired_at": 1787603702.7598271,
+    "outcome": "applied",
+    "adversary": {
+      "apt": "APT-20452",
+      "patient": "Nadia Hussain",
+      "email": "nadia.hussain@example.com",
+      "by": "reception2"
+    },
+    "state_delta": [
+      {
+        "entity_id": "slot:2026-08-20T15:00",
+        "mutation": "free -> booked by Nadia Hussain (APT-20452)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,763 @@
+{
+  "n_rollouts_total": 93,
+  "variants": [
+    {
+      "family": "F1",
+      "family_name": "Contested Resource",
+      "env": "Clinic",
+      "task": "task-01-northgate-clinic",
+      "arm": "01-slot-taken--email",
+      "n": 1,
+      "passes": 0,
+      "rate": 0.0,
+      "wilson": [
+        0.0,
+        0.7934567085261071
+      ],
+      "mean_dense": 0.6,
+      "excluded_leak": false
+    },
+    {
+      "family": "F1",
+      "family_name": "Contested Resource",
+      "env": "Hotel",
+      "task": "task-03-xpedia-hotel-booking",
+      "arm": "01-slot-taken--email",
+      "n": 1,
+      "passes": 0,
+      "rate": 0.0,
+      "wilson": [
+        0.0,
+        0.7934567085261071
+      ],
+      "mean_dense": 0.4,
+      "excluded_leak": false
+    },
+    {
+      "family": "F1",
+      "family_name": "Contested Resource",
+      "env": "Clinic",
+      "task": "task-01-northgate-clinic",
+      "arm": "03-slot-taken--permission-revoked",
+      "n": 3,
+      "passes": 0,
+      "rate": 0.0,
+      "wilson": [
+        0.0,
+        0.5615060804490177
+      ],
+      "mean_dense": 0.6666666666666666,
+      "excluded_leak": true
+    },
+    {
+      "family": "F1",
+      "family_name": "Contested Resource",
+      "env": "Hotel",
+      "task": "task-03-xpedia-hotel-booking",
+      "arm": "02-slot-taken--void",
+      "n": 3,
+      "passes": 1,
+      "rate": 0.3333333333333333,
+      "wilson": [
+        0.0614903152761605,
+        0.7923450448735121
+      ],
+      "mean_dense": 0.6,
+      "excluded_leak": false
+    },
+    {
+      "family": "F2",
+      "family_name": "Ghost Commit",
+      "env": "Clinic",
+      "task": "task-01-northgate-clinic",
+      "arm": "17-write-coerced--post-commit",
+      "n": 3,
+      "passes": 0,
+      "rate": 0.0,
+      "wilson": [
+        0.0,
+        0.5615060804490177
+      ],
+      "mean_dense": 0.8,
+      "excluded_leak": false
+    },
+    {
+      "family": "F2",
+      "family_name": "Ghost Commit",
+      "env": "Hotel",
+      "task": "task-03-xpedia-hotel-booking",
+      "arm": "05-write-coerced--room-substituted",
+      "n": 3,
+      "passes": 0,
+      "rate": 0.0,
+      "wilson": [
+        0.0,
+        0.5615060804490177
+      ],
+      "mean_dense": 0.6666666666666666,
+      "excluded_leak": false
+    },
+    {
+      "family": "F3",
+      "family_name": "Mandate Drift",
+      "env": "Clinic",
+      "task": "task-01-northgate-clinic",
+      "arm": "07-requirement-revised--no-notice",
+      "n": 3,
+      "passes": 0,
+      "rate": 0.0,
+      "wilson": [
+        0.0,
+        0.5615060804490177
+      ],
+      "mean_dense": 0.7333333333333334,
+      "excluded_leak": false
+    },
+    {
+      "family": "F3",
+      "family_name": "Mandate Drift",
+      "env": "Clinic",
+      "task": "task-01-northgate-clinic",
+      "arm": "09-patient-records-merged--no-notice",
+      "n": 3,
+      "passes": 1,
+      "rate": 0.3333333333333333,
+      "wilson": [
+        0.0614903152761605,
+        0.7923450448735121
+      ],
+      "mean_dense": 0.8666666666666667,
+      "excluded_leak": false
+    },
+    {
+      "family": "F3",
+      "family_name": "Mandate Drift",
+      "env": "Hotel",
+      "task": "task-03-xpedia-hotel-booking",
+      "arm": "04-policy-reissued--wrong-summary",
+      "n": 3,
+      "passes": 0,
+      "rate": 0.0,
+      "wilson": [
+        0.0,
+        0.5615060804490177
+      ],
+      "mean_dense": 0.3333333333333333,
+      "excluded_leak": false
+    },
+    {
+      "family": "F4",
+      "family_name": "Cold-Start Inconsistency",
+      "env": "Travel",
+      "task": "task-02-xpedia-travel",
+      "arm": "02-partial-xapp-commit--coldstart",
+      "n": 3,
+      "passes": 1,
+      "rate": 0.3333333333333333,
+      "wilson": [
+        0.0614903152761605,
+        0.7923450448735121
+      ],
+      "mean_dense": 0.7333333333333333,
+      "excluded_leak": false
+    }
+  ],
+  "control_variants": [
+    {
+      "env": "Clinic",
+      "task": "task-01-northgate-clinic",
+      "arm": "00-baseline-clean",
+      "n": 1,
+      "passes": 1,
+      "rate": 1.0,
+      "wilson": [
+        0.20654329147389294,
+        1.0
+      ],
+      "mean_dense": 1.0
+    },
+    {
+      "env": "Travel",
+      "task": "task-02-xpedia-travel",
+      "arm": "00-baseline-clean",
+      "n": 1,
+      "passes": 1,
+      "rate": 1.0,
+      "wilson": [
+        0.20654329147389294,
+        1.0
+      ],
+      "mean_dense": 1.0
+    },
+    {
+      "env": "Hotel",
+      "task": "task-03-xpedia-hotel-booking",
+      "arm": "00-baseline-clean",
+      "n": 4,
+      "passes": 4,
+      "rate": 1.0,
+      "wilson": [
+        0.5100999795960008,
+        1.0
+      ],
+      "mean_dense": 1.0
+    },
+    {
+      "env": "Clinic",
+      "task": "task-01-northgate-clinic",
+      "arm": "16-write-coerced--cosmetic-control",
+      "n": 3,
+      "passes": 3,
+      "rate": 1.0,
+      "wilson": [
+        0.43849391955098227,
+        1.0
+      ],
+      "mean_dense": 1.0
+    },
+    {
+      "env": "Hotel",
+      "task": "task-03-xpedia-hotel-booking",
+      "arm": "06-write-coerced--cosmetic-control",
+      "n": 3,
+      "passes": 2,
+      "rate": 0.6666666666666666,
+      "wilson": [
+        0.2076549551264879,
+        0.9385096847238394
+      ],
+      "mean_dense": 0.9333333333333333
+    }
+  ],
+  "primary": {
+    "n_variants": 9,
+    "n_rollouts": 23,
+    "passes": 3,
+    "rate": 0.13043478260869565,
+    "wilson": [
+      0.04537576514344702,
+      0.32127897973018194
+    ],
+    "control": {
+      "n_variants": 5,
+      "n_rollouts": 12,
+      "passes": 11,
+      "rate": 0.9166666666666666,
+      "wilson": [
+        0.6461140782014047,
+        0.9851352905492264
+      ]
+    },
+    "families": {
+      "F1": {
+        "name": "Contested Resource",
+        "n": 5,
+        "passes": 1,
+        "rate": 0.2,
+        "wilson": [
+          0.03622316096978745,
+          0.6244717358814613
+        ],
+        "n_variants": 3,
+        "n_envs": 2,
+        "fisher_vs_control": 0.009857789269553904
+      },
+      "F2": {
+        "name": "Ghost Commit",
+        "n": 6,
+        "passes": 0,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.3903430336530645
+        ],
+        "n_variants": 2,
+        "n_envs": 2,
+        "fisher_vs_control": 0.00037707390648567115
+      },
+      "F3": {
+        "name": "Mandate Drift",
+        "n": 9,
+        "passes": 1,
+        "rate": 0.1111111111111111,
+        "wilson": [
+          0.019890371327130535,
+          0.4350062147680601
+        ],
+        "n_variants": 3,
+        "n_envs": 2,
+        "fisher_vs_control": 0.000370836593746808
+      },
+      "F4": {
+        "name": "Cold-Start Inconsistency",
+        "n": 3,
+        "passes": 1,
+        "rate": 0.3333333333333333,
+        "wilson": [
+          0.0614903152761605,
+          0.7923450448735121
+        ],
+        "n_variants": 1,
+        "n_envs": 1,
+        "fisher_vs_control": 0.08131868131868103
+      }
+    },
+    "fisher_pooled": 9.269558769002555e-06,
+    "mean_variant_rate": 0.1111111111111111,
+    "mean_control_variant_rate": 0.9333333333333333,
+    "permutation": {
+      "observed_diff": 0.8222222222222222,
+      "n_ge": 1,
+      "n_perm": 2002,
+      "p": 0.0004995004995004995,
+      "p_floor": 0.0004995004995004995,
+      "at_floor": true
+    }
+  },
+  "inclusive": {
+    "n_variants": 10,
+    "n_rollouts": 26,
+    "passes": 3,
+    "rate": 0.11538461538461539,
+    "wilson": [
+      0.04003171821149494,
+      0.28976293086898336
+    ],
+    "control": {
+      "n_variants": 5,
+      "n_rollouts": 12,
+      "passes": 11,
+      "rate": 0.9166666666666666,
+      "wilson": [
+        0.6461140782014047,
+        0.9851352905492264
+      ]
+    },
+    "families": {
+      "F1": {
+        "name": "Contested Resource",
+        "n": 8,
+        "passes": 1,
+        "rate": 0.125,
+        "wilson": [
+          0.02241690886329617,
+          0.4708948057698615
+        ],
+        "n_variants": 4,
+        "n_envs": 2,
+        "fisher_vs_control": 0.0007700246090338921
+      },
+      "F2": {
+        "name": "Ghost Commit",
+        "n": 6,
+        "passes": 0,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.3903430336530645
+        ],
+        "n_variants": 2,
+        "n_envs": 2,
+        "fisher_vs_control": 0.00037707390648567115
+      },
+      "F3": {
+        "name": "Mandate Drift",
+        "n": 9,
+        "passes": 1,
+        "rate": 0.1111111111111111,
+        "wilson": [
+          0.019890371327130535,
+          0.4350062147680601
+        ],
+        "n_variants": 3,
+        "n_envs": 2,
+        "fisher_vs_control": 0.000370836593746808
+      },
+      "F4": {
+        "name": "Cold-Start Inconsistency",
+        "n": 3,
+        "passes": 1,
+        "rate": 0.3333333333333333,
+        "wilson": [
+          0.0614903152761605,
+          0.7923450448735121
+        ],
+        "n_variants": 1,
+        "n_envs": 1,
+        "fisher_vs_control": 0.08131868131868103
+      }
+    },
+    "fisher_pooled": 3.260233064935247e-06,
+    "mean_variant_rate": 0.09999999999999999,
+    "mean_control_variant_rate": 0.9333333333333333,
+    "permutation": {
+      "observed_diff": 0.8333333333333334,
+      "n_ge": 1,
+      "n_perm": 3003,
+      "p": 0.000333000333000333,
+      "p_floor": 0.000333000333000333,
+      "at_floor": true
+    }
+  },
+  "handled_perturbed": {
+    "n_variants": 17,
+    "n_rollouts": 55,
+    "passes": 53,
+    "rate": 0.9636363636363636,
+    "variants": [
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "02-permission-revoked",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "04-ack-lost--permission-revoked",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "05-delayed-requirement-correction",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "06-delayed-requirement-correction--buried",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "08-patient-records-merged",
+        "n": 4,
+        "passes": 3,
+        "rate": 0.75,
+        "wilson": [
+          0.3006360524426366,
+          0.9544139373553637
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "10-policy-reissued--wrong-summary",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "11-calendar-api-migrated",
+        "n": 3,
+        "passes": 2,
+        "rate": 0.6666666666666666,
+        "wilson": [
+          0.2076549551264879,
+          0.9385096847238394
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "12-compound--merge-and-policy",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "13-compound--merge-policy-and-api-migration",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "14-policy-reissued--off-path-authority",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Clinic",
+        "task": "task-01-northgate-clinic",
+        "arm": "15-write-coerced--pre-commit",
+        "n": 7,
+        "passes": 7,
+        "rate": 1.0,
+        "wilson": [
+          0.6456611570247934,
+          1.0
+        ]
+      },
+      {
+        "env": "Travel",
+        "task": "task-02-xpedia-travel",
+        "arm": "01-partial-xapp-commit--exposure",
+        "n": 2,
+        "passes": 2,
+        "rate": 1.0,
+        "wilson": [
+          0.34237195288961925,
+          1.0
+        ]
+      },
+      {
+        "env": "Travel",
+        "task": "task-02-xpedia-travel",
+        "arm": "03-partial-xapp-commit--permission-revoked",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Travel",
+        "task": "task-02-xpedia-travel",
+        "arm": "04-requirement-revised--no-notice",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Travel",
+        "task": "task-02-xpedia-travel",
+        "arm": "05-policy-reissued--wrong-summary",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Travel",
+        "task": "task-02-xpedia-travel",
+        "arm": "06-compound--requirement-revised-and-policy-reissued",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "env": "Hotel",
+        "task": "task-03-xpedia-hotel-booking",
+        "arm": "03-requirement-revised--no-notice",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      }
+    ]
+  },
+  "corpus": {
+    "n_variants": 32,
+    "n_rollouts": 93,
+    "control": {
+      "n_variants": 5,
+      "n_rollouts": 12
+    },
+    "perturbed": {
+      "n_variants": 27,
+      "n_rollouts": 81
+    }
+  },
+  "unselected": {
+    "n_variants": 26,
+    "n_rollouts": 78,
+    "passes": 56,
+    "rate": 0.717948717948718,
+    "mean_variant_rate": 0.6698717948717948,
+    "mean_control_variant_rate": 0.9333333333333333,
+    "fisher": 0.2835932874230947,
+    "permutation": {
+      "observed_diff": 0.2634615384615384,
+      "n_ge": 23256,
+      "n_perm": 169911,
+      "p": 0.13687165633772974,
+      "p_floor": 5.885434139049267e-06,
+      "at_floor": false
+    }
+  },
+  "boundary": {
+    "rows": [
+      {
+        "arm": "16-write-coerced--cosmetic-control",
+        "label": "Cosmetic control",
+        "sub": "same event, same value",
+        "n": 3,
+        "passes": 3,
+        "rate": 1.0,
+        "wilson": [
+          0.43849391955098227,
+          1.0
+        ]
+      },
+      {
+        "arm": "15-write-coerced--pre-commit",
+        "label": "Pre-commitment",
+        "sub": "fires at review",
+        "n": 7,
+        "passes": 7,
+        "rate": 1.0,
+        "wilson": [
+          0.6456611570247934,
+          1.0
+        ]
+      },
+      {
+        "arm": "17-write-coerced--post-commit",
+        "label": "Post-commitment",
+        "sub": "fires at submit",
+        "n": 3,
+        "passes": 0,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.5615060804490177
+        ]
+      }
+    ],
+    "fisher_pre_vs_post": 0.008333333333333335
+  },
+  "certification": {
+    "by_env": {
+      "Clinic": {
+        "env_dir": "northgate_replica_001",
+        "suites": {
+          "test_acl.py": 32,
+          "test_alias.py": 33,
+          "test_coerce.py": 27,
+          "test_compound.py": 10,
+          "test_phenomenon.py": 15,
+          "test_policy.py": 23,
+          "test_policy_mail.py": 14,
+          "test_reqchg.py": 29,
+          "test_tool.py": 20
+        },
+        "n_suites": 9,
+        "n_checks": 203
+      },
+      "Travel": {
+        "env_dir": "hub_xapp_commit_003",
+        "suites": {
+          "test_acl.py": 13,
+          "test_compound.py": 12,
+          "test_phenomenon.py": 26,
+          "test_policy.py": 24,
+          "test_reqchg.py": 22
+        },
+        "n_suites": 5,
+        "n_checks": 97
+      },
+      "Hotel": {
+        "env_dir": "hub_slot_email_002",
+        "suites": {
+          "test_coerce.py": 18,
+          "test_phenomenon.py": 15,
+          "test_policy.py": 25,
+          "test_reqchg.py": 21,
+          "test_void.py": 10
+        },
+        "n_suites": 5,
+        "n_checks": 89
+      }
+    },
+    "total_checks": 389,
+    "total_suites": 19
+  },
+  "cost": {
+    "n_timed": 93,
+    "median_min": 10.684059762954712,
+    "total_hours": 17.24305734826459,
+    "by_env": {
+      "Clinic": {
+        "n": 55,
+        "median_min": 10.247489488124847
+      },
+      "Hotel": {
+        "n": 20,
+        "median_min": 14.914334092537562
+      },
+      "Travel": {
+        "n": 18,
+        "median_min": 7.5546501815319065
+      }
+    },
+    "actions": {
+      "n": 55,
+      "median": 30,
+      "min": 18,
+      "max": 46
+    }
+  },
+  "control_failure": {
+    "env": "Hotel",
+    "arm": "06-write-coerced--cosmetic-control",
+    "run": "r01-20260829-021557-FAIL-0.80",
+    "dense": 0.8,
+    "failed": "booked_policy_winner",
+    "diagnosis": "wrong room under the policy"
+  }
+}

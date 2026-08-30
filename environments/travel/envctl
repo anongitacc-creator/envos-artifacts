@@ -1,0 +1,143 @@
+#!/bin/bash
+# =============================================================================
+# envctl - the one entrypoint for the whole pipeline.
+#
+#   ./envctl install                     build the kit-local toolchain (.kit/)
+#   ./envctl check                       preflight: report every dependency
+#   ./envctl start [--arm CLEAN|XAPP|COLD|XAPP_ACL]
+#                                        desktop + mocks + seed + proxies +
+#                                        exogenous actor + browser
+#                                        CLEAN control | XAPP breaks while the
+#                                        agent watches | COLD already broken at
+#                                        step 0 (fired after the tabs render)
+#   ./envctl web                         publish the desktop at
+#                                        http://localhost:$ENVOS_WEB_PORT/vnc.html
+#   ./envctl shot [out.png]              screenshot the task desktop
+#   ./envctl golden                      reference solution through the real UI
+#   ./envctl verify                      score the live episode (reward.py)
+#   ./envctl test                        certification: phenomenon suite
+#   ./envctl rollout [--model M] [--arm A] [--turns N]
+#                                        full recorded, scored agent episode
+#   ./envctl atlas <run_dir>             render the atlas video for a run
+#   ./envctl stop                        tear down this kit's processes
+#
+# Every path is derived from this file's own location; every port, display and
+# sid from config.env - the kit runs from wherever you unpack it.
+# =============================================================================
+set -u
+export ENVOS_KIT="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+[ -f "$ENVOS_KIT/config.local.env" ] && . "$ENVOS_KIT/config.local.env"
+. "$ENVOS_KIT/config.env"
+export CUA_GYM_HUB ENVOS_OPT CHROME_BIN ENVOS_SID ENVOS_ARM \
+       ENVOS_DISPLAY ENVOS_GEOM ENVOS_VNC_PORT ENVOS_WEB_PORT \
+       ENVOS_EXPEDIA_MOCK ENVOS_GMAIL_MOCK ENVOS_GCAL_MOCK ENVOS_EXPEDIA_PROXY ENVOS_GMAIL_PROXY ENVOS_GCAL_PROXY \
+       ENVOS_DWELL_S ENVOS_FIRE_AT_S ENVOS_ACL_DELAY_S \
+       ENVOS_MODEL ENVOS_TURNS ENVOS_TIMEOUT
+
+RUN="$ENVOS_KIT/_run"
+PY="$ENVOS_OPT/venv/bin/python"
+DNUM="${ENVOS_DISPLAY#:}"
+ISO_HOME="$RUN/home"; ISO_RUNTIME="$RUN/xdg-runtime"
+
+die(){ echo "envctl: $*" >&2; exit 1; }
+port_up(){ (exec 3<>"/dev/tcp/127.0.0.1/$1") 2>/dev/null && exec 3>&- && return 0; return 1; }
+need_py(){ [ -x "$PY" ] || die "no venv at $ENVOS_OPT/venv - run: ./envctl install"; }
+
+args=(); while [ $# -gt 0 ]; do case "$1" in
+  --arm)     export ENVOS_ARM="$2";     shift 2 ;;
+  --display) export ENVOS_DISPLAY="$2"; DNUM="${2#:}"; shift 2 ;;
+  --model)   export ENVOS_MODEL="$2";   shift 2 ;;
+  --turns)   export ENVOS_TURNS="$2";   shift 2 ;;
+  *) args+=("$1"); shift ;; esac; done
+set -- "${args[@]:-}"; CMD="${1:-}"
+
+start_desktop(){
+  [ -e "/tmp/.X11-unix/X$DNUM" ] && { echo "  [up] display $ENVOS_DISPLAY"; return 0; }
+  mkdir -p "$RUN" "$ISO_HOME" "$ISO_RUNTIME"; chmod 700 "$ISO_RUNTIME"
+  setsid nohup Xvfb "$ENVOS_DISPLAY" -screen 0 "$ENVOS_GEOM" -nolisten tcp \
+      >"$RUN/xvfb.log" 2>&1 &
+  for _ in $(seq 1 40); do [ -e "/tmp/.X11-unix/X$DNUM" ] && break; sleep 0.25; done
+  [ -e "/tmp/.X11-unix/X$DNUM" ] || die "Xvfb failed (see $RUN/xvfb.log)"
+  # env -i: the desktop must not inherit the operator's session (dbus, XDG),
+  # or the agent's windows land in the operator's environment.
+  env -i HOME="$ISO_HOME" USER="${USER:-$(id -un)}" SHELL=/bin/bash \
+      PATH="/usr/local/bin:/usr/bin:/bin" DISPLAY="$ENVOS_DISPLAY" \
+      XDG_RUNTIME_DIR="$ISO_RUNTIME" XDG_CONFIG_HOME="$ISO_HOME/.config" \
+      XDG_CACHE_HOME="$ISO_HOME/.cache" XDG_DATA_HOME="$ISO_HOME/.local/share" \
+      XDG_CURRENT_DESKTOP=XFCE LANG=C.UTF-8 \
+      setsid nohup dbus-run-session -- xfce4-session >"$RUN/xfce.log" 2>&1 &
+  for _ in $(seq 1 80); do DISPLAY="$ENVOS_DISPLAY" xwininfo -root -children 2>/dev/null \
+      | grep -qi xfce4-panel && break; sleep 0.5; done
+  DISPLAY="$ENVOS_DISPLAY" xwininfo -root -children 2>/dev/null | grep -qi xfce4-panel \
+    || die "xfce4-session did not come up (see $RUN/xfce.log)"
+  echo "  [start] display $ENVOS_DISPLAY ($ENVOS_GEOM)"
+}
+
+case "$CMD" in
+install) bash "$ENVOS_KIT/setup/install.sh" ;;
+check)   bash "$ENVOS_KIT/setup/install.sh" --check-only ;;
+mocks)   need_py; "$PY" "$ENVOS_KIT/hub/start_mocks.py" ;;
+start)
+  need_py
+  echo "== hub_xapp_commit_003: partial cross-app commit (arm $ENVOS_ARM, sid $ENVOS_SID) =="
+  start_desktop
+  "$PY" "$ENVOS_KIT/hub/start_mocks.py" || die "hub mocks failed"
+  DISPLAY="$ENVOS_DISPLAY" "$PY" "$ENVOS_KIT/environment/initial_setup.py" \
+      --arm "$ENVOS_ARM" --display "$ENVOS_DISPLAY" || die "setup failed"
+  if [ "$ENVOS_ARM" = "COLD" ]; then
+    # Cold start: the tabs are open and rendered on the consistent world
+    # (initial_setup waits for them); fire NOW, synchronously, so the episode
+    # begins on an already-inconsistent world whose open pages are stale.
+    "$PY" "$ENVOS_KIT/environment/exogenous_actor.py" --arm COLD \
+        >"$RUN/actor.log" 2>&1 || die "cold-start fire failed (see $RUN/actor.log)"
+    sleep 4    # let the live Xmail poller pull the receipt into the open inbox
+    tail -1 "$RUN/actor.log" | sed 's/^/  /'
+  elif [ "$ENVOS_ARM" != "CLEAN" ]; then
+    setsid nohup "$PY" "$ENVOS_KIT/environment/exogenous_actor.py" \
+        --arm "$ENVOS_ARM" >"$RUN/actor.log" 2>&1 &
+    echo "  [start] actor armed (fires ${ENVOS_DWELL_S}s after first Trips/calendar view)"
+  fi
+  echo; echo "next: ./envctl web  ->  http://localhost:$ENVOS_WEB_PORT/vnc.html?autoconnect=1&resize=scale"
+  ;;
+web)
+  need_py
+  [ -e "/tmp/.X11-unix/X$DNUM" ] || die "display $ENVOS_DISPLAY is not running"
+  if ! port_up "$ENVOS_VNC_PORT"; then
+    LD_LIBRARY_PATH="$ENVOS_OPT/vnc/usr/lib/x86_64-linux-gnu" setsid nohup \
+      "$ENVOS_OPT/vnc/usr/bin/x11vnc" -display "$ENVOS_DISPLAY" \
+      -rfbport "$ENVOS_VNC_PORT" -localhost -forever -shared -nopw -noxdamage \
+      >"$RUN/x11vnc.log" 2>&1 &
+    for _ in $(seq 1 40); do port_up "$ENVOS_VNC_PORT" && break; sleep 0.5; done
+    port_up "$ENVOS_VNC_PORT" || die "x11vnc failed"
+  fi
+  if ! port_up "$ENVOS_WEB_PORT"; then
+    setsid nohup "$PY" -m websockify --web "$ENVOS_OPT/novnc" \
+      127.0.0.1:"$ENVOS_WEB_PORT" 127.0.0.1:"$ENVOS_VNC_PORT" \
+      >"$RUN/websockify.log" 2>&1 &
+    for _ in $(seq 1 40); do port_up "$ENVOS_WEB_PORT" && break; sleep 0.5; done
+  fi
+  echo "  [ok] noVNC http://localhost:$ENVOS_WEB_PORT/vnc.html?autoconnect=1&resize=scale"
+  ;;
+shot) OUT="${2:-$RUN/desktop.png}"
+  DISPLAY="$ENVOS_DISPLAY" scrot -o "$OUT" || die "screenshot failed"; echo "$OUT" ;;
+golden)    need_py; "$PY" "$ENVOS_KIT/certification/golden_patch.py" ;;
+naive)     need_py; "$PY" "$ENVOS_KIT/certification/naive_patch.py" ;;
+verify)    need_py; "$PY" "$ENVOS_KIT/rewards/reward.py"; exit $? ;;
+test)      need_py; "$PY" "$ENVOS_KIT/certification/test_phenomenon.py" || exit $?
+           "$PY" "$ENVOS_KIT/certification/test_acl.py" || exit $?
+           "$PY" "$ENVOS_KIT/certification/test_reqchg.py" || exit $?
+           "$PY" "$ENVOS_KIT/certification/test_policy.py" || exit $?
+           "$PY" "$ENVOS_KIT/certification/test_compound.py"; exit $? ;;
+rollout)   need_py; bash "$ENVOS_KIT/agent/run_agent.sh" ;;
+atlas)     need_py; [ -n "${2:-}" ] || die "usage: ./envctl atlas <run_dir>"
+           "$PY" "$ENVOS_KIT/agent/make_atlas.py" "$2" ;;
+stop)
+  pkill -f "x11vnc -display $ENVOS_DISPLAY" 2>/dev/null
+  pkill -f "websockify --web $ENVOS_OPT/novnc 127.0.0.1:$ENVOS_WEB_PORT" 2>/dev/null
+  pkill -f "user-data-dir=$RUN/chrome-profile" 2>/dev/null
+  pkill -f "$ENVOS_KIT/environment/reground_proxy.py" 2>/dev/null
+  pkill -f "$ENVOS_KIT/environment/exogenous_actor.py" 2>/dev/null
+  pkill -f "Xvfb $ENVOS_DISPLAY" 2>/dev/null
+  echo "stopped (hub mocks on :$ENVOS_EXPEDIA_MOCK/:$ENVOS_GMAIL_MOCK left running - shared, sid-partitioned)" ;;
+*) sed -n '3,25p' "$0" | sed 's/^# \{0,1\}//'; exit 1 ;;
+esac

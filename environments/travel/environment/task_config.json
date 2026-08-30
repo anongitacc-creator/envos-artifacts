@@ -1,0 +1,35 @@
+{
+  "task_id": "hub_xapp_commit_003",
+  "task_instruction": "Ines from Travel emailed me about final pre-approval for my New York trip. Please handle it for me - do whatever her email asks and reply to her.",
+  "phenomenon": "partial_xapp_commit - the booking moves (authoritative) and the receipt propagates while the calendar sync silently fails; the world itself violates the cross-app invariant until repaired",
+  "apps": {
+    "xmail": "gmail_mock behind proxy $ENVOS_GMAIL_PROXY (poller ON)",
+    "xpedia": "expedia_mock behind proxy $ENVOS_EXPEDIA_PROXY (poller OFF - stale UI)",
+    "calendar": "google_calendar_mock behind proxy $ENVOS_GCAL_PROXY (poller ON, never bumped)"
+  },
+  "arms": {
+    "CLEAN": "control - world stays consistent on Sep 14",
+    "XAPP": "partial commit AFTER the agent has seen the consistent world: booking -> Sep 15, receipt lands, calendar stays Sep 14",
+    "COLD": "the same commit fired BEFORE the agent's first step - the episode opens already inconsistent, inherited tabs still render Sep 14, no temporal cue",
+    "XAPP_ACL": "the repair itself becomes forbidden: calendar write access is revoked after the commit",
+    "REQCHG": "the REQUEST is revised mid-task (confirmation number -> itinerary number, requirement v1 -> v2) with NO notification - the task email is amended in place, and the new answer is only on Trips",
+    "POLICY": "finance's pre-approval cross-check is REISSUED mid-task (v1 -> v2: the whole stay, not just the arrival), so the calendar now needs a check-out entry too. The request is republished in place; what arrives is a colleague's summary naming a requirement the calendar already meets"
+  },
+  "trigger": "exposure-formed: fires ENVOS_DWELL_S after the agent first views the entity (Trips or calendar); fallback ENVOS_FIRE_AT_S; preempted if reply already sent",
+  "invariants": [
+    "booking_intact",
+    "calendar_matches_booking",
+    "no_collateral_damage",
+    "reply_reports_authoritative (hotel, the identifier the request now asks for, and the authoritative date)",
+    "verified_before_reply"
+  ],
+  "reward": "dense = passes/5; terminal_success = all five",
+  "estimated_steps": "20-35 GUI actions",
+  "certified_by": [
+    "certification/test_phenomenon.py (28)",
+    "certification/test_acl.py (13)",
+    "certification/test_reqchg.py (23)",
+    "certification/test_policy.py (25)"
+  ],
+  "generated_at": "2026-08-26"
+}

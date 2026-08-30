@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>TeamChat — Ops</title>
+<style>
+ * { box-sizing:border-box }
+ body { margin:0; font:14px/1.5 -apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:#1b1f27; background:#14213b }
+ .wrap { display:flex; height:100vh }
+ .side { width:220px; background:#14213b; color:#c7d0e2; padding:16px }
+ .side b { color:#fff; font-size:14px }
+ .side .ch { padding:5px 10px; border-radius:4px; font-size:13px; margin-top:4px }
+ .side .ch.on { background:#2c3e66; color:#fff }
+ .main { flex:1; background:#fff; display:flex; flex-direction:column }
+ .head { border-bottom:1px solid #e3e7ee; padding:12px 20px; font-weight:700 }
+ .msgs { flex:1; overflow-y:auto; padding:14px 20px }
+ .m { margin-bottom:14px }
+ .m .a { font-weight:700; font-size:13px }
+ .m .w { color:#8a93a5; font-size:11px; margin-left:8px }
+ .m .t { font-size:13px; margin-top:2px; white-space:pre-wrap }
+ form { display:flex; gap:8px; padding:12px 20px; border-top:1px solid #e3e7ee }
+ input { flex:1; padding:9px 12px; font-size:13px; border:1px solid #c7cfdb; border-radius:4px }
+ button { background:#1c5bd8; color:#fff; border:0; border-radius:4px; padding:9px 18px; font-size:13px; cursor:pointer }
+</style>
+<div class="wrap">
+ <div class="side"><b>Meridian Analytics</b>
+  <div class="ch">Off-Topic</div><div class="ch on"># Ops</div><div class="ch">Random</div><div class="ch">Town Square</div>
+ </div>
+ <div class="main">{% block body %}{% endblock %}</div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "max_miles": 1.0,
+  "require_free_cancellation": true,
+  "rank": "highest_rating_under_cap",
+  "rate_cap": 250,
+  "issued_by": "Travel & Expenses",
+  "effective_at": 1787915824.6747506,
+  "superseded": false
+}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <h2>Clinic scheduling policy</h2>
+  {% if by_mail %}
+  <p style="background:#fdf1d8;border:1px solid #e6d3a3;border-radius:4px;padding:10px 12px">
+    <b>This page is not the authority.</b> The scheduling policy is issued by
+    Clinic Operations by email — see <b>&ldquo;{{ subject }}&rdquo;</b> in your
+    inbox for the current text. Ops reissue it from time to time and the
+    version number changes when they do; this page does not track it.
+  </p>
+  {% endif %}
+  <p class="hint" style="margin:-8px 0 14px">
+    Issued by {{ p.issued_by }} · <b>version {{ p.version }}</b> ·
+    effective {{ p.effective_at }}. This page is the authoritative text.
+    Ops reissue it from time to time; the version number changes when they do.
+  </p>
+  <table class="kv">
+    <tr><th>Booking rule</th>
+        <td>{% if p.rule == 'earliest_available' %}
+              Book the <b>earliest slot still available</b> on the requested day.
+            {% else %}
+              Book the <b>earliest slot still available</b> on the requested
+              day <b>that is not a held slot</b>.
+            {% endif %}</td></tr>
+    <tr><th>Held slots</th>
+        <td>{% if p.held_slots %}
+              <b>{{ p.held_slots | join(', ') }}</b> — not available for routine
+              bookings
+            {% else %}none{% endif %}</td></tr>
+    <tr><th>Notes</th><td>{{ p.note or '—' }}</td></tr>
+  </table>
+</div>
+{% endblock %}

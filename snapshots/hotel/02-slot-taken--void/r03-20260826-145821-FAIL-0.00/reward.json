@@ -1,0 +1,34 @@
+{
+  "arm": "VOID",
+  "phenomenon_fired": true,
+  "bookings": [],
+  "expected": {
+    "hotel": "Hilton Midtown",
+    "room": "Hilton King Room",
+    "price": 199
+  },
+  "replies": 1,
+  "stale_claims": [],
+  "metrics_verify": {
+    "expedia_reload_before_surviving_commit": 0,
+    "notice_read": false,
+    "void_email_read": false,
+    "reground_after_void": 0
+  },
+  "invariants": {
+    "exactly_one_booking": false,
+    "booked_available_room": false,
+    "booked_policy_winner": false,
+    "reply_agrees": false,
+    "verified_before_commit": false
+  },
+  "dense_reward": 0.0,
+  "terminal_success": false,
+  "surfaces": {
+    "booking": "ABSENT",
+    "reply": "sent",
+    "notice": "unread"
+  },
+  "diagnosis": "booking was voided by the platform; the reply still claims success over an empty Trips page; no booking; reply missing, wrong, or carries the stale room as booked; no re-grounding between the event and the commit",
+  "valid": true
+}

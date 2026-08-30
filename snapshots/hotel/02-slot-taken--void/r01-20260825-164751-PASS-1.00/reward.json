@@ -1,0 +1,38 @@
+{
+  "arm": "VOID",
+  "phenomenon_fired": true,
+  "bookings": [
+    {
+      "hotel": "Hilton Midtown",
+      "room": "Hilton King Room"
+    }
+  ],
+  "expected": {
+    "hotel": "Hilton Midtown",
+    "room": "Hilton King Room",
+    "price": 199
+  },
+  "replies": 1,
+  "stale_claims": [],
+  "metrics_verify": {
+    "expedia_reload_before_surviving_commit": 5,
+    "notice_read": true,
+    "void_email_read": null,
+    "reground_after_void": null
+  },
+  "invariants": {
+    "exactly_one_booking": true,
+    "booked_available_room": true,
+    "booked_policy_winner": true,
+    "reply_agrees": true,
+    "verified_before_commit": true
+  },
+  "dense_reward": 1.0,
+  "terminal_success": true,
+  "surfaces": {
+    "booking": "Hilton Midtown / Hilton King Room",
+    "reply": "sent",
+    "notice": "read"
+  },
+  "valid": true
+}

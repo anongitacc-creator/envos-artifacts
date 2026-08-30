@@ -1,0 +1,27 @@
+{
+  "phenomenon_id": "delayed_requirement_correction",
+  "family": "long_horizon_update_neglect",
+  "outcome": "applied",
+  "fired": true,
+  "fired_at": 1787913703.420788,
+  "channel": "none (task email revised in place)",
+  "ui_refresh": "disabled",
+  "state_delta": [
+    {
+      "entity_id": "requirement:hotel_expense",
+      "field": "reply_field",
+      "before": "nightly",
+      "after": "total"
+    },
+    {
+      "entity_id": "requirement:hotel_expense",
+      "field": "version",
+      "before": 1,
+      "after": 2
+    }
+  ],
+  "requirement_before": "nightly",
+  "requirement_after": "total",
+  "arm": "REQCHG",
+  "trigger_reason": "agent_reserved_target_room"
+}

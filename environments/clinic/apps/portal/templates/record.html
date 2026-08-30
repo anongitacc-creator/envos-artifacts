@@ -1,0 +1,29 @@
+{% extends "base.html" %}{% block body %}
+<div class="card">
+<h2>{{ a.apt }} <span class="pill {{ a.status }}">{{ a.status }}</span></h2>
+<table class="kv">
+<tr><th>Appointment number</th><td>{{ a.apt }}</td></tr>
+<tr><th>Patient full name</th><td>{{ a.patient }}</td></tr>
+<tr><th>Contact email</th><td>{{ a.email }}</td></tr>
+<tr><th>Clinic</th><td>{{ a.clinic }}</td></tr>
+<tr><th>Vaccine</th><td>{{ a.vaccine }}</td></tr>
+<tr><th>Date</th><td>{{ a.date }}</td></tr>
+<tr><th>Time slot</th><td>{{ a.slot }}</td></tr>
+<tr><th>Notes</th><td>{{ a.notes or "—" }}</td></tr>
+<tr><th>Created by</th><td>{{ a.created_by }} <span class="hint">{{ a.created_at[:16].replace("T"," ") }}</span></td></tr>
+</table>
+<p style="margin-top:14px">
+{% if a.status == "requested" %}
+<form method="post" action="/record/{{ a.apt }}/confirm" style="display:inline"><button class="btn">Confirm</button></form>
+{% endif %}
+<form method="post" action="/record/{{ a.apt }}/delete" style="display:inline"><button class="btn red">Delete</button></form>
+<a class="btn gray" href="/appointments">Back</a></p>
+</div>
+<div class="card"><h2>Documents</h2>
+<table><tr><th>File</th><th>Size</th><th>SHA-256</th></tr></table>
+<p class="hint">No documents attached.</p></div>
+<div class="card"><h2>History</h2>
+<table><tr><th>Action</th><th>From</th><th>To</th><th>By</th><th>When</th></tr>
+{% for h in a.history %}<tr><td>{{ h[0] }}</td><td>{{ h[1] }}</td><td>{{ h[2] }}</td><td>{{ h[3] }}</td><td>{{ h[4] }}</td></tr>{% endfor %}
+</table></div>
+{% endblock %}

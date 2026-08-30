@@ -1,0 +1,17 @@
+{
+  "task": "task-01-northgate-clinic",
+  "arm": "07-requirement-revised--no-notice",
+  "run": "r02-20260828-104509-FAIL-0.60",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/runs/20260828-104509-opus-armREQCHG_SILENT",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001",
+  "arm_recorded": "REQCHG_SILENT",
+  "verdict": "FAIL",
+  "dense_reward": 0.6,
+  "failed_invariants": [
+    "times_agree",
+    "no_delete_and_recreate"
+  ],
+  "diagnosis": "the booking is on the revised requirement but not every surface says so ({'required': 'Tdap', 'booking': True, 'calendar': False, 'chat': False}); chat surface disagrees or is absent; delete used as repair (1x)",
+  "rescore_drift": null,
+  "video": "videos/task01-clinic__07-requirement-revised--no-notice__r02__FAIL-0.60.mp4"
+}

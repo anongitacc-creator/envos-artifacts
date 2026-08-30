@@ -1,0 +1,32 @@
+{"kind": "html", "method": "GET", "path": "/?sid=hse002", "status": 200, "ts": 1787608208.1401684}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787608208.237495}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787608208.481884}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": null, "cart_room": null, "bookings": [], "ts": 1787608208.5413978}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": null, "cart_room": null, "bookings": [], "ts": 1787608272.6225722}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": null, "cart_room": null, "bookings": [], "ts": 1787608272.6234546}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_14", "cart_room": null, "bookings": [], "ts": 1787608359.0130231}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_1", "status": 200, "ts": 1787608411.4021988}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787608411.4431105}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_14", "cart_room": null, "bookings": [], "ts": 1787608411.4870763}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_1", "cart_room": null, "bookings": [], "ts": 1787608411.5151613}
+{"kind": "html", "method": "GET", "path": "/hotels?q=Hudson+Yards", "status": 200, "ts": 1787608430.3150218}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787608430.3521392}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_1", "cart_room": null, "bookings": [], "ts": 1787608430.3752956}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_10", "status": 200, "ts": 1787608462.2259667}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787608462.2623506}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_1", "cart_room": null, "bookings": [], "ts": 1787608462.286864}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_10", "cart_room": null, "bookings": [], "ts": 1787608462.307446}
+{"kind": "html", "method": "GET", "path": "/hotels/hotel_8", "status": 200, "ts": 1787608507.9789855}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787608508.0075953}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_10", "cart_room": null, "bookings": [], "ts": 1787608508.0453348}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": null, "bookings": [], "ts": 1787608508.0681841}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": "room_8_1", "bookings": [], "ts": 1787608556.7309015}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": null, "bookings": [{"hotelId": "hotel_8", "roomType": "Bunk Room", "totalCost": 593}], "ts": 1787608674.3461468}
+{"kind": "html", "method": "GET", "path": "/trips", "status": 200, "ts": 1787608767.6519728}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787608767.6901548}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [{"hotelId": "hotel_8", "roomType": "Bunk Room", "totalCost": 593}], "ts": 1787608767.740918}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787608793.3850803}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [{"hotelId": "hotel_8", "roomType": "Bunk Room", "totalCost": 593}], "ts": 1787608793.4074545}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set_current", "viewing": "hotel_8", "cart_room": null, "bookings": [{"hotelId": "hotel_8", "roomType": "Bunk Room", "totalCost": 593}], "ts": 1787608793.4284186}
+{"kind": "state", "method": "GET", "path": "/state?sid=hse002", "status": 200, "ts": 1787608823.8717656}
+{"kind": "post", "method": "POST", "path": "/post?sid=hse002", "action": "set", "viewing": "hotel_8", "cart_room": null, "bookings": [{"hotelId": "hotel_8", "roomType": "Bunk Room", "totalCost": 593}], "ts": 1787608823.8933356}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block body %}
+<div class="card"><h2 style="font-size:16px;margin:0 0 6px">New event
+  <span style="font-size:11px;color:#7b8894">Events API v1</span></h2>
+<form method="post">
+<label>Title</label><input name="title" required>
+<label>Date (YYYY-MM-DD)</label><input name="date" type="date" required>
+<label>Start (HH:MM)</label><input name="start" required placeholder="15:00">
+<label>Duration (minutes)</label><input name="duration" value="60">
+<p style="margin-top:16px"><button class="btn">Create</button> <a class="btn" style="background:#6b7c8a" href="/">Cancel</a></p>
+</form></div>
+{% endblock %}

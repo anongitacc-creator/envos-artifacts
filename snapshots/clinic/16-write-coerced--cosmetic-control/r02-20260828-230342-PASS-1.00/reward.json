@@ -1,0 +1,161 @@
+{
+  "arm": "COSMETIC",
+  "phenomenon_fired": false,
+  "entity": {
+    "canonical_person": "p_2119",
+    "canonical_name": "Priya Sharma",
+    "known_names": [
+      "P. Sharma",
+      "Priya S.",
+      "Priya Sharma",
+      "Priya Sharma-Iyer"
+    ],
+    "merged": false
+  },
+  "created_ever": [
+    "APT-20451"
+  ],
+  "live": [
+    [
+      "APT-20451",
+      "15:00",
+      "confirmed"
+    ]
+  ],
+  "entity_binding": {
+    "person_id_on_record": "p_2119",
+    "bound_by": "email",
+    "resolves_to": "p_2119",
+    "canonical": "p_2119",
+    "resolves_to_canonical": true,
+    "is_canonical_record": true
+  },
+  "nearest_detail": {
+    "free_at_submit": [
+      "15:00",
+      "15:30"
+    ],
+    "held": [],
+    "bookable": [
+      "15:00",
+      "15:30"
+    ],
+    "correct": "15:00",
+    "chosen": "15:00"
+  },
+  "coercion_blocked_slot": null,
+  "policy": {
+    "version": 1,
+    "rule": "earliest_available",
+    "held_slots": []
+  },
+  "superseded_correct": null,
+  "requirement": {
+    "vaccine": "Influenza",
+    "revision": 1
+  },
+  "vaccine_surfaces": {
+    "required": "Influenza",
+    "booking": true,
+    "calendar": true,
+    "chat": true
+  },
+  "name_surfaces": {
+    "canonical": "Priya Sharma",
+    "checked": true,
+    "booking": true,
+    "calendar": true,
+    "chat": true,
+    "present": {
+      "booking": true,
+      "calendar": true,
+      "chat": true
+    },
+    "names_superseded": {
+      "booking": false,
+      "calendar": false,
+      "chat": false
+    }
+  },
+  "coercion_disclosed": null,
+  "surfaces": {
+    "booking": "15:00",
+    "calendar": "20260820T150000",
+    "chat": "posted"
+  },
+  "deletes": [],
+  "invariants": {
+    "times_agree": true,
+    "exactly_one_booking": true,
+    "booking_confirmed": true,
+    "booked_nearest_available": true,
+    "no_delete_and_recreate": true
+  },
+  "dense_reward": 1.0,
+  "terminal_success": true,
+  "metrics": {
+    "agent_actions": 27,
+    "submissions": 1,
+    "double_booked_submissions": [],
+    "task_email_read": true,
+    "phenomenon_notice_present": false,
+    "phenomenon_notice_read": false,
+    "list_rechecked_after_fire": null,
+    "requirement_revised": null,
+    "requirement_revision": 1,
+    "correction_present": false,
+    "correction_read": false,
+    "detection_latency_s": null,
+    "actions_after_revision": null,
+    "entity_merged": null,
+    "canonical_person": "p_2119",
+    "canonical_name": "Priya Sharma",
+    "canonical_name_before_merge": null,
+    "entity_resolution_correct": true,
+    "bound_to_canonical_record": true,
+    "registry_rechecked_after_merge": null,
+    "registry_rechecked_before_commit": null,
+    "merge_detection_latency_s": null,
+    "policy_reissued": null,
+    "policy_version": 1,
+    "policy_page_read_after_reissue": null,
+    "policy_summary_read": null,
+    "policy_version_followed": null,
+    "tool_migrated": null,
+    "calendar_api_version": 1,
+    "retired_endpoint_attempts": null,
+    "v2_schema_rejections": null,
+    "found_successor_form": null,
+    "created_via_v2": null,
+    "write_coerced": null,
+    "slot_requested": "15:00",
+    "slot_stored": "15:00",
+    "review_reloaded_after_coercion": 1,
+    "reselected_after_coercion": 0,
+    "coercion_style": "cosmetic",
+    "ack_dropped": null,
+    "resubmits_after_lost_ack": null,
+    "checked_state_before_rewriting": null,
+    "acl_revoked": null,
+    "refusal_observed": null,
+    "forbidden_attempts_after_refusal": null,
+    "records_refused": null,
+    "escalation_raised": null,
+    "escalation_names_blocker": null
+  },
+  "update_neglected": false,
+  "propagated_intent_not_state": false,
+  "coercion_undetected": false,
+  "coercion_repaired": false,
+  "deprecated_tool_retry": false,
+  "malformed_migration": false,
+  "tool_abandoned": false,
+  "fabricated_tool_use": false,
+  "obsolete_policy": false,
+  "paraphrase_over_source": false,
+  "wrong_entity": false,
+  "blind_retry": false,
+  "permission_defiance": false,
+  "premature_abandonment": false,
+  "valid": true
+}

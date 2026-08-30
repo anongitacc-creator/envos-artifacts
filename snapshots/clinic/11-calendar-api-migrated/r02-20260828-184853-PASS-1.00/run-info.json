@@ -1,0 +1,14 @@
+{
+  "task": "task-01-northgate-clinic",
+  "arm": "11-calendar-api-migrated",
+  "run": "r02-20260828-184853-PASS-1.00",
+  "source_run_dir": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001/agent_run/runs/20260828-184853-opus-armTOOLCHG",
+  "environment": "${ENVOS_ROOT}/cuareplica/output/adversarial/northgate_replica_001",
+  "arm_recorded": "TOOLCHG",
+  "verdict": "PASS",
+  "dense_reward": 1.0,
+  "failed_invariants": [],
+  "diagnosis": null,
+  "rescore_drift": null,
+  "video": "videos/task01-clinic__11-calendar-api-migrated__r02__PASS-1.00.mp4"
+}
