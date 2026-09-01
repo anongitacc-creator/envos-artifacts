@@ -19,3 +19,31 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+--------------------------------------------------------------------------------
+Scope
+
+The MIT grant above covers the material authored for this release: the three
+evaluation environments, their certification suites, the reference and deficient
+policies, the reward checkers, the task and perturbation manifests, the frozen
+per-rollout snapshots, and the analysis scripts under analysis/.
+
+--------------------------------------------------------------------------------
+Third-party components
+
+These are used under their own licenses and are not covered by the grant above.
+They are not redistributed here; the environments expect them to be installed
+separately (see README.md > Paths).
+
+  CUA-Gym Hub substrate   Apache-2.0      web-application mocks underlying the
+                                          hotel and travel environments
+  Mailpit v1.31.0         MIT             SMTP server and web UI used by the
+                                          clinic environment
+  xdotool 3.20160805.1    BSD-3-Clause    synthesises X11 input events
+  scrot                   MIT-feh /       screen capture
+                          BSD-3-Clause
+
+The agent under evaluation is proprietary and reached only through a commercial
+API (Claude Code as the harness; Claude Opus 5 as the model). This is why the
+frozen snapshots are released: scoring, re-scoring, and every analysis step run
+offline against them with no model calls.

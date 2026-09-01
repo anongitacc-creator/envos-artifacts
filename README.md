@@ -1,11 +1,19 @@
 # EnvOS — released artifacts
 
-This repository accompanies the paper *EnvOS: A Certified Pipeline for
-Evaluating Interactive Agents Under State-Changing Phenomena*. It contains the
-three evaluation environments, their certification suites, the frozen
-per-rollout snapshots, and the analysis scripts — everything needed to inspect
-the environments, re-run certification, and reproduce every number and figure in
-the paper from the archived rollouts, without any model calls.
+This repository accompanies the paper *EnvOS: Certified Evaluation of Enterprise
+Agents in Changing Environments*. It contains the three evaluation environments,
+their certification suites, the frozen per-rollout snapshots, and the analysis
+scripts — everything needed to inspect the environments, re-run certification,
+and reproduce every number and figure in the paper from the archived rollouts,
+without any model calls.
+
+The evaluated corpus is 32 variants and 93 rollouts on Claude Opus 5 through
+Claude Code across three multi-application enterprise workflows (clinic
+scheduling, travel reconciliation, hotel booking). The four certification layers
+comprise 389 executable assertions in 19 suites (Clinic 203, Travel 97,
+Hotel 89). Four recurring phenomenon families are studied — *Contested
+Resource*, *Ghost Commit*, *Mandate Drift*, and *Cold-Start Inconsistency* —
+with nine checker signatures grouped under them.
 
 Not included: raw screen recordings, per-step screenshots, agent transcripts,
 the harness working directories, other candidate tasks, and manuscript drafts.
@@ -34,13 +42,21 @@ Each environment ships:
 - `reward.py` — the verifier: five state-based invariants, dense reward, and
   failure signatures
 - `tests/` (clinic, hotel) or `certification/` (travel) — the executable
-  certification suite; 389 assertions across the three environments
+  certification suite; 389 assertions in 19 suites across the three environments
+  (Clinic 203 in 9, Travel 97 in 5, Hotel 89 in 5)
 - `run_env.sh` / `envctl` — seed, run the reference/deficient policies, run
   certification (`golden` / `naive` / `test`), score (`verify`)
 - `run_agent.sh` — the exact non-interactive `claude` invocation used for
-  rollouts (`--allowedTools Bash Read`, isolated working directory)
-- `apps/`, `world/`, `hub/`, `environment/` — application code and seed data
-- `README.md`, `PHENOMENON.md` — per-environment notes
+  rollouts (`--allowedTools Bash Read`, isolated working directory); under
+  `agent/` in the travel environment
+- `apps/` (clinic), `world/` (hotel), `hub/` + `environment/` (travel) —
+  application code and seed data
+- `README.md` — per-environment notes
+
+`run_env.sh` / `envctl` accept `golden`, `naive`, `test` (certification) and
+`verify` (score the live world). Certification needs the environment stood up
+first (Mailpit for the clinic; a `CUA_GYM_HUB` checkout for the hotel and
+travel) — see **Paths** below.
 
 The travel environment keeps its scripts under `certification/`, `rewards/`,
 and `environment/` rather than at the top level.
@@ -59,38 +75,52 @@ export CUA_GYM_HUB=/path/to/CUA-Gym-Hub # for the hotel and travel environments
 
 `snapshots/<env>/<variant>/<rollout>/` for all 93 archived rollouts
 (clinic 18 variants / 55 rollouts, hotel 7 / 20, travel 7 / 18). Each holds only
-what re-scoring needs:
+what re-scoring and the cost table need:
 
-- `episode_snapshot.json` (or `world.json` + `mailbox.json`) — frozen
-  application state at episode end
+- frozen application state at episode end — `world.json` + `mailbox.json`
+  (clinic) or `episode_snapshot.json` (hotel, travel)
 - `reward.json` — invariants, dense reward, terminal success, signatures,
   diagnosis
-- `run-info.json` — task, variant, verdict, failed invariants
-- `phenomenon.json`, `policy.json`, `requirement.json` — the injected
-  perturbation and task parameters
-- `actions.log`, `*.provenance.jsonl` — the action and state-transition logs the
-  checkpoints are recovered from
+- `run-info.json` — task, variant, verdict, failed invariants, source run dir
+- `timing.json` — wall-clock (`duration_s`) and `agent_actions` for the cost
+  table
+- `phenomenon.json`, `requirement.json`, and `policy.json` (hotel) — the
+  injected perturbation and task parameters; hotel and travel only
+- `actions.log` (all); `*.provenance.jsonl` — the state-transition logs the
+  checkpoints are recovered from; hotel and travel only
 
-Re-score any rollout offline:
+Re-score any rollout offline (clinic reads `--world`, hotel and travel read
+`--snapshot`):
 
 ```
-python3 environments/<env>/reward.py --snapshot snapshots/<env>/<variant>/<rollout>/episode_snapshot.json
+python3 environments/clinic/reward.py         --world    snapshots/clinic/<variant>/<rollout>/world.json
+python3 environments/hotel/reward.py           --snapshot snapshots/hotel/<variant>/<rollout>/episode_snapshot.json
+python3 environments/travel/rewards/reward.py  --snapshot snapshots/travel/<variant>/<rollout>/episode_snapshot.json
 ```
+
+All 93 re-score with zero drift against the released verifiers.
 
 ## analysis/
 
 | File | |
 |---|---|
 | `runs.csv` | one row per rollout: dense reward, pass/fail, failed invariants, signatures, diagnosis |
-| `atlas.csv` | per-rollout timing and action counts |
+| `atlas.csv` | one row per variant — the machine-readable failure atlas: taxonomy, k, pass rate, Wilson interval, `pass^k`, dense-reward spread, signatures |
 | `paper_stats.json` | every derived number in the paper |
 | `*.md` | the intermediate analyses (`claims`, `contrasts`, `families`, `mechanisms`, `pooled`, `summary`) |
-| `bin/paper_stats.py` | regenerates `paper_stats.json` from `runs.csv` + the certification suites |
-| `bin/figures7.py` | regenerates every figure (`pdf` argument) |
-| `bin/import-run.py` | ingests a rollout directory, re-scores against the current checker, records drift |
+| `bin/analyse.py` | rebuilds `runs.csv`, `atlas.csv`, `contrasts.md`, `summary.md` from `snapshots/` + `environments/*/atlas.spec.json` |
+| `bin/paper_stats.py` | regenerates `paper_stats.json` from `runs.csv`, the certification suites, and the snapshot timing |
+| `bin/{families,claims,mechanisms,pooled}.py` | regenerate the matching `*.md` |
+| `bin/figures7.py` | regenerates every figure (`pdf` / `png` argument) |
+| `bin/import-run.py` | ingests a raw rollout directory, re-scores against the current checker, records drift |
 
-Every table and figure regenerates with the Python standard library alone
-(matplotlib only for the figures).
+Regeneration order: `analyse.py` → `paper_stats.py` → `figures7.py` and the
+`*.md` scripts. Every table regenerates with the Python standard library alone;
+figures additionally need `matplotlib`. The raw screen recordings are not part
+of the release, so the screenshot panels in `fig1_hero`, `fig5_checkpoints`,
+and `fig11_failuregrid` render empty while the data-driven content regenerates
+in full; `figs_crop/atlas_telemetry.png` in the paper is a screenshot and has
+no regeneration path here.
 
 ## License
 

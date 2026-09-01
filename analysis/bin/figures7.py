@@ -19,9 +19,13 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle
 import matplotlib.image as mpimg
 from PIL import Image
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# repo root: analysis/bin/figures7.py -> analysis/bin -> analysis -> <root>
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "analysis")
-CROP = os.path.join(ROOT, "paper", "final", "figs_crop")
+# scratch dir for cropped screenshot panels; the raw screenshots are not part
+# of the release (see README), so screenshot-composite panels render empty and
+# the data-driven figures regenerate in full.
+CROP = os.path.join(OUT, "figs_crop")
 S = json.load(open(os.path.join(OUT, "paper_stats.json")))
 
 plt.rcParams.update({
@@ -43,7 +47,7 @@ TINT = {BLUE: "#eff6ff", GREEN: "#ecfdf5", RED: "#fef2f2",
         VIOLET: "#f5f3ff", AMBER: "#fffbeb", SLATE: "#f8fafc"}
 FAMCOL = {"F1": RED, "F2": VIOLET, "F3": AMBER, "F4": BLUE}
 
-HERO = os.path.join(ROOT, "task-01-northgate-clinic",
+HERO = os.path.join(ROOT, "snapshots", "clinic",
                     "17-write-coerced--post-commit",
                     "r01-20260828-232723-FAIL-0.80")
 
@@ -623,7 +627,7 @@ def fig_taxonomy(path):
 
 # ----------------------------------------------------------------- fig 11
 def fig_failuregrid(path):
-    H = os.path.join(ROOT, "task-03-xpedia-hotel-booking")
+    H = os.path.join(ROOT, "snapshots", "hotel")
     rows = [
         ("Accept-then-Void", "dense 0.00", RED,
          os.path.join(H, "02-slot-taken--void", "r03-20260826-145821-FAIL-0.00"),

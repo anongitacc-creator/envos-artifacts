@@ -2,3 +2,13 @@ __pycache__/
 *.pyc
 _run/
 .DS_Store
+
+# regeneration outputs
+analysis/*.pdf
+analysis/*.png
+analysis/figs_crop/
+videos/
+
+# never commit manuscript sources or built PDFs
+*.tex
+*.pdf

@@ -684,7 +684,7 @@
   "certification": {
     "by_env": {
       "Clinic": {
-        "env_dir": "northgate_replica_001",
+        "env_dir": "clinic",
         "suites": {
           "test_acl.py": 32,
           "test_alias.py": 33,
@@ -700,7 +700,7 @@
         "n_checks": 203
       },
       "Travel": {
-        "env_dir": "hub_xapp_commit_003",
+        "env_dir": "travel",
         "suites": {
           "test_acl.py": 13,
           "test_compound.py": 12,
@@ -712,7 +712,7 @@
         "n_checks": 97
       },
       "Hotel": {
-        "env_dir": "hub_slot_email_002",
+        "env_dir": "hotel",
         "suites": {
           "test_coerce.py": 18,
           "test_phenomenon.py": 15,

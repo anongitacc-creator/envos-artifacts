@@ -24,12 +24,19 @@ import os
 import sys
 from collections import Counter, OrderedDict
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ADV = "${ENVOS_ROOT}/cuareplica/output/adversarial"
+# repo root: analysis/bin/analyse.py -> analysis/bin -> analysis -> <root>
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ENVS = os.path.join(ROOT, "environments")
+SNAPS = os.path.join(ROOT, "snapshots")
+# task id <-> released environment directory (snapshots/<env>, environments/<env>)
+ENVDIR = {
+    "task-01-northgate-clinic": "clinic",
+    "task-02-xpedia-travel": "travel",
+    "task-03-xpedia-hotel-booking": "hotel",
+}
+TASK_OF = {v: k for k, v in ENVDIR.items()}
 SPECS = {
-    "task-01-northgate-clinic": f"{ADV}/northgate_replica_001/atlas.spec.json",
-    "task-02-xpedia-travel": f"{ADV}/hub_xapp_commit_003/atlas.spec.json",
-    "task-03-xpedia-hotel-booking": f"{ADV}/hub_slot_email_002/atlas.spec.json",
+    t: os.path.join(ENVS, d, "atlas.spec.json") for t, d in ENVDIR.items()
 }
 SIGNATURES = ("wrong_entity", "update_neglected", "obsolete_policy",
               "paraphrase_over_source", "deprecated_tool_retry",
@@ -103,10 +110,13 @@ def load():
         except OSError:
             specs[t] = {"arms": {}}
     runs = []
-    for task in sorted(d for d in os.listdir(ROOT) if d.startswith("task-0")):
-        for arm in sorted(a for a in os.listdir(os.path.join(ROOT, task))
-                          if os.path.isdir(os.path.join(ROOT, task, a))):
-            ap = os.path.join(ROOT, task, arm)
+    for task in sorted(ENVDIR):
+        edir = os.path.join(SNAPS, ENVDIR[task])
+        if not os.path.isdir(edir):
+            continue
+        for arm in sorted(a for a in os.listdir(edir)
+                          if os.path.isdir(os.path.join(edir, a))):
+            ap = os.path.join(edir, arm)
             for run in sorted(x for x in os.listdir(ap)
                               if os.path.isdir(os.path.join(ap, x))):
                 rp = os.path.join(ap, run)

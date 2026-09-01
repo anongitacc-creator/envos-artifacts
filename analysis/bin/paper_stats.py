@@ -24,9 +24,11 @@ headline figures and a reader should be able to see them in the code:
 """
 import csv, glob, itertools, json, math, os, re, statistics, sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# repo root: analysis/bin/paper_stats.py -> analysis/bin -> analysis -> <root>
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "analysis")
-ADV = "${ENVOS_ROOT}/cuareplica/output/adversarial"
+ENVS = os.path.join(ROOT, "environments")
+SNAPS = os.path.join(ROOT, "snapshots")
 
 LEAKED = ("task-01-northgate-clinic", "03-slot-taken--permission-revoked")
 
@@ -52,12 +54,17 @@ CONTROLS = [("task-01-northgate-clinic", "00-baseline-clean"),
             ("task-01-northgate-clinic", "16-write-coerced--cosmetic-control"),
             ("task-03-xpedia-hotel-booking", "06-write-coerced--cosmetic-control")]
 
-SUITES = {"task-01-northgate-clinic": ("northgate_replica_001", "tests"),
-          "task-02-xpedia-travel": ("hub_xapp_commit_003", "certification"),
-          "task-03-xpedia-hotel-booking": ("hub_slot_email_002", "tests")}
+# released layout: environments/<env>/<sub> for the certification suites,
+# snapshots/<env>/<variant>/<rollout> for the frozen rollouts.
+SUITES = {"task-01-northgate-clinic": ("clinic", "tests"),
+          "task-02-xpedia-travel": ("travel", "certification"),
+          "task-03-xpedia-hotel-booking": ("hotel", "tests")}
 ENVLABEL = {"task-01-northgate-clinic": "Clinic",
             "task-02-xpedia-travel": "Travel",
             "task-03-xpedia-hotel-booking": "Hotel"}
+ENVDIR = {"task-01-northgate-clinic": "clinic",
+          "task-02-xpedia-travel": "travel",
+          "task-03-xpedia-hotel-booking": "hotel"}
 
 
 def wilson(k, n, z=1.96):
@@ -265,7 +272,7 @@ def main():
     suites = {}
     total_checks = total_suites = 0
     for task, (env, sub) in SUITES.items():
-        files = sorted(glob.glob(os.path.join(ADV, env, sub, "*.py")))
+        files = sorted(glob.glob(os.path.join(ENVS, env, sub, "test_*.py")))
         per = {}
         for f in files:
             src = open(f).read()
@@ -280,23 +287,21 @@ def main():
     S["certification"] = {"by_env": suites, "total_checks": total_checks,
                           "total_suites": total_suites}
 
-    # ---- cost --------------------------------------------------------------
+    # ---- cost -------------------------------------------------------------
+    # per-rollout wall-clock and action counts come from the frozen snapshot
+    # (snapshots/<env>/<variant>/<rollout>/timing.json).
     durs, per_env, acts = [], {}, []
     for r in runs:
-        d = os.path.join(ROOT, r["task"], r["arm"], r["run"])
-        s, e = os.path.join(d, "start.epoch"), os.path.join(d, "end.epoch")
-        if os.path.exists(s) and os.path.exists(e):
+        d = os.path.join(SNAPS, ENVDIR[r["task"]], r["arm"], r["run"])
+        tj = os.path.join(d, "timing.json")
+        if os.path.exists(tj):
             try:
-                v = float(open(e).read()) - float(open(s).read())
-                if 0 < v < 7200:
+                t = json.load(open(tj))
+                v = t.get("duration_s")
+                if v and 0 < v < 7200:
                     durs.append(v)
                     per_env.setdefault(ENVLABEL[r["task"]], []).append(v)
-            except Exception:
-                pass
-        rj = os.path.join(d, "reward.json")
-        if os.path.exists(rj):
-            try:
-                a = (json.load(open(rj)).get("metrics") or {}).get("agent_actions")
+                a = t.get("agent_actions")
                 if a:
                     acts.append(a)
             except Exception:

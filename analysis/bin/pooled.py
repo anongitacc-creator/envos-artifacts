@@ -26,7 +26,7 @@ import os
 import sys
 from collections import Counter, OrderedDict
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "analysis")
 
 # Arms that are NOT an injected phenomenon: the clean capability controls and

@@ -32,15 +32,22 @@ import shutil
 import subprocess
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ADV = "${ENVOS_ROOT}/cuareplica/output/adversarial"
+# repo root: analysis/bin/import-run.py -> analysis/bin -> analysis -> <root>
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ENVS = os.path.join(ROOT, "environments")
+ENVDIR = {
+    "task-01-northgate-clinic": "clinic",
+    "task-02-xpedia-travel": "travel",
+    "task-03-xpedia-hotel-booking": "hotel",
+}
 
-# Per-task wiring. The two environments predate any shared convention: they
-# disagree on interpreter, on what the verifier reads, and on how the video is
-# built. That is exactly what this table exists to absorb.
+# Per-task wiring. The environments predate any shared convention: they
+# disagree on what the verifier reads and on where it lives. That is exactly
+# what this table exists to absorb. Atlas/video rendering needs the screen
+# recordings, which are not part of the release, so it is best-effort.
 TASKS = {
     "task-01-northgate-clinic": {
-        "env": f"{ADV}/northgate_replica_001",
+        "env": os.path.join(ENVS, "clinic"),
         "py": "python3",
         "score": lambda env, run: [os.path.join(env, "reward.py"),
                                    "--world", os.path.join(run, "world.json")],
@@ -48,7 +55,7 @@ TASKS = {
         "short": "task01-clinic",
     },
     "task-03-xpedia-hotel-booking": {
-        "env": f"{ADV}/hub_slot_email_002",
+        "env": os.path.join(ENVS, "hotel"),
         "py": "python3",
         "score": lambda env, run: [os.path.join(env, "reward.py"),
                                    "--snapshot",
@@ -57,8 +64,8 @@ TASKS = {
         "short": "task03-hotel",
     },
     "task-02-xpedia-travel": {
-        "env": f"{ADV}/hub_xapp_commit_003",
-        "py": "${ENVOS_ROOT}/envos-kit/.kit/venv/bin/python",
+        "env": os.path.join(ENVS, "travel"),
+        "py": "python3",
         "score": lambda env, run: [os.path.join(env, "rewards", "reward.py"),
                                    "--snapshot",
                                    os.path.join(run, "episode_snapshot.json")],
@@ -107,7 +114,7 @@ def main():
     src = os.path.abspath(a.source.rstrip("/"))
     if not os.path.isdir(src):
         die(f"no such run directory: {src}")
-    arm_dir = os.path.join(ROOT, a.task, a.arm)
+    arm_dir = os.path.join(ROOT, "snapshots", ENVDIR[a.task], a.arm)
     if not os.path.isdir(arm_dir):
         die(f"no such arm directory: {arm_dir}")
 
@@ -164,7 +171,12 @@ def main():
     # folder name and reward.json show today's. Re-render on drift for the
     # same reason.
     atlas_dest = os.path.join(dest, "atlas.mp4")
-    if drift or not os.path.exists(atlas_dest):
+    atlas_argv = cfg["atlas"](cfg["env"], dest)
+    if (drift or not os.path.exists(atlas_dest)) and not os.path.exists(atlas_argv[0]):
+        print(f"  [atlas] renderer not in this checkout "
+              f"({os.path.relpath(atlas_argv[0], ROOT)}) - skipping video "
+              f"(screen recordings are not part of the release)")
+    elif drift or not os.path.exists(atlas_dest):
         why = "re-scored" if drift else "no video on this run"
         print(f"  [atlas] {why} - rendering from frozen artifacts "
               f"(the agent is NOT re-run)")
@@ -185,13 +197,15 @@ def main():
 
     # --- 5. hardlink the video under a self-describing name ---------------
     vid = f"{cfg['short']}__{a.arm}__r{idx:02d}__{v_new}-{s_new:.2f}.mp4"
-    vpath = os.path.join(ROOT, "videos", vid)
-    if os.path.exists(vpath):
-        os.remove(vpath)
-    try:
-        os.link(atlas_dest, vpath)
-    except OSError:
-        shutil.copy2(os.path.join(dest, "atlas.mp4"), vpath)
+    if os.path.exists(atlas_dest):
+        os.makedirs(os.path.join(ROOT, "videos"), exist_ok=True)
+        vpath = os.path.join(ROOT, "videos", vid)
+        if os.path.exists(vpath):
+            os.remove(vpath)
+        try:
+            os.link(atlas_dest, vpath)
+        except OSError:
+            shutil.copy2(atlas_dest, vpath)
 
     # --- 6. provenance ----------------------------------------------------
     inv = fresh.get("invariants") or {}
@@ -204,12 +218,13 @@ def main():
         "failed_invariants": [k for k, ok in inv.items() if not ok],
         "diagnosis": fresh.get("diagnosis"),
         "rescore_drift": drift,
-        "video": f"videos/{vid}",
+        "video": f"videos/{vid}" if os.path.exists(atlas_dest) else None,
     }, open(os.path.join(dest, "run-info.json"), "w"), indent=2)
 
     mb = sum(os.path.getsize(os.path.join(r, f))
              for r, _, fs in os.walk(dest) for f in fs) // (1024 * 1024)
-    print(f"  [ok] {a.task}/{a.arm}/{name}  ({mb} MB)  -> videos/{vid}")
+    tail = f"  -> videos/{vid}" if os.path.exists(atlas_dest) else ""
+    print(f"  [ok] {a.task}/{a.arm}/{name}  ({mb} MB){tail}")
 
 
 if __name__ == "__main__":
