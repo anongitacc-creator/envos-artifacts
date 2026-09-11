@@ -15,8 +15,11 @@ Hotel 89). Four recurring phenomenon families are studied — *Contested
 Resource*, *Ghost Commit*, *Mandate Drift*, and *Cold-Start Inconsistency* —
 with nine checker signatures grouped under them.
 
-Not included: raw screen recordings, per-step screenshots, agent transcripts,
-the harness working directories, other candidate tasks, and manuscript drafts.
+Not included: per-step screenshots, agent transcripts, the harness working
+directories, other candidate tasks, and manuscript drafts. Raw screen
+recordings for all 93 rollouts (plus the Opus 5 failure-atlas compilation) are
+hosted separately — see [Videos](#videos) below — since they're too large for
+a git repo.
 
 ```
 environments/   the three environments and their certification suites
@@ -116,11 +119,30 @@ All 93 re-score with zero drift against the released verifiers.
 
 Regeneration order: `analyse.py` → `paper_stats.py` → `figures7.py` and the
 `*.md` scripts. Every table regenerates with the Python standard library alone;
-figures additionally need `matplotlib`. The raw screen recordings are not part
-of the release, so the screenshot panels in `fig1_hero`, `fig5_checkpoints`,
-and `fig11_failuregrid` render empty while the data-driven content regenerates
-in full; `figs_crop/atlas_telemetry.png` in the paper is a screenshot and has
-no regeneration path here.
+figures additionally need `matplotlib`. The raw screen recordings aren't
+bundled into this repo's regeneration pipeline, so the screenshot panels in
+`fig1_hero`, `fig5_checkpoints`, and `fig11_failuregrid` render empty while the
+data-driven content regenerates in full; `figs_crop/atlas_telemetry.png` in the
+paper is a screenshot and has no regeneration path here.
+
+## Videos
+
+Raw screen recordings for all 93 archived rollouts, plus the Opus 5
+failure-atlas compilation, are hosted on Hugging Face (too large for a git
+repo — ~1.1GB):
+
+**https://huggingface.co/datasets/anongitacc-creator/envos-rollout-videos**
+
+| File | Contents | Size |
+|---|---|---|
+| `task01-clinic-videos.tar` | 56 recordings | 541M |
+| `task02-travel-videos.tar` | 19 recordings | 165M |
+| `task03-hotel-videos.tar` | 20 recordings | 323M |
+| `envos-opus5-failure-atlas.mp4` | compiled failure-mode atlas | 9.4M |
+
+Not needed to re-score anything — that runs entirely offline from
+`snapshots/` above. `SHA256SUMS.txt` in that dataset has checksums for all
+four files.
 
 ## License
 
